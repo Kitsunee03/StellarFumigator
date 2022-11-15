@@ -17,8 +17,8 @@ public class CameraMovement : MonoBehaviour
     {
         m_target = FindObjectOfType<Player>().gameObject.transform.GetChild(1).gameObject;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = false;
 
         //Default values
         if (m_targetDistance == 0f) { m_targetDistance = 8f; }
@@ -29,6 +29,27 @@ public class CameraMovement : MonoBehaviour
     private void LateUpdate()
     {
         //Rotation
+        CamRotation();
+
+        rotationX = Mathf.Clamp(rotationX, 0, 80f);
+        transform.eulerAngles = new Vector3(rotationX, rotationY, 0);
+
+        //Movement
+        Zoom();
+
+        Vector3 finalPosition = Vector3.Lerp(transform.position, m_target.transform.position - transform.forward * m_targetDistance /*+ offset*/, m_cameraLerp * Time.deltaTime);
+
+        RaycastHit hit;
+        if (Physics.Linecast(m_target.transform.position, finalPosition, out hit))
+        {
+            finalPosition = hit.point;
+        }
+
+        transform.position = finalPosition;
+    }
+
+    private void CamRotation()
+    {
         if (Gamepad.all.Count == 0)
         {
             rotationX -= InputManager._INPUT_MANAGER.GetMouseAxis().y / 7;
@@ -39,20 +60,17 @@ public class CameraMovement : MonoBehaviour
             rotationX -= InputManager._INPUT_MANAGER.GetMouseAxis().y;
             rotationY += InputManager._INPUT_MANAGER.GetMouseAxis().x;
         }
-
-        rotationX = Mathf.Clamp(rotationX, 0, 80f);
-        transform.eulerAngles = new Vector3(rotationX, rotationY, 0);
-
-        //Movement
-        Vector3 finalPosition = Vector3.Lerp(transform.position, m_target.transform.position - transform.forward * m_targetDistance /*+ offset*/, m_cameraLerp * Time.deltaTime);
-
-        RaycastHit hit;
-        if (Physics.Linecast(m_target.transform.position, finalPosition, out hit))
+    }
+    private void Zoom()
+    {
+        if (InputManager._INPUT_MANAGER.GetWheelAxis() < 0f && m_targetDistance < 8f)
         {
-            finalPosition = hit.point;
+            m_targetDistance += 0.5f;
         }
-
-        transform.position = finalPosition;
+        else if (InputManager._INPUT_MANAGER.GetWheelAxis() > 0f && m_targetDistance > 2f)
+        {
+            m_targetDistance -= 0.5f;
+        }
     }
 
     private void OnDrawGizmos()

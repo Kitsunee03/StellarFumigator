@@ -11,9 +11,21 @@ public class InputManager : MonoBehaviour
     //Vars
     private float m_timeSinceJumpButtonPressed = 0.3f;
     private float m_timeSinceCrouchButtonPressed = 0.3f;
-    private Vector2 m_movementAxisvalue = Vector2.zero;
-    private Vector2 m_mouseAxisvalue = Vector2.zero;
+    private float m_wheelAxisValue = 0f;
+    private Vector2 m_movementAxisValue = Vector2.zero;
+    private Vector2 m_mouseAxisValue = Vector2.zero;
 
+    private void OnEnable()
+    {
+            playerInputs.Movement.Enable();
+            playerInputs.Camera.Enable();        
+    }
+
+    private void OnDisable()
+    {
+        playerInputs.Movement.Disable();
+        playerInputs.Camera.Disable();
+    }
     private void Awake()
     {
         //Creamos Instancia
@@ -22,13 +34,10 @@ public class InputManager : MonoBehaviour
         {
             playerInputs = new InputMap();
 
-            //Character
-            playerInputs.Movement.Enable();
-            playerInputs.Camera.Enable();
-
             playerInputs.Movement.Jump.performed += JumpButtonPressed;
             playerInputs.Movement.Move.performed += MoveAxisUpdate;
             playerInputs.Camera.MouseAxis.performed += MouseAxisUpdate;
+            playerInputs.Camera.Zoom.performed += context => m_wheelAxisValue = context.ReadValue<float>(); ;
             //playerInputs.Character.Crouch.performed += CrouchingUpdate;
             //playerInputs.Character.Cappy.performed += CappyUpdate;
 
@@ -50,11 +59,11 @@ public class InputManager : MonoBehaviour
     }
     private void MoveAxisUpdate(InputAction.CallbackContext context)
     {
-        m_movementAxisvalue = context.ReadValue<Vector2>();
+        m_movementAxisValue = context.ReadValue<Vector2>();
     }
     private void MouseAxisUpdate(InputAction.CallbackContext context)
     {
-        m_mouseAxisvalue = context.ReadValue<Vector2>();
+        m_mouseAxisValue = context.ReadValue<Vector2>();
     }
     private void CrouchingUpdate(InputAction.CallbackContext context)
     {
@@ -72,11 +81,15 @@ public class InputManager : MonoBehaviour
 
     public Vector2 GetMovementAxis()
     {
-        return m_movementAxisvalue;
+        return m_movementAxisValue;
     }
     public Vector2 GetMouseAxis()
     {
-        return m_mouseAxisvalue;
+        return m_mouseAxisValue;
+    }
+    public float GetWheelAxis()
+    {
+        return m_wheelAxisValue;
     }
     public bool GetCrouchButtonPressed()
     {

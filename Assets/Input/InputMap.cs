@@ -127,17 +127,59 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""e4979bc6-efd2-4262-b8a6-ce81f57c34d1"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""bf60f5c0-0dfe-41eb-9a5d-cf754cde7b89"",
+                    ""name"": ""Mouse"",
+                    ""id"": ""850b4ff9-e209-493b-bb64-257dc912d292"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseAxis"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""c136b237-02d7-4200-9c0e-48fe2daa4985"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseAxis"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""e5cadba5-f903-4f2c-8fb9-391c4b6a7364"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MouseAxis"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d0f6632-8748-4ba5-b5a1-bbf0004f4b45"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -153,6 +195,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_MouseAxis = m_Camera.FindAction("MouseAxis", throwIfNotFound: true);
+        m_Camera_Zoom = m_Camera.FindAction("Zoom", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -254,11 +297,13 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Camera;
     private ICameraActions m_CameraActionsCallbackInterface;
     private readonly InputAction m_Camera_MouseAxis;
+    private readonly InputAction m_Camera_Zoom;
     public struct CameraActions
     {
         private @InputMap m_Wrapper;
         public CameraActions(@InputMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseAxis => m_Wrapper.m_Camera_MouseAxis;
+        public InputAction @Zoom => m_Wrapper.m_Camera_Zoom;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -271,6 +316,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @MouseAxis.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnMouseAxis;
                 @MouseAxis.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnMouseAxis;
                 @MouseAxis.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnMouseAxis;
+                @Zoom.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnZoom;
+                @Zoom.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnZoom;
+                @Zoom.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnZoom;
             }
             m_Wrapper.m_CameraActionsCallbackInterface = instance;
             if (instance != null)
@@ -278,6 +326,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @MouseAxis.started += instance.OnMouseAxis;
                 @MouseAxis.performed += instance.OnMouseAxis;
                 @MouseAxis.canceled += instance.OnMouseAxis;
+                @Zoom.started += instance.OnZoom;
+                @Zoom.performed += instance.OnZoom;
+                @Zoom.canceled += instance.OnZoom;
             }
         }
     }
@@ -290,5 +341,6 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     public interface ICameraActions
     {
         void OnMouseAxis(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
     }
 }
