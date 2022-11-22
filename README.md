@@ -1,2 +1,2 @@
-# MiningInRot
+# StellarFumigator
 Vertical de Unity
