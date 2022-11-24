@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33084753008688638}
   - component: {fileID: 23777305934327796}
   - component: {fileID: 64864707485037938}
+  - component: {fileID: 1291725863017500471}
   m_Layer: 0
   m_Name: PTK_Cube_1
   m_TagString: Untagged
@@ -98,3 +99,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 144fafb731a4b4944b48596f3688afb4, type: 3}
+--- !u!114 &1291725863017500471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410880384113558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76586b9010fb5fd4cb0e17017dd7fa49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

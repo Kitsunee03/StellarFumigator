@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
     private float m_timeSinceCrouchButtonPressed = 0.3f;
     private float m_timeSinceModeSelectorButtonPressed = 0.3f;
     private float m_timeSinceDashButtonPressed = 0.3f;
+    private float m_timeSincePrimaryButtonPressed = 0.3f;
 
     //Axis
     private float m_wheelAxisValue = 0f;
@@ -43,6 +44,8 @@ public class InputManager : MonoBehaviour
             playerInputs.Movement.ModeSelector.performed += context => m_timeSinceModeSelectorButtonPressed = 0f;
             playerInputs.Movement.Dash.performed += context => m_timeSinceDashButtonPressed = 0f;
 
+            playerInputs.Architect.Build.performed += context => m_timeSincePrimaryButtonPressed = 0f;
+
             playerInputs.Camera.MouseAxis.performed += context => m_mouseAxisValue = context.ReadValue<Vector2>();
             playerInputs.Camera.Zoom.performed += context => m_wheelAxisValue = context.ReadValue<float>();
             //playerInputs.Character.Crouch.performed += CrouchingUpdate;
@@ -62,11 +65,7 @@ public class InputManager : MonoBehaviour
         InputSystem.Update();
     }
 
-    private void CrouchingUpdate(InputAction.CallbackContext context)
-    {
-        m_timeSinceCrouchButtonPressed = 0f;
-    }
-    #region Accessors
+    #region Movement Accessors
     public bool GetJumpButtonPressed()
     {
         return m_timeSinceJumpButtonPressed == 0f;
@@ -79,11 +78,17 @@ public class InputManager : MonoBehaviour
     {
         return m_timeSinceDashButtonPressed == 0;
     }
-
     public Vector2 GetMovementAxis()
     {
         return m_movementAxisValue;
     }
+    public bool GetCrouchButtonPressed()
+    {
+        return m_timeSinceCrouchButtonPressed == 0f;
+    }
+    #endregion
+
+    #region Camera Accessors
     public Vector2 GetMouseAxis()
     {
         return m_mouseAxisValue;
@@ -92,9 +97,12 @@ public class InputManager : MonoBehaviour
     {
         return m_wheelAxisValue;
     }
-    public bool GetCrouchButtonPressed()
+    #endregion
+
+    #region Architect Accessors
+    public bool GetPrimaryButtonPressed()
     {
-        return m_timeSinceCrouchButtonPressed == 0f;
+        return m_timeSincePrimaryButtonPressed == 0f;
     }
     #endregion
 }

@@ -202,6 +202,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Architect",
+            "id": "818e3507-1c4e-4876-946b-92ce319870c9",
+            "actions": [
+                {
+                    "name": "Build",
+                    "type": "Button",
+                    "id": "c58d2a1c-b78d-4d2f-bd53-74a96cba7ac8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8764000f-462f-4065-a138-eb1f83704fd8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Build",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

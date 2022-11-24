@@ -224,6 +224,34 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Architect"",
+            ""id"": ""818e3507-1c4e-4876-946b-92ce319870c9"",
+            ""actions"": [
+                {
+                    ""name"": ""Build"",
+                    ""type"": ""Button"",
+                    ""id"": ""c58d2a1c-b78d-4d2f-bd53-74a96cba7ac8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8764000f-462f-4065-a138-eb1f83704fd8"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Build"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -238,6 +266,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_MouseAxis = m_Camera.FindAction("MouseAxis", throwIfNotFound: true);
         m_Camera_Zoom = m_Camera.FindAction("Zoom", throwIfNotFound: true);
+        // Architect
+        m_Architect = asset.FindActionMap("Architect", throwIfNotFound: true);
+        m_Architect_Build = m_Architect.FindAction("Build", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -391,6 +422,39 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         }
     }
     public CameraActions @Camera => new CameraActions(this);
+
+    // Architect
+    private readonly InputActionMap m_Architect;
+    private IArchitectActions m_ArchitectActionsCallbackInterface;
+    private readonly InputAction m_Architect_Build;
+    public struct ArchitectActions
+    {
+        private @InputMap m_Wrapper;
+        public ArchitectActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Build => m_Wrapper.m_Architect_Build;
+        public InputActionMap Get() { return m_Wrapper.m_Architect; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ArchitectActions set) { return set.Get(); }
+        public void SetCallbacks(IArchitectActions instance)
+        {
+            if (m_Wrapper.m_ArchitectActionsCallbackInterface != null)
+            {
+                @Build.started -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnBuild;
+                @Build.performed -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnBuild;
+                @Build.canceled -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnBuild;
+            }
+            m_Wrapper.m_ArchitectActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Build.started += instance.OnBuild;
+                @Build.performed += instance.OnBuild;
+                @Build.canceled += instance.OnBuild;
+            }
+        }
+    }
+    public ArchitectActions @Architect => new ArchitectActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -402,5 +466,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     {
         void OnMouseAxis(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+    }
+    public interface IArchitectActions
+    {
+        void OnBuild(InputAction.CallbackContext context);
     }
 }
