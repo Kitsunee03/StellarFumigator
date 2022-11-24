@@ -300,7 +300,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
     #region Accessors
     public bool IsMoving() { return new Vector3(m_input.GetMovementAxis().x, 0f, m_input.GetMovementAxis().y).magnitude > 0.1f; }
     public float GetMovementMagnitude()
