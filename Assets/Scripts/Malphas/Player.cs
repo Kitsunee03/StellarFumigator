@@ -34,8 +34,19 @@ public class Player : MonoBehaviour
     private bool m_isDying;
     private float m_sceneResetTimer;
 
+    [Header("Malphas Mode")]
+    [SerializeField] private Color[] m_colors;
+    private PLAYER_MODE m_currentMode;
+
     [Header("Attack")]
     private bool m_canAttack;
+
+    [Header("Dash")]
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower;
+    private float dashingTime;
+    private float dashingCooldown;
 
     private void Awake()
     {
@@ -48,19 +59,25 @@ public class Player : MonoBehaviour
     {
         m_input = InputManager._INPUT_MANAGER;
         m_canAttack = true;
+        m_currentMode = PLAYER_MODE.MINERALOGICAL;
 
         //Default Values: Movement
         m_finalVelocity = Vector3.zero;
         if (m_maxSpeed == 0f) { m_maxSpeed = 8f; }
 
         //Default Values: Jump and Fall
-        if (m_gravity == 0f) { m_gravity = 40f; }
+        if (m_gravity == 0f) { m_gravity = 20f; }
         if (m_jumpForce == 0f) { m_jumpForce = 10f; }
         m_collRadius = m_controller.radius;
 
         //Default Values: Rotation
         if (m_turnSmoothTime == 0f) { m_turnSmoothTime = 0.1f; }
         if (m_turnSmoothSpeed == 0f) { m_turnSmoothSpeed = 3f; }
+
+        //Default Values: Dash
+        if (dashingPower == 0f) { dashingPower = 20f; }
+        if (dashingTime == 0f) { dashingTime = 0.4f; }
+        if (dashingCooldown == 0f) { dashingCooldown = 2f; }
     }
 
     private void Update()
@@ -73,33 +90,39 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //Velocity
+            ChangeMode();
+            switch (m_currentMode)
+            {
+                default: { break; }
+                case PLAYER_MODE.WEAPONS:
+                    {
+                        Jump();
+                        Dash();
+                        break;
+                    }
+                case PLAYER_MODE.ARCHITECTURAL:
+                    {
+
+                        break;
+                    }
+                case PLAYER_MODE.MINERALOGICAL:
+                    {
+
+                        break;
+                    }
+            }
+
+            //Base Movement
+            Gravity();
             GetMovement();
-
-            //Jump
-            GetJump();
-
-            //Abilities
-            Crouch();
-            ShootCappy();
-
-            //Animator Variables
-            //if (m_finalVelocity.y < -5f || m_finalVelocity.y > 5f) { m_anim.Grounded = false; }
-            //else if (IsGrounded()) { m_anim.Grounded = true; }
-            //m_anim.finalSpeedY = m_finalVelocity.y;
-
-            //Rotation on Camera Forward
-            float targetRotation = Mathf.Atan2(m_direction.x, m_direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref m_turnSmoothSpeed, m_turnSmoothTime);
-            if (IsMoving()) { transform.rotation = Quaternion.Euler(0f, angle, 0f); }
-
-            //Move
-            m_controller.Move(m_finalVelocity * Time.deltaTime);
+            Move();
         }
     }
 
     private void GetMovement()
     {
+        if (isDashing) { return; }
+
         //GetAxis: calcular velocidad XZ
         if (!m_isDying)
         {
@@ -118,25 +141,62 @@ public class Player : MonoBehaviour
         //Velocidad final XZ
         m_finalVelocity.x = m_direction.x * m_speed;
         m_finalVelocity.z = m_direction.z * m_speed;
+
+        //Rotation on Camera Forward
+        float targetRotation = Mathf.Atan2(m_direction.x, m_direction.z) * Mathf.Rad2Deg;
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref m_turnSmoothSpeed, m_turnSmoothTime);
+        if (IsMoving()) { transform.rotation = Quaternion.Euler(0f, angle, 0f); }
+    }
+    private void Move()
+    {
+        //Move
+        m_controller.Move(m_finalVelocity * Time.deltaTime);
     }
 
-    private void GetJump()
+    private void Jump()
     {
-        //Jump
+        if (IsGrounded() && m_input.GetJumpButtonPressed())
+        {
+            Impulse(1);
+        }
+    }
+    private void Gravity()
+    {
+        if (isDashing) { return; }
+
         if (IsGrounded())
         {
-            if (m_input.GetJumpButtonPressed() && !m_isCrouching)
+            if (!m_input.GetJumpButtonPressed())
             {
-                Impulse(1);
+                m_finalVelocity.y = m_direction.y * m_gravity * Time.deltaTime;
             }
-            //Gravity
-            else { m_finalVelocity.y = m_direction.y * m_gravity * Time.deltaTime; }
         }
-        //Gravity
         else { m_finalVelocity.y += m_direction.y * m_gravity * Time.deltaTime; }
     }
 
-    private void Crouch()
+    private void Dash()
+    {
+        if (m_input.GetDashButtonPressed() && canDash)
+        {
+            StartCoroutine(DashCoroutine());
+            m_finalVelocity += transform.forward * dashingPower;
+        }
+    }
+    private IEnumerator DashCoroutine()
+    {
+        if (!canDash) { yield break; }
+
+        canDash = false;
+        isDashing = true;
+
+        yield return new WaitForSeconds(dashingTime);
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+    }
+
+    /*private void Crouch()
     {
         if (m_input.GetCrouchButtonPressed() && !m_isCrouching && IsGrounded())
         {
@@ -150,16 +210,16 @@ public class Player : MonoBehaviour
             //m_anim.Crouching = false;
             ResizeCollider(1.7f, 0.9f);
         }
-    }
+    }*/
 
-    private void ShootCappy()
+    /*private void ShootCappy()
     {
-        if (/*m_input.GetCappyButtonPressed() &&*/ m_canAttack)
+        if (m_input.GetCappyButtonPressed() && m_canAttack)
         {
             //Instantiate(m_cappy);
             //m_canAttack = false;
         }
-    }
+    }*/
 
     private bool IsGrounded()
     {
@@ -198,7 +258,8 @@ public class Player : MonoBehaviour
 
         return groundedRay > 0 || m_controller.isGrounded;
     }
-    private void OnDrawGizmos()
+
+    /*private void OnDrawGizmos()
     {
         Vector3 posMinusY = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
 
@@ -209,7 +270,7 @@ public class Player : MonoBehaviour
         Gizmos.DrawLine(transform.position - transform.forward * m_collRadius, posMinusY - transform.forward * m_collRadius);
         Gizmos.DrawLine(transform.position + transform.right * m_collRadius, posMinusY + transform.right * m_collRadius);
         Gizmos.DrawLine(transform.position - transform.right * m_collRadius, posMinusY - transform.right * m_collRadius);
-    }
+    }*/
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
     {
@@ -222,16 +283,21 @@ public class Player : MonoBehaviour
         m_controller.center = Vector3.up * p_centerPos;
     }
 
-    public void Impulse(float p_impulsePower, string jumpType = "normal")
+    public void Impulse(float p_impulsePower)
     {
         m_finalVelocity.y = m_jumpForce * p_impulsePower;
+    }
 
-        /*
-        if (jumpType == "normal") { m_anim.Jumping = true; }
-        else if (jumpType == "backflip") { m_anim.Backflipping = true; }
-        else if (jumpType == "longjump") { m_anim.Longjumping = true; }
-        else { m_anim.Jumping = true; }
-        */
+    private void ChangeMode()
+    {
+        if (m_input.GetModeSelectorButtonPressed())
+        {
+            if (m_currentMode == PLAYER_MODE.LAST_NO_USE - 1) { m_currentMode = 0; }
+            else { m_currentMode++; }
+
+            transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode]; ;
+            Debug.Log(m_currentMode);
+        }
     }
 
 

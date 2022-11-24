@@ -8,24 +8,28 @@ public class InputManager : MonoBehaviour
     public static InputManager _INPUT_MANAGER;
     private InputMap playerInputs;
 
-    //Vars
+    //Buttons
     private float m_timeSinceJumpButtonPressed = 0.3f;
     private float m_timeSinceCrouchButtonPressed = 0.3f;
+    private float m_timeSinceModeSelectorButtonPressed = 0.3f;
+    private float m_timeSinceDashButtonPressed = 0.3f;
+
+    //Axis
     private float m_wheelAxisValue = 0f;
     private Vector2 m_movementAxisValue = Vector2.zero;
     private Vector2 m_mouseAxisValue = Vector2.zero;
 
     private void OnEnable()
     {
-            playerInputs.Movement.Enable();
-            playerInputs.Camera.Enable();        
+        playerInputs.Movement.Enable();
+        playerInputs.Camera.Enable();
     }
-
     private void OnDisable()
     {
         playerInputs.Movement.Disable();
         playerInputs.Camera.Disable();
     }
+
     private void Awake()
     {
         //Creamos Instancia
@@ -34,10 +38,13 @@ public class InputManager : MonoBehaviour
         {
             playerInputs = new InputMap();
 
-            playerInputs.Movement.Jump.performed += JumpButtonPressed;
-            playerInputs.Movement.Move.performed += MoveAxisUpdate;
-            playerInputs.Camera.MouseAxis.performed += MouseAxisUpdate;
-            playerInputs.Camera.Zoom.performed += context => m_wheelAxisValue = context.ReadValue<float>(); ;
+            playerInputs.Movement.Jump.performed += context => m_timeSinceJumpButtonPressed = 0f;
+            playerInputs.Movement.Move.performed += context => m_movementAxisValue = context.ReadValue<Vector2>();
+            playerInputs.Movement.ModeSelector.performed += context => m_timeSinceModeSelectorButtonPressed = 0f;
+            playerInputs.Movement.Dash.performed += context => m_timeSinceDashButtonPressed = 0f;
+
+            playerInputs.Camera.MouseAxis.performed += context => m_mouseAxisValue = context.ReadValue<Vector2>();
+            playerInputs.Camera.Zoom.performed += context => m_wheelAxisValue = context.ReadValue<float>();
             //playerInputs.Character.Crouch.performed += CrouchingUpdate;
             //playerInputs.Character.Cappy.performed += CappyUpdate;
 
@@ -49,22 +56,12 @@ public class InputManager : MonoBehaviour
     {
         m_timeSinceJumpButtonPressed += Time.deltaTime;
         m_timeSinceCrouchButtonPressed += Time.deltaTime;
+        m_timeSinceModeSelectorButtonPressed += Time.deltaTime;
+        m_timeSinceDashButtonPressed += Time.deltaTime;
 
         InputSystem.Update();
     }
 
-    private void JumpButtonPressed(InputAction.CallbackContext context)
-    {
-        m_timeSinceJumpButtonPressed = 0f;
-    }
-    private void MoveAxisUpdate(InputAction.CallbackContext context)
-    {
-        m_movementAxisValue = context.ReadValue<Vector2>();
-    }
-    private void MouseAxisUpdate(InputAction.CallbackContext context)
-    {
-        m_mouseAxisValue = context.ReadValue<Vector2>();
-    }
     private void CrouchingUpdate(InputAction.CallbackContext context)
     {
         m_timeSinceCrouchButtonPressed = 0f;
@@ -74,9 +71,13 @@ public class InputManager : MonoBehaviour
     {
         return m_timeSinceJumpButtonPressed == 0f;
     }
-    public float TimeSinceJumpButtonPressed()
+    public bool GetModeSelectorButtonPressed()
     {
-        return m_timeSinceJumpButtonPressed;
+        return m_timeSinceModeSelectorButtonPressed == 0f;
+    }
+    public bool GetDashButtonPressed()
+    {
+        return m_timeSinceDashButtonPressed == 0;
     }
 
     public Vector2 GetMovementAxis()

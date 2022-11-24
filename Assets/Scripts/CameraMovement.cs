@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
+    [Header("Player")]
     private GameObject m_target;
+    private LayerMask ignoreLayer;
 
     [Header("Movement")]
     private float m_targetDistance;
@@ -16,6 +18,7 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         m_target = FindObjectOfType<Player>().gameObject.transform.GetChild(1).gameObject;
+        ignoreLayer = LayerMask.GetMask("Player");
 
         Cursor.lockState = CursorLockMode.Confined;
         //Cursor.visible = false;
@@ -40,7 +43,7 @@ public class CameraMovement : MonoBehaviour
         Vector3 finalPosition = Vector3.Lerp(transform.position, m_target.transform.position - transform.forward * m_targetDistance /*+ offset*/, m_cameraLerp * Time.deltaTime);
 
         RaycastHit hit;
-        if (Physics.Linecast(m_target.transform.position, finalPosition, out hit))
+        if (Physics.Linecast(m_target.transform.position, finalPosition, out hit, ~ignoreLayer))
         {
             finalPosition = hit.point;
         }
@@ -73,11 +76,11 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, m_target.transform.position);
-    }
+    }*/
 
     //public Vector2 camRotation { get { return new Vector2(rotationX, rotationY); } }
 }
