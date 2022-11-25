@@ -61,4 +61,4 @@ MonoBehaviour:
   MainTilemap: {fileID: 0}
   whiteTile: {fileID: 11400000, guid: 9d222bcc7aed194468f023d8f107f7bc, type: 2}
   structure1: {fileID: 1311388008547113904, guid: ff4ed6db5d4d0504189f4f4bc8b6fb01, type: 3}
-  structure2: {fileID: 1577061199707632, guid: 886758c00f5412747bef0c21f6f30418, type: 3}
+  structure2: {fileID: 4445035284332534916, guid: 1cc69e3e460d9d0438f2ba4d6bf07549, type: 3}

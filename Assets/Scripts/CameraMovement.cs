@@ -21,10 +21,9 @@ public class CameraMovement : MonoBehaviour
         ignoreLayer = LayerMask.GetMask("Player");
 
         Cursor.lockState = CursorLockMode.Confined;
-        //Cursor.visible = false;
 
         //Default values
-        if (m_targetDistance == 0f) { m_targetDistance = 8f; }
+        if (m_targetDistance == 0f) { m_targetDistance = 4f; }
         if (m_cameraLerp == 0f) { m_cameraLerp = 12f; }
         if (offset == Vector3.zero) { offset = Vector3.up; }
     }
@@ -32,7 +31,7 @@ public class CameraMovement : MonoBehaviour
     private void LateUpdate()
     {
         //Rotation
-        CamRotation();
+        CameraRotation();
 
         rotationX = Mathf.Clamp(rotationX, 0, 80f);
         transform.eulerAngles = new Vector3(rotationX, rotationY, 0);
@@ -51,7 +50,7 @@ public class CameraMovement : MonoBehaviour
         transform.position = finalPosition;
     }
 
-    private void CamRotation()
+    private void CameraRotation()
     {
         if (Gamepad.all.Count == 0)
         {
@@ -81,6 +80,4 @@ public class CameraMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, m_target.transform.position);
     }*/
-
-    //public Vector2 camRotation { get { return new Vector2(rotationX, rotationY); } }
 }

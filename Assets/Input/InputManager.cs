@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
     [Header("Weapon Mode Buttons")]
     private float m_timeSinceJumpButtonPressed = 0.3f;
     private float m_timeSinceDashButtonPressed = 0.3f;
+    private float m_timeSinceShootButtonPressed = 0.3f;
 
     [Header("Architect Mode Buttons")]
     private float m_timeSincePlaceButtonPressed = 0.3f;
@@ -32,12 +33,14 @@ public class InputManager : MonoBehaviour
         playerInputs.Movement.Enable();
         playerInputs.Camera.Enable();
         playerInputs.Architect.Enable();
+        playerInputs.Weapon.Enable();
     }
     private void OnDisable()
     {
         playerInputs.Movement.Disable();
         playerInputs.Camera.Disable();
         playerInputs.Architect.Disable();
+        playerInputs.Weapon.Disable();
     }
     #endregion
 
@@ -59,6 +62,8 @@ public class InputManager : MonoBehaviour
             playerInputs.Architect.CancelBuild.performed += context => m_timeSinceCancelBuildButtonPressed = 0f;
             playerInputs.Architect.Rotate.performed += context => m_timeSinceRotateButtonPressed = 0f;
 
+            playerInputs.Weapon.Shoot.performed += context => m_timeSinceShootButtonPressed = 0f;
+
             playerInputs.Camera.MouseAxis.performed += context => m_mouseAxisValue = context.ReadValue<Vector2>();
             playerInputs.Camera.Zoom.performed += context => m_wheelAxisValue = context.ReadValue<float>();
 
@@ -69,9 +74,12 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         m_timeSinceModeSelectorButtonPressed += Time.deltaTime;
+
         //Weapon Buttons Update
         m_timeSinceDashButtonPressed += Time.deltaTime;
         m_timeSinceJumpButtonPressed += Time.deltaTime;
+        m_timeSinceShootButtonPressed += Time.deltaTime;
+
         //Architect Buttons Update
         m_timeSincePrimaryButtonPressed += Time.deltaTime;
         m_timeSincePlaceButtonPressed += Time.deltaTime;
@@ -112,6 +120,10 @@ public class InputManager : MonoBehaviour
     public bool GetJumpButtonPressed()
     {
         return m_timeSinceJumpButtonPressed == 0f;
+    }
+    public bool GetShootButtonPressed()
+    {
+        return m_timeSinceShootButtonPressed == 0f;
     }
     #endregion
 

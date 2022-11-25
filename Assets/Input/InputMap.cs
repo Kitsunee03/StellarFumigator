@@ -312,6 +312,34 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Weapon"",
+            ""id"": ""7c6e972f-8e92-4ce9-8b1a-bd8a69ce7820"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""157f05de-67aa-49cb-b8ed-ff33eba0b357"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""71579ba8-d010-4cb5-9898-909542195f1b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -332,6 +360,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         m_Architect_Place = m_Architect.FindAction("Place", throwIfNotFound: true);
         m_Architect_CancelBuild = m_Architect.FindAction("CancelBuild", throwIfNotFound: true);
         m_Architect_Rotate = m_Architect.FindAction("Rotate", throwIfNotFound: true);
+        // Weapon
+        m_Weapon = asset.FindActionMap("Weapon", throwIfNotFound: true);
+        m_Weapon_Shoot = m_Weapon.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -542,6 +573,39 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         }
     }
     public ArchitectActions @Architect => new ArchitectActions(this);
+
+    // Weapon
+    private readonly InputActionMap m_Weapon;
+    private IWeaponActions m_WeaponActionsCallbackInterface;
+    private readonly InputAction m_Weapon_Shoot;
+    public struct WeaponActions
+    {
+        private @InputMap m_Wrapper;
+        public WeaponActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_Weapon_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_Weapon; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WeaponActions set) { return set.Get(); }
+        public void SetCallbacks(IWeaponActions instance)
+        {
+            if (m_Wrapper.m_WeaponActionsCallbackInterface != null)
+            {
+                @Shoot.started -= m_Wrapper.m_WeaponActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_WeaponActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_WeaponActionsCallbackInterface.OnShoot;
+            }
+            m_Wrapper.m_WeaponActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
+            }
+        }
+    }
+    public WeaponActions @Weapon => new WeaponActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -560,5 +624,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         void OnPlace(InputAction.CallbackContext context);
         void OnCancelBuild(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+    }
+    public interface IWeaponActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

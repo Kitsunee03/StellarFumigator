@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -34,11 +35,13 @@ public class Player : MonoBehaviour
     private bool m_isDying;
     private float m_sceneResetTimer;
 
-    [Header("Malphas Mode")]
+    [Header("Malphas Modes")]
     [SerializeField] private Color[] m_colors;
     private PLAYER_MODE m_currentMode;
 
-    [Header("Attack")]
+    [Header("Weapon Mode")]
+    [SerializeField] private GameObject m_bulletPrfb;
+    [SerializeField] Transform m_attackSpawnPos;
     private bool m_canAttack;
 
     [Header("Dash")]
@@ -92,6 +95,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            Debug.Log(Utils.GetMouseWorldPosition());
             ChangeMode();
             switch (m_currentMode)
             {
@@ -100,6 +104,7 @@ public class Player : MonoBehaviour
                     {
                         Jump();
                         Dash();
+                        Shoot();
                         break;
                     }
                 case PLAYER_MODE.ARCHITECT:
@@ -194,6 +199,15 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
+    }
+    private void Shoot()
+    {
+        if (m_input.GetShootButtonPressed() && Utils.GetMouseWorldPosition() != null)
+        {
+            //Projectile Shoot
+            Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;
+            Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
+        }
     }
 
     private bool IsGrounded()
