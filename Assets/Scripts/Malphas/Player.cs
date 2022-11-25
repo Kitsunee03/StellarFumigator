@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
         m_canAttack = true;
 
         m_currentMode = PLAYER_MODE.WEAPON;
+        transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
 
         //Default Values: Movement
         m_finalVelocity = Vector3.zero;
@@ -68,7 +69,7 @@ public class Player : MonoBehaviour
 
         //Default Values: Jump and Fall
         if (m_gravity == 0f) { m_gravity = 20f; }
-        if (m_jumpForce == 0f) { m_jumpForce = 10f; }
+        if (m_jumpForce == 0f) { m_jumpForce = 8f; }
         m_collRadius = m_controller.radius;
 
         //Default Values: Rotation
@@ -76,8 +77,8 @@ public class Player : MonoBehaviour
         if (m_turnSmoothSpeed == 0f) { m_turnSmoothSpeed = 3f; }
 
         //Default Values: Dash
-        if (dashingPower == 0f) { dashingPower = 20f; }
-        if (dashingTime == 0f) { dashingTime = 0.4f; }
+        if (dashingPower == 0f) { dashingPower = 10f; }
+        if (dashingTime == 0f) { dashingTime = 0.3f; }
         if (dashingCooldown == 0f) { dashingCooldown = 2f; }
     }
 
@@ -103,12 +104,10 @@ public class Player : MonoBehaviour
                     }
                 case PLAYER_MODE.ARCHITECT:
                     {
-
                         break;
                     }
                 case PLAYER_MODE.MINER:
                     {
-
                         break;
                     }
             }
@@ -197,31 +196,6 @@ public class Player : MonoBehaviour
         canDash = true;
     }
 
-    /*private void Crouch()
-    {
-        if (m_input.GetCrouchButtonPressed() && !m_isCrouching && IsGrounded())
-        {
-            m_isCrouching = true;
-            //m_anim.Crouching = true;
-            ResizeCollider(0.7f, 0.35f);
-        }
-        else if (m_input.GetCrouchButtonPressed() && m_isCrouching && IsGrounded())
-        {
-            m_isCrouching = false;
-            //m_anim.Crouching = false;
-            ResizeCollider(1.7f, 0.9f);
-        }
-    }*/
-
-    /*private void ShootCappy()
-    {
-        if (m_input.GetCappyButtonPressed() && m_canAttack)
-        {
-            //Instantiate(m_cappy);
-            //m_canAttack = false;
-        }
-    }*/
-
     private bool IsGrounded()
     {
         if (m_finalVelocity.y >= 0) { return false; }
@@ -296,8 +270,7 @@ public class Player : MonoBehaviour
             if (m_currentMode == PLAYER_MODE.LAST_NO_USE - 1) { m_currentMode = 0; }
             else { m_currentMode++; }
 
-            transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode]; ;
-            Debug.Log(m_currentMode);
+            transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
         }
     }
 

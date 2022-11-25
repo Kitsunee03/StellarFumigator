@@ -255,6 +255,15 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""d07cd7b8-1d4f-4853-8ef9-cf6b9699e3c1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -290,6 +299,17 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""action"": ""CancelBuild"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b2ae191-08ed-4125-93a8-24474304354b"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -311,6 +331,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         m_Architect_Build = m_Architect.FindAction("Build", throwIfNotFound: true);
         m_Architect_Place = m_Architect.FindAction("Place", throwIfNotFound: true);
         m_Architect_CancelBuild = m_Architect.FindAction("CancelBuild", throwIfNotFound: true);
+        m_Architect_Rotate = m_Architect.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -471,6 +492,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     private readonly InputAction m_Architect_Build;
     private readonly InputAction m_Architect_Place;
     private readonly InputAction m_Architect_CancelBuild;
+    private readonly InputAction m_Architect_Rotate;
     public struct ArchitectActions
     {
         private @InputMap m_Wrapper;
@@ -478,6 +500,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         public InputAction @Build => m_Wrapper.m_Architect_Build;
         public InputAction @Place => m_Wrapper.m_Architect_Place;
         public InputAction @CancelBuild => m_Wrapper.m_Architect_CancelBuild;
+        public InputAction @Rotate => m_Wrapper.m_Architect_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Architect; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -496,6 +519,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @CancelBuild.started -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnCancelBuild;
                 @CancelBuild.performed -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnCancelBuild;
                 @CancelBuild.canceled -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnCancelBuild;
+                @Rotate.started -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnRotate;
             }
             m_Wrapper.m_ArchitectActionsCallbackInterface = instance;
             if (instance != null)
@@ -509,6 +535,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @CancelBuild.started += instance.OnCancelBuild;
                 @CancelBuild.performed += instance.OnCancelBuild;
                 @CancelBuild.canceled += instance.OnCancelBuild;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
         }
     }
@@ -530,5 +559,6 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         void OnBuild(InputAction.CallbackContext context);
         void OnPlace(InputAction.CallbackContext context);
         void OnCancelBuild(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }

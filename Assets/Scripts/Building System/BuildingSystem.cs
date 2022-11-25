@@ -48,9 +48,11 @@ public class BuildingSystem : MonoBehaviour
 
         if (!objectToPlace) { return; }
 
-        if (m_input.GetPlaceButtonPressed())
+        //Rotate Structure
+        if (m_input.GetRotateButtonPressed()) { objectToPlace.RotateStructure(); }
+        //Place
+        else if (m_input.GetPlaceButtonPressed())
         {
-            //Place
             if (CanBePlaced(objectToPlace))
             {
                 objectToPlace.Place();
