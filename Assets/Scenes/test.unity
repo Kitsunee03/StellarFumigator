@@ -401,6 +401,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1852637599}
     - target: {fileID: 1912159703, guid: d0b13cc200caca948ba601233cc6172e, type: 3}
+      propertyPath: structure2
+      value: 
+      objectReference: {fileID: 4445035284332534916, guid: 1cc69e3e460d9d0438f2ba4d6bf07549, type: 3}
+    - target: {fileID: 1912159703, guid: d0b13cc200caca948ba601233cc6172e, type: 3}
       propertyPath: MainTilemap
       value: 
       objectReference: {fileID: 856549653}

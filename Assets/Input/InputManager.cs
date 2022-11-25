@@ -14,6 +14,8 @@ public class InputManager : MonoBehaviour
     private float m_timeSinceModeSelectorButtonPressed = 0.3f;
     private float m_timeSinceDashButtonPressed = 0.3f;
     private float m_timeSincePrimaryButtonPressed = 0.3f;
+    private float m_timeSincePlaceButtonPressed = 0.3f;
+    private float m_timeSinceCancelBuildButtonPressed = 0.3f;
 
     //Axis
     private float m_wheelAxisValue = 0f;
@@ -47,6 +49,8 @@ public class InputManager : MonoBehaviour
             playerInputs.Movement.Dash.performed += context => m_timeSinceDashButtonPressed = 0f;
 
             playerInputs.Architect.Build.performed += context => m_timeSincePrimaryButtonPressed = 0f;
+            playerInputs.Architect.Place.performed += context => m_timeSincePlaceButtonPressed = 0f;
+            playerInputs.Architect.CancelBuild.performed += context => m_timeSinceCancelBuildButtonPressed = 0f;
 
             playerInputs.Camera.MouseAxis.performed += context => m_mouseAxisValue = context.ReadValue<Vector2>();
             playerInputs.Camera.Zoom.performed += context => m_wheelAxisValue = context.ReadValue<float>();
@@ -58,10 +62,13 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         m_timeSinceJumpButtonPressed += Time.deltaTime;
-        m_timeSinceCrouchButtonPressed += Time.deltaTime;
         m_timeSinceModeSelectorButtonPressed += Time.deltaTime;
         m_timeSinceDashButtonPressed += Time.deltaTime;
+
+        //Architect Buttons Update
         m_timeSincePrimaryButtonPressed += Time.deltaTime;
+        m_timeSincePlaceButtonPressed += Time.deltaTime;
+        m_timeSinceCancelBuildButtonPressed += Time.deltaTime;
 
         InputSystem.Update();
     }
@@ -104,6 +111,13 @@ public class InputManager : MonoBehaviour
     public bool GetPrimaryButtonPressed()
     {
         return m_timeSincePrimaryButtonPressed == 0f;
+    }
+    public bool GetPlaceButtonPressed()
+    {
+        return m_timeSincePlaceButtonPressed == 0f;
+    }    public bool GetCancelBuildButtonPressed()
+    {
+        return m_timeSinceCancelBuildButtonPressed == 0f;
     }
     #endregion
 }

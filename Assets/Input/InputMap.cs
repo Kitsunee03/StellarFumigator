@@ -237,6 +237,24 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Place"",
+                    ""type"": ""Button"",
+                    ""id"": ""f380e486-a09e-4707-bf32-fde8f52931fa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CancelBuild"",
+                    ""type"": ""Button"",
+                    ""id"": ""7427c5cc-1be1-4e33-bad1-7425e59acc7c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -248,6 +266,28 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Build"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0fb2b78d-3cec-41e9-88fa-672484457f38"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f88dcbbf-e129-4407-a9b5-4e16316a456b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelBuild"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -269,6 +309,8 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         // Architect
         m_Architect = asset.FindActionMap("Architect", throwIfNotFound: true);
         m_Architect_Build = m_Architect.FindAction("Build", throwIfNotFound: true);
+        m_Architect_Place = m_Architect.FindAction("Place", throwIfNotFound: true);
+        m_Architect_CancelBuild = m_Architect.FindAction("CancelBuild", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -427,11 +469,15 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Architect;
     private IArchitectActions m_ArchitectActionsCallbackInterface;
     private readonly InputAction m_Architect_Build;
+    private readonly InputAction m_Architect_Place;
+    private readonly InputAction m_Architect_CancelBuild;
     public struct ArchitectActions
     {
         private @InputMap m_Wrapper;
         public ArchitectActions(@InputMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Build => m_Wrapper.m_Architect_Build;
+        public InputAction @Place => m_Wrapper.m_Architect_Place;
+        public InputAction @CancelBuild => m_Wrapper.m_Architect_CancelBuild;
         public InputActionMap Get() { return m_Wrapper.m_Architect; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -444,6 +490,12 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @Build.started -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnBuild;
                 @Build.performed -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnBuild;
                 @Build.canceled -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnBuild;
+                @Place.started -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnPlace;
+                @Place.performed -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnPlace;
+                @Place.canceled -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnPlace;
+                @CancelBuild.started -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnCancelBuild;
+                @CancelBuild.performed -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnCancelBuild;
+                @CancelBuild.canceled -= m_Wrapper.m_ArchitectActionsCallbackInterface.OnCancelBuild;
             }
             m_Wrapper.m_ArchitectActionsCallbackInterface = instance;
             if (instance != null)
@@ -451,6 +503,12 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @Build.started += instance.OnBuild;
                 @Build.performed += instance.OnBuild;
                 @Build.canceled += instance.OnBuild;
+                @Place.started += instance.OnPlace;
+                @Place.performed += instance.OnPlace;
+                @Place.canceled += instance.OnPlace;
+                @CancelBuild.started += instance.OnCancelBuild;
+                @CancelBuild.performed += instance.OnCancelBuild;
+                @CancelBuild.canceled += instance.OnCancelBuild;
             }
         }
     }
@@ -470,5 +528,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     public interface IArchitectActions
     {
         void OnBuild(InputAction.CallbackContext context);
+        void OnPlace(InputAction.CallbackContext context);
+        void OnCancelBuild(InputAction.CallbackContext context);
     }
 }

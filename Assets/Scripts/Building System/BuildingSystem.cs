@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class BuildingSystem : MonoBehaviour
 {
     public static BuildingSystem m_buildingSystem;
+    private Player m_player;
     
     [Header("Managers")]
     private static InputManager m_input;
@@ -31,36 +32,43 @@ public class BuildingSystem : MonoBehaviour
     private void Start()
     {
         m_input = InputManager._INPUT_MANAGER;
+        m_player = FindObjectOfType<Player>();
     }
     private void Update()
     {
-        //Inicia construcción
-        if (m_input.GetPrimaryButtonPressed() && !objectToPlace) { InitializeWithObject(structure1);}
+        //Is player on Constructor mode?
+        if (m_player.CurrentMode != PLAYER_MODE.ARCHITECT)
+        {
+            if (objectToPlace) { Destroy(objectToPlace.gameObject); }
+            return;
+        }
+
+        //Start building
+        if (m_input.GetPrimaryButtonPressed() && !objectToPlace) { InitializeWithObject(structure2);}
 
         if (!objectToPlace) { return; }
 
-        if (m_input.GetJumpButtonPressed())
+        if (m_input.GetPlaceButtonPressed())
         {
             //Place
             if (CanBePlaced(objectToPlace))
             {
                 objectToPlace.Place();
+
                 //Set area as occuped
                 Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
                 TakeArea(start, objectToPlace.Size);
 
+                //Clean object
                 objectToPlace = null;
             }
-            else
-            {
-                Destroy(objectToPlace.gameObject);
-            }
+            else { Destroy(objectToPlace.gameObject); }
         }
-        //Cancelar Placement
-        /*else if (m_input.botondecancelar)
+        //Cancel Placement
+        else if (m_input.GetCancelBuildButtonPressed())
         {
             Destroy(objectToPlace.gameObject);
-        }*/
+        }
     }
     #endregion
 

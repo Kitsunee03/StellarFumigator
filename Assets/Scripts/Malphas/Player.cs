@@ -59,7 +59,8 @@ public class Player : MonoBehaviour
     {
         m_input = InputManager._INPUT_MANAGER;
         m_canAttack = true;
-        m_currentMode = PLAYER_MODE.MINERALOGICAL;
+
+        m_currentMode = PLAYER_MODE.WEAPON;
 
         //Default Values: Movement
         m_finalVelocity = Vector3.zero;
@@ -94,18 +95,18 @@ public class Player : MonoBehaviour
             switch (m_currentMode)
             {
                 default: { break; }
-                case PLAYER_MODE.WEAPONS:
+                case PLAYER_MODE.WEAPON:
                     {
                         Jump();
                         Dash();
                         break;
                     }
-                case PLAYER_MODE.ARCHITECTURAL:
+                case PLAYER_MODE.ARCHITECT:
                     {
 
                         break;
                     }
-                case PLAYER_MODE.MINERALOGICAL:
+                case PLAYER_MODE.MINER:
                     {
 
                         break;
@@ -309,5 +310,6 @@ public class Player : MonoBehaviour
     public bool IsDying { get { return m_isDying; } set { m_isDying = value; } }
     public bool IsCrouching { get { return m_isCrouching; } set { m_isCrouching = value; } }
     public bool CanAttack { get { return m_canAttack; } set { m_canAttack = value; } }
+    public PLAYER_MODE CurrentMode { get { return m_currentMode; } set { m_currentMode = value; } }
     #endregion
 }
