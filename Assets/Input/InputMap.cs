@@ -235,7 +235,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""id"": ""c58d2a1c-b78d-4d2f-bd53-74a96cba7ac8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],

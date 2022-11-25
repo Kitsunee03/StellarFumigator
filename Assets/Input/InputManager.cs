@@ -24,11 +24,13 @@ public class InputManager : MonoBehaviour
     {
         playerInputs.Movement.Enable();
         playerInputs.Camera.Enable();
+        playerInputs.Architect.Enable();
     }
     private void OnDisable()
     {
         playerInputs.Movement.Disable();
         playerInputs.Camera.Disable();
+        playerInputs.Architect.Disable();
     }
 
     private void Awake()
@@ -48,8 +50,6 @@ public class InputManager : MonoBehaviour
 
             playerInputs.Camera.MouseAxis.performed += context => m_mouseAxisValue = context.ReadValue<Vector2>();
             playerInputs.Camera.Zoom.performed += context => m_wheelAxisValue = context.ReadValue<float>();
-            //playerInputs.Character.Crouch.performed += CrouchingUpdate;
-            //playerInputs.Character.Cappy.performed += CappyUpdate;
 
             _INPUT_MANAGER = this;
         }
@@ -61,6 +61,7 @@ public class InputManager : MonoBehaviour
         m_timeSinceCrouchButtonPressed += Time.deltaTime;
         m_timeSinceModeSelectorButtonPressed += Time.deltaTime;
         m_timeSinceDashButtonPressed += Time.deltaTime;
+        m_timeSincePrimaryButtonPressed += Time.deltaTime;
 
         InputSystem.Update();
     }
