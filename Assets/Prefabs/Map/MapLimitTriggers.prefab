@@ -111,6 +111,10 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64906833503721998, guid: db58b1eda8133c84983d20108c13888e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23502500370455974, guid: db58b1eda8133c84983d20108c13888e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: db58b1eda8133c84983d20108c13888e, type: 3}
@@ -194,6 +198,10 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64906833503721998, guid: db58b1eda8133c84983d20108c13888e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23502500370455974, guid: db58b1eda8133c84983d20108c13888e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: db58b1eda8133c84983d20108c13888e, type: 3}
@@ -271,6 +279,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64906833503721998, guid: db58b1eda8133c84983d20108c13888e, type: 3}
       propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64906833503721998, guid: db58b1eda8133c84983d20108c13888e, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -356,6 +368,10 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64906833503721998, guid: db58b1eda8133c84983d20108c13888e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23502500370455974, guid: db58b1eda8133c84983d20108c13888e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: db58b1eda8133c84983d20108c13888e, type: 3}
@@ -437,6 +453,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64906833503721998, guid: db58b1eda8133c84983d20108c13888e, type: 3}
       propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64906833503721998, guid: db58b1eda8133c84983d20108c13888e, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:

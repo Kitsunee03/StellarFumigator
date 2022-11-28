@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -27,9 +26,6 @@ public class Player : MonoBehaviour
     private float m_gravity;
     private float m_jumpForce;
     private float m_collRadius;
-
-    [Header("Crouch")]
-    private bool m_isCrouching;
 
     [Header("Gameplay Management")]
     private bool m_isDying;
@@ -95,7 +91,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log(Utils.GetMouseWorldPosition());
             ChangeMode();
             switch (m_currentMode)
             {
@@ -295,7 +290,6 @@ public class Player : MonoBehaviour
         return new Vector2(m_input.GetMovementAxis().x, m_input.GetMovementAxis().y).magnitude;
     }
     public bool IsDying { get { return m_isDying; } set { m_isDying = value; } }
-    public bool IsCrouching { get { return m_isCrouching; } set { m_isCrouching = value; } }
     public bool CanAttack { get { return m_canAttack; } set { m_canAttack = value; } }
     public PLAYER_MODE CurrentMode { get { return m_currentMode; } set { m_currentMode = value; } }
     #endregion
