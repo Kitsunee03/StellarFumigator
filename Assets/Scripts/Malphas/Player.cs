@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         canAttack = true;
 
         m_currentMode = PLAYER_MODE.WEAPON;
-        transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
+        transform.GetChild(0).GetChild(2).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
 
         //Default Values: Movement
         m_finalVelocity = Vector3.zero;
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         if (dashingCooldown == 0f) { dashingCooldown = 2f; }
 
         //Default Values: Attack
-        if (attackCooldown == 0f) { attackCooldown = 2f; }
+        if (attackCooldown == 0f) { attackCooldown = 1f; }
     }
 
     private void Update()
@@ -297,7 +297,7 @@ public class Player : MonoBehaviour
             if (m_currentMode == PLAYER_MODE.LAST_NO_USE - 1) { m_currentMode = 0; }
             else { m_currentMode++; }
 
-            transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
+            transform.GetChild(0).GetChild(2).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
         }
     }
 

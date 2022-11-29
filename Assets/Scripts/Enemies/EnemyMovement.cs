@@ -21,9 +21,6 @@ public class EnemyMovement : MonoBehaviour
 	void Update()
 	{
 		//Move Mob
-		//Vector3 dir = target.position - transform.position;
-		//transform.Translate(dir.normalized * enemyScript.Speed * Time.deltaTime, Space.World);
-
 		agent.speed = enemyScript.Speed;
 		agent.SetDestination(target.position);
 
