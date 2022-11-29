@@ -197,11 +197,11 @@ public class Player : MonoBehaviour
     }
     private void Shoot()
     {
-        if (m_input.GetShootButtonPressed() && Utils.GetMouseWorldPosition() != null)
+        if (m_input.GetShootButtonPressed() && Utils.GetMouseWorldPosition() != Vector3.zero)
         {
             //Projectile Shoot
             Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;
-            Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
+            GameObject bullet = Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
         }
     }
 

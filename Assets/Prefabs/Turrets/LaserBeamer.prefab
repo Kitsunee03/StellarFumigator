@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011689787018}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PartToRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   - {fileID: 4000012789921548}
   - {fileID: 4000013440857102}
   m_Father: {fileID: 4000012371708462}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1000011070090160
 GameObject:
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013440857102}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4000011431118264}
   - component: {fileID: 198000014294947900}
   - component: {fileID: 199000012295850972}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ImpactEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -420,7 +420,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -4874,7 +4874,7 @@ GameObject:
   - component: {fileID: 4000012789921548}
   - component: {fileID: 33000013843379142}
   - component: {fileID: 23000010605561190}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4959,9 +4959,9 @@ GameObject:
   - component: {fileID: 4000012371708462}
   - component: {fileID: 114000013491523152}
   - component: {fileID: 120000012026282110}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LaserBeamer
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4979,8 +4979,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4000011431118264}
-  - {fileID: 4000013256788550}
   - {fileID: 4000011689787018}
+  - {fileID: 4000013256788550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4997,18 +4997,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 20
-  bulletPrefab: {fileID: 0}
-  fireRate: 1
-  useLaser: 1
-  damageOverTime: 30
-  slowAmount: 0.5
-  lineRenderer: {fileID: 120000012026282110}
-  impactEffect: {fileID: 198000014294947900}
-  impactLight: {fileID: 108000012254394918}
-  enemyTag: Enemy
   partToRotate: {fileID: 4000011689787018}
   turnSpeed: 10
   firePoint: {fileID: 4000013440857102}
+  bulletPrefab: {fileID: 0}
+  fireRate: 1
+  damageOverTime: 30
+  slowAmount: 0.5
+  useLaser: 1
+  lineRenderer: {fileID: 120000012026282110}
+  impactEffect: {fileID: 198000014294947900}
+  impactLight: {fileID: 108000012254394918}
 --- !u!120 &120000012026282110
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5128,7 +5127,7 @@ GameObject:
   - component: {fileID: 4000010170253412}
   - component: {fileID: 198000010457662082}
   - component: {fileID: 199000012384915348}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5436,7 +5435,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5489,7 +5488,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -9933,7 +9932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012826235974}
   - component: {fileID: 108000012254394918}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10028,7 +10027,7 @@ GameObject:
   - component: {fileID: 4000013256788550}
   - component: {fileID: 33000013314098548}
   - component: {fileID: 23000012479596218}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10043,12 +10042,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000014203235620}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.49525392, z: 0}
+  m_LocalPosition: {x: 0, y: 0.49525392, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 63.703358}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4000012371708462}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33000013314098548
 MeshFilter:

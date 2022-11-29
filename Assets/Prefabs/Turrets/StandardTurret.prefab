@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 454316}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PartToRotate
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482280}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,9 +76,9 @@ GameObject:
   - component: {fileID: 3315114}
   - component: {fileID: 2306042}
   - component: {fileID: 8466058258255523494}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BaseMesh
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -175,9 +175,9 @@ GameObject:
   - component: {fileID: 11422402}
   - component: {fileID: 5626028405401132279}
   - component: {fileID: 2326605958891982668}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: StandardTurret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,9 +217,9 @@ MonoBehaviour:
   firePoint: {fileID: 482280}
   bulletPrefab: {fileID: 185070, guid: 085647db17acfbb4292fe73ed9171486, type: 3}
   fireRate: 1
-  useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5
+  useLaser: 0
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
   impactLight: {fileID: 0}
@@ -260,9 +260,9 @@ GameObject:
   - component: {fileID: 3333202}
   - component: {fileID: 2343592}
   - component: {fileID: 7036486986911439819}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HeadMesh
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

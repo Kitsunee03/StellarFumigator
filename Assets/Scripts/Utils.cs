@@ -21,4 +21,15 @@ public class Utils : MonoBehaviour
         }
         else { return Vector3.zero; }
     }
+
+    /*public static GameObject GetMousePointingObject()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, ~LayerMask.GetMask("Player")))
+        {
+            return raycastHit.transform.gameObject;
+        }
+        else { return new GameObject(); }
+    }*/
 }

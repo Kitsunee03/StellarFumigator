@@ -2,37 +2,31 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	private Transform target;
+	private Transform targetEnemy;
 
 	[SerializeField] float speed = 70f;
-    [SerializeField] int damage = 50;
-    [SerializeField] float explosionRadius = 0f;
+	[SerializeField] int damage = 50;
+	[SerializeField] float explosionRadius = 0f;
+	[SerializeField] bool isPlayerBullet;
 
-    [SerializeField] GameObject impactEffect;
+	[SerializeField] GameObject impactEffect;
 
 	private void Update()
 	{
-
-		if (target == null)
+		if (targetEnemy == null)
 		{
 			Destroy(gameObject);
 			return;
 		}
 
-		Vector3 dir = target.position - transform.position;
+		Vector3 dir = targetEnemy.position - transform.position;
 		float distanceThisFrame = speed * Time.deltaTime;
 
-		if (dir.magnitude <= distanceThisFrame)
-		{
-			HitTarget();
-			return;
-		}
-
 		transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-		transform.LookAt(target);
+		transform.LookAt(targetEnemy);
 	}
 
-	private void HitTarget()
+	private void HitTarget(Transform target = null)
 	{
 		GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
 		Destroy(effectIns, 5f);
@@ -41,9 +35,9 @@ public class Bullet : MonoBehaviour
 		{
 			Explode();
 		}
-		else
+		else if (target != null)
 		{
-			Damage(target);
+			DamageEnemy(target);
 		}
 
 		Destroy(gameObject);
@@ -51,18 +45,20 @@ public class Bullet : MonoBehaviour
 
 	private void Explode()
 	{
+		//Get near enemies and damage them
 		Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 		foreach (Collider collider in colliders)
 		{
 			if (collider.CompareTag("Enemy"))
 			{
-				Damage(collider.transform);
+				DamageEnemy(collider.transform);
 			}
 		}
 	}
 
-	private void Damage(Transform enemy)
+	private void DamageEnemy(Transform enemy)
 	{
+		//Get the enemy and apply damage
 		Enemy enemyScript = enemy.GetComponent<Enemy>();
 
 		if (enemyScript != null)
@@ -71,14 +67,30 @@ public class Bullet : MonoBehaviour
 		}
 	}
 
-    public void SetTarget(Transform _target)
-    {
-        target = _target;
-    }
+	private void OnTriggerEnter(Collider other)
+	{
+		if (!isPlayerBullet && other.gameObject.CompareTag("Turret")) { return; }
 
-    void OnDrawGizmosSelected()
+		//Collieds an enemy
+		if (other.gameObject.CompareTag("Enemy"))
+		{
+			HitTarget(other.transform);
+		}
+		//Collides others
+		else
+		{
+			HitTarget();
+		}
+	}
+
+	void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(transform.position, explosionRadius);
+	}
+
+	public void SetTarget(Transform p_target)
+	{
+		targetEnemy = p_target;
 	}
 }

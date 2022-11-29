@@ -18,7 +18,11 @@ public class PlaceableObject : MonoBehaviour
 
         Placed = true;
 
-        //  <Events Of Placement>
+        //<Events Of Placement>
+
+        //Try Disable turret
+        try { gameObject.GetComponent<Turret>().enabled = true; }
+        catch { }
     }
 
     public void RotateStructure()

@@ -60,5 +60,7 @@ MonoBehaviour:
   gridLayout: {fileID: 0}
   MainTilemap: {fileID: 0}
   whiteTile: {fileID: 11400000, guid: 9d222bcc7aed194468f023d8f107f7bc, type: 2}
-  structure1: {fileID: 1311388008547113904, guid: ff4ed6db5d4d0504189f4f4bc8b6fb01, type: 3}
-  structure2: {fileID: 4445035284332534916, guid: 1cc69e3e460d9d0438f2ba4d6bf07549, type: 3}
+  structures:
+  - {fileID: 174700, guid: 64f2ae8c83ee6bb49a47a2d3f43d307e, type: 3}
+  - {fileID: 1000010346017410, guid: 28886474c13dfff4cb183350df126081, type: 3}
+  - {fileID: 1000013152263656, guid: c51804966ab0f8544b70b0e9dcae1623, type: 3}

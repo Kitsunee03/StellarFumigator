@@ -9,12 +9,13 @@ public class ObjectDrag : MonoBehaviour
 
     private void Start()
     {
-        offset = transform.position - Utils.GetMouseWorldPosition();
+        //offset = transform.position - Utils.GetMouseWorldPosition();
     }
 
     private void Update()
     {
-        Vector3 pos = Utils.GetMouseWorldPosition() + offset;
+        //Vector3 pos = Utils.GetMouseWorldPosition() + offset;
+        Vector3 pos = Utils.GetMouseWorldPosition();
         transform.position = BuildingSystem.m_buildingSystem.SnapCoordinateToGrid(pos);
     }
 }

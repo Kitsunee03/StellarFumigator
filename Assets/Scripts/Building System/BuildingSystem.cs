@@ -110,12 +110,9 @@ public class BuildingSystem : MonoBehaviour
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
 
-        //Transparency
-        GameObject headPart = obj.transform.GetChild(0).GetChild(0).gameObject;
-
-        //Color color = headPart.GetComponent<MeshRenderer>().material.shader;
-        //color.a -= 0.9f;
-        //headPart.GetComponent<MeshRenderer>().material.color = color;
+        //Try Disable turret
+        try { obj.GetComponent<Turret>().enabled = false; }
+        catch { }
     }
 
     private bool CanBePlaced(PlaceableObject placeableObject)

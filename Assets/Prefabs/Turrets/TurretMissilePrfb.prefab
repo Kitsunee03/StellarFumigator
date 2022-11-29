@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4000011027679858}
   - component: {fileID: 33000014252338926}
   - component: {fileID: 23000013116235390}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,8 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4000011103104770}
   - component: {fileID: 114000011498150162}
-  m_Layer: 0
-  m_Name: Missile
+  m_Layer: 3
+  m_Name: TurretMissilePrfb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,4 +131,5 @@ MonoBehaviour:
   speed: 30
   damage: 50
   explosionRadius: 8
+  isPlayerBullet: 0
   impactEffect: {fileID: 1000013060428206, guid: b47b9de8edd166346ad81c4a4834eca1, type: 3}

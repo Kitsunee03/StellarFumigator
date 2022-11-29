@@ -13,18 +13,17 @@ public class Turret : MonoBehaviour
 
 	private string enemyTag = "Enemy";
 
-	[Header("Use Bullets (default)")]
+	[Header("Bullets (default)")]
 	[SerializeField] GameObject bulletPrefab;
 	[SerializeField] float fireRate = 1f;
 	private float fireCountdown = 0f;
 
-	[Header("Use Laser")]
-	[SerializeField] bool useLaser = false;
-
 	[SerializeField] int damageOverTime = 30;
 	[SerializeField] float slowAmount = .5f;
 
-	[SerializeField] LineRenderer lineRenderer;
+	[Header("Laser Turret")]
+    [SerializeField] bool useLaser = false;
+    [SerializeField] LineRenderer lineRenderer;
 	[SerializeField] ParticleSystem impactEffect;
 	[SerializeField] Light impactLight;
 
@@ -36,6 +35,7 @@ public class Turret : MonoBehaviour
 
 	void UpdateTarget()
 	{
+		//Get enemies
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 		float shortestDistance = Mathf.Infinity;
 		GameObject nearestEnemy = null;
@@ -49,8 +49,10 @@ public class Turret : MonoBehaviour
 			}
 		}
 
+		//Nearest enemy at range?
 		if (nearestEnemy != null && shortestDistance <= range)
 		{
+			//Set as target
 			target = nearestEnemy.transform;
 			targetEnemy = nearestEnemy.GetComponent<Enemy>();
 		}
@@ -77,7 +79,7 @@ public class Turret : MonoBehaviour
 
 		//Shoot laser Beam
 		if (useLaser) { Laser(); }
-		//Shoot
+		//Shoot bullet
 		else
 		{
 			if (fireCountdown <= 0f)
