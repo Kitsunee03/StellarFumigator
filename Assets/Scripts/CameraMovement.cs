@@ -20,8 +20,6 @@ public class CameraMovement : MonoBehaviour
         m_target = FindObjectOfType<Player>().gameObject.transform.GetChild(1).gameObject;
         ignoreLayer = LayerMask.GetMask("Player");
 
-        Cursor.lockState = CursorLockMode.Confined;
-
         //Default values
         if (m_targetDistance == 0f) { m_targetDistance = 4f; }
         if (m_cameraLerp == 0f) { m_cameraLerp = 12f; }

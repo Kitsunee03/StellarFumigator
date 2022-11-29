@@ -75,12 +75,13 @@ GameObject:
   - component: {fileID: 481948}
   - component: {fileID: 3315114}
   - component: {fileID: 2306042}
+  - component: {fileID: 8466058258255523494}
   m_Layer: 0
-  m_Name: Base
+  m_Name: BaseMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &481948
 Transform:
@@ -148,6 +149,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8466058258255523494
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 03eaca8dade3efb46a50138cb26d82c8, type: 3}
 --- !u!1 &174700
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +173,9 @@ GameObject:
   m_Component:
   - component: {fileID: 485008}
   - component: {fileID: 11422402}
-  m_Layer: 0
+  - component: {fileID: 5626028405401132279}
+  - component: {fileID: 2326605958891982668}
+  m_Layer: 2
   m_Name: StandardTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35, y: 0.5, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -195,6 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
+  partToRotate: {fileID: 454316}
+  turnSpeed: 10
+  firePoint: {fileID: 482280}
   bulletPrefab: {fileID: 185070, guid: 085647db17acfbb4292fe73ed9171486, type: 3}
   fireRate: 1
   useLaser: 0
@@ -203,10 +223,31 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
   impactLight: {fileID: 0}
-  enemyTag: Enemy
-  partToRotate: {fileID: 454316}
-  turnSpeed: 10
-  firePoint: {fileID: 482280}
+--- !u!114 &5626028405401132279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76586b9010fb5fd4cb0e17017dd7fa49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2326605958891982668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &187282
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,8 +259,9 @@ GameObject:
   - component: {fileID: 482126}
   - component: {fileID: 3333202}
   - component: {fileID: 2343592}
+  - component: {fileID: 7036486986911439819}
   m_Layer: 0
-  m_Name: Head
+  m_Name: HeadMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,3 +334,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7036486986911439819
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 03eaca8dade3efb46a50138cb26d82c8, type: 3}

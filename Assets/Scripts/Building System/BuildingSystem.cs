@@ -18,8 +18,8 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] private TileBase whiteTile;
 
     [Header("Prefabs")]
-    [SerializeField] private GameObject structure1;
-    [SerializeField] private GameObject structure2;
+    [SerializeField] private List<GameObject> structures;
+    private int currentStructure;
 
     private PlaceableObject objectToPlace;
     
@@ -31,6 +31,8 @@ public class BuildingSystem : MonoBehaviour
     }
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+
         m_input = InputManager._INPUT_MANAGER;
         m_player = FindObjectOfType<Player>();
     }
@@ -44,7 +46,7 @@ public class BuildingSystem : MonoBehaviour
         }
 
         //Start building
-        if (m_input.GetPrimaryButtonPressed() && !objectToPlace) { InitializeWithObject(structure2);}
+        if (m_input.GetPrimaryButtonPressed() && !objectToPlace) { InitializeWithObject(structures[currentStructure]);}
 
         if (!objectToPlace) { return; }
 
@@ -81,7 +83,6 @@ public class BuildingSystem : MonoBehaviour
         position = grid.GetCellCenterWorld(cellPos);
         return position;
     }
-    #endregion
 
     private static TileBase[] GetTilesBlock(BoundsInt area, Tilemap tilemap)
     {
@@ -97,15 +98,24 @@ public class BuildingSystem : MonoBehaviour
 
         return array;
     }
+    #endregion
 
     #region Building Placement
     public void InitializeWithObject(GameObject prefab)
     {
         Vector3 position = SnapCoordinateToGrid(Utils.GetMouseWorldPosition());
-
         GameObject obj = Instantiate(prefab, position, Quaternion.identity);
+        
+        //Drag Component
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
+
+        //Transparency
+        GameObject headPart = obj.transform.GetChild(0).GetChild(0).gameObject;
+
+        //Color color = headPart.GetComponent<MeshRenderer>().material.shader;
+        //color.a -= 0.9f;
+        //headPart.GetComponent<MeshRenderer>().material.color = color;
     }
 
     private bool CanBePlaced(PlaceableObject placeableObject)
@@ -124,7 +134,7 @@ public class BuildingSystem : MonoBehaviour
                 return false;
             }
         }
-        Debug.Log("miausi");
+
         return true;
     }
 
