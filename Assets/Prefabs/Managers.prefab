@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 9212571151046963041}
   - component: {fileID: 4811072617717420691}
   - component: {fileID: 1912159703}
+  - component: {fileID: 4465983795248762002}
+  - component: {fileID: 4465983795248762003}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -64,3 +66,46 @@ MonoBehaviour:
   - {fileID: 174700, guid: 64f2ae8c83ee6bb49a47a2d3f43d307e, type: 3}
   - {fileID: 1000010346017410, guid: 28886474c13dfff4cb183350df126081, type: 3}
   - {fileID: 1000013152263656, guid: c51804966ab0f8544b70b0e9dcae1623, type: 3}
+--- !u!114 &4465983795248762002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002457695405247285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26775f0679da7254299a59e480719863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
+    count: 6
+    rate: 4
+  - enemy: {fileID: 0}
+    count: 10
+    rate: 3
+  - enemy: {fileID: 0}
+    count: 6
+    rate: 1
+  - enemy: {fileID: 0}
+    count: 20
+    rate: 2
+  spawnPoint: {fileID: 0}
+  timeBetweenWaves: 10
+  waveCountdownText: {fileID: 0}
+  gameManager: {fileID: 0}
+--- !u!114 &4465983795248762003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002457695405247285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499b17d53dc5ad745821cf58aaacc103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMoney: 0
+  startLives: 10

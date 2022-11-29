@@ -40,13 +40,13 @@ public class NodeUI : MonoBehaviour {
 
 	public void Upgrade ()
 	{
-		target.UpgradeTurret();
+		//target.UpgradeTurret();
 		BuildManager.instance.DeselectNode();
 	}
 
 	public void Sell ()
 	{
-		target.SellTurret();
+		//target.SellTurret();
 		BuildManager.instance.DeselectNode();
 	}
 

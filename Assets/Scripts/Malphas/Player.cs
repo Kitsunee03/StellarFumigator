@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     [Header("Components")]
     private CharacterController m_controller;
     //private PlayerAnimator m_anim;
-    private AudioSource m_audio;
     private Camera m_camera;
 
     [Header("Managers")]
@@ -38,7 +37,8 @@ public class Player : MonoBehaviour
     [Header("Weapon Mode")]
     [SerializeField] private GameObject m_bulletPrfb;
     [SerializeField] Transform m_attackSpawnPos;
-    private bool m_canAttack;
+    private bool canAttack;
+    private float attackCooldown;
 
     [Header("Dash")]
     private bool canDash = true;
@@ -51,13 +51,12 @@ public class Player : MonoBehaviour
     {
         m_controller = GetComponent<CharacterController>();
         //m_anim = GetComponent<PlayerAnimator>();
-        m_audio = GetComponent<AudioSource>();
         m_camera = Camera.main;
     }
     private void Start()
     {
         m_input = InputManager._INPUT_MANAGER;
-        m_canAttack = true;
+        canAttack = true;
 
         m_currentMode = PLAYER_MODE.WEAPON;
         transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
@@ -79,6 +78,9 @@ public class Player : MonoBehaviour
         if (dashingPower == 0f) { dashingPower = 10f; }
         if (dashingTime == 0f) { dashingTime = 0.3f; }
         if (dashingCooldown == 0f) { dashingCooldown = 2f; }
+
+        //Default Values: Attack
+        if (attackCooldown == 0f) { attackCooldown = 2f; }
     }
 
     private void Update()
@@ -185,7 +187,6 @@ public class Player : MonoBehaviour
     private IEnumerator DashCoroutine()
     {
         if (!canDash) { yield break; }
-
         canDash = false;
         isDashing = true;
 
@@ -195,14 +196,31 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
+
     private void Shoot()
     {
-        if (m_input.GetShootButtonPressed() && Utils.GetMouseWorldPosition() != Vector3.zero)
+        if (m_input.GetShootButtonPressed() && Utils.GetMouseWorldPosition() != Vector3.zero && canAttack)
         {
-            //Projectile Shoot
-            Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;
-            GameObject bullet = Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
+            StartCoroutine(ShootCoroutine());
         }
+    }
+    private IEnumerator ShootCoroutine()
+    {
+        if (!canAttack) { yield break; }
+        canAttack = false;
+
+        //Projectile Shoot
+        Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;
+        GameObject bulletPrfb = Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
+        Bullet bullet = bulletPrfb.GetComponent<Bullet>();
+
+        //Try Set Target
+        Enemy enemy = Utils.GetMousePointingObject().GetComponent<Enemy>();
+        if (enemy != null && bullet != null) { bullet.SetTarget(enemy.transform); }
+
+        //Attack cooldown
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 
     private bool IsGrounded()
@@ -290,7 +308,7 @@ public class Player : MonoBehaviour
         return new Vector2(m_input.GetMovementAxis().x, m_input.GetMovementAxis().y).magnitude;
     }
     public bool IsDying { get { return m_isDying; } set { m_isDying = value; } }
-    public bool CanAttack { get { return m_canAttack; } set { m_canAttack = value; } }
+    public bool CanAttack { get { return canAttack; } set { canAttack = value; } }
     public PLAYER_MODE CurrentMode { get { return m_currentMode; } set { m_currentMode = value; } }
     #endregion
 }

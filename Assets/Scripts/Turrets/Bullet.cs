@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 	private Transform targetEnemy;
+	private Vector3 alternativeTarget;
 
 	[SerializeField] float speed = 70f;
 	[SerializeField] int damage = 50;
@@ -10,16 +11,28 @@ public class Bullet : MonoBehaviour
 	[SerializeField] bool isPlayerBullet;
 
 	[SerializeField] GameObject impactEffect;
-
+    private void Start()
+    {
+		alternativeTarget = Utils.GetMouseWorldPosition();
+    }
 	private void Update()
 	{
-		if (targetEnemy == null)
+		Vector3 dir;
+
+		//Turret Bullet without target
+		if (targetEnemy == null && !isPlayerBullet)
 		{
 			Destroy(gameObject);
 			return;
 		}
+		//Player Bullet without target
+		else if (targetEnemy == null && isPlayerBullet)
+		{
+			dir = alternativeTarget - transform.position;
+		}
+		//Bullet with target
+		else { dir = targetEnemy.position - transform.position; }
 
-		Vector3 dir = targetEnemy.position - transform.position;
 		float distanceThisFrame = speed * Time.deltaTime;
 
 		transform.Translate(dir.normalized * distanceThisFrame, Space.World);

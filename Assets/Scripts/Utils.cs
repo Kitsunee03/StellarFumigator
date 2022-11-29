@@ -22,7 +22,7 @@ public class Utils : MonoBehaviour
         else { return Vector3.zero; }
     }
 
-    /*public static GameObject GetMousePointingObject()
+    public static GameObject GetMousePointingObject()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -31,5 +31,5 @@ public class Utils : MonoBehaviour
             return raycastHit.transform.gameObject;
         }
         else { return new GameObject(); }
-    }*/
+    }
 }

@@ -32,7 +32,7 @@ public class Node : MonoBehaviour {
 		return transform.position + positionOffset;
 	}
 
-	void OnMouseDown ()
+	/*void OnMouseDown ()
 	{
 		if (EventSystem.current.IsPointerOverGameObject())
 			return;
@@ -122,7 +122,7 @@ public class Node : MonoBehaviour {
 			rend.material.color = notEnoughMoneyColor;
 		}
 
-	}
+	}*/
 
 	void OnMouseExit ()
 	{

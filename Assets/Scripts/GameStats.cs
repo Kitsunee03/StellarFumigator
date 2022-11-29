@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerStats : MonoBehaviour {
-
-	public static int Money;
+public class GameStats : MonoBehaviour
+{
+	public static int m_money;
 	public int startMoney = 400;
 
 	public static int Lives;
@@ -11,12 +11,11 @@ public class PlayerStats : MonoBehaviour {
 
 	public static int Rounds;
 
-	void Start ()
+	void Start()
 	{
-		Money = startMoney;
+		m_money = startMoney;
 		Lives = startLives;
 
 		Rounds = 0;
 	}
-
 }

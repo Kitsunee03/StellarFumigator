@@ -18,7 +18,7 @@ public class Turret : MonoBehaviour
 	[SerializeField] float fireRate = 1f;
 	private float fireCountdown = 0f;
 
-	[SerializeField] int damageOverTime = 30;
+	[SerializeField] int damageOverTime = 10;
 	[SerializeField] float slowAmount = .5f;
 
 	[Header("Laser Turret")]
@@ -33,7 +33,7 @@ public class Turret : MonoBehaviour
 		InvokeRepeating("UpdateTarget", 0f, 0.5f);
 	}
 
-	void UpdateTarget()
+	private void UpdateTarget()
 	{
 		//Get enemies
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -123,8 +123,8 @@ public class Turret : MonoBehaviour
 
 	void Shoot()
 	{
-		GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-		Bullet bullet = bulletGO.GetComponent<Bullet>();
+		GameObject bulletPrfb = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+		Bullet bullet = bulletPrfb.GetComponent<Bullet>();
 
 		//Set Target
 		if (bullet != null) { bullet.SetTarget(target); }
