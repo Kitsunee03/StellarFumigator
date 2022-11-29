@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
+public class MainMenuButtons : MonoBehaviour {
 
-	public string levelToLoad = "MainLevel";
+	public string levelToLoad = "MainMenu";
 
 	public SceneFader sceneFader;
 
@@ -14,7 +13,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void Quit ()
 	{
-		Debug.Log("Exciting...");
+		Debug.Log("gusbai");
 		Application.Quit();
 	}
 

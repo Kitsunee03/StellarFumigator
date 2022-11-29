@@ -30,12 +30,11 @@ public class Bullet : MonoBehaviour
 
 		transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 		transform.LookAt(target);
-
 	}
 
 	private void HitTarget()
 	{
-		GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+		GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
 		Destroy(effectIns, 5f);
 
 		if (explosionRadius > 0f)

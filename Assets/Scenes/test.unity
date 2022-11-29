@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 557585106}
   - component: {fileID: 557585105}
   m_Layer: 0
-  m_Name: Antagonist
+  m_Name: Evil Cube
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 613433886817584984}
   - component: {fileID: 613433886817584987}
   m_Layer: 0
-  m_Name: VFX_HitGreen
+  m_Name: HitVFX_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ed8cdf186d687418b7eb1f51756d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 114000013671715898}
+  blackScreen: {fileID: 114000013671715898}
   curve:
     serializedVersion: 2
     m_Curve:
