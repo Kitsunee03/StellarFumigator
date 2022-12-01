@@ -110,8 +110,7 @@ public class Player : MonoBehaviour
                     }
                 case PLAYER_MODE.MINER:
                     {
-                        CurrentMode = PLAYER_MODE.WEAPON;
-                        break;
+                        CurrentMode = PLAYER_MODE.WEAPON;                        break;
                     }
             }
 

@@ -11,10 +11,10 @@ public class Bullet : MonoBehaviour
 	[SerializeField] bool isPlayerBullet;
 
 	[SerializeField] GameObject impactEffect;
-    private void Start()
-    {
+	private void Start()
+	{
 		alternativeTarget = Utils.GetMouseWorldPosition();
-    }
+	}
 	private void Update()
 	{
 		Vector3 dir;
@@ -83,6 +83,7 @@ public class Bullet : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		if (!isPlayerBullet && other.gameObject.CompareTag("Turret")) { return; }
+		if (isPlayerBullet && other.gameObject.CompareTag("Player")) { return; }
 
 		//Collieds an enemy
 		if (other.gameObject.CompareTag("Enemy"))

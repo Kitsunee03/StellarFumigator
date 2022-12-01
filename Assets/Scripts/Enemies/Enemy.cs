@@ -3,19 +3,16 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+	[Header("Enemy Stats")]
 	[SerializeField] private float startSpeed = 10f;
-	private float speed;
-
-	[SerializeField] private float startHealth = 100;
+    [SerializeField] private float startHealth = 100f;
+    [SerializeField] private int worth = 50;
+    [SerializeField] private GameObject deathEffect;
+    private float speed;
 	private float health;
 
-	[SerializeField] private int worth = 50;
-
-	[SerializeField] private GameObject deathEffect;
-
-	[Header("Unity Stuff")]
-	[SerializeField] Image healthBar;
-
+	[Header("Enemy Stuff")]
+	[SerializeField] private Image healthBar;
 	private bool isDead = false;
 
 	void Start()

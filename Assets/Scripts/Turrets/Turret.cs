@@ -19,7 +19,7 @@ public class Turret : MonoBehaviour
 	private float fireCountdown = 0f;
 
 	[SerializeField] int damageOverTime = 10;
-	[SerializeField] float slowAmount = .5f;
+	[SerializeField] float slowAmount = 0.5f;
 
 	[Header("Laser Turret")]
     [SerializeField] bool useLaser = false;
