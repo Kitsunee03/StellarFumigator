@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class CameraMovement : MonoBehaviour
 {
     [Header("Player")]
-    private GameObject m_target;
+    [SerializeField] private GameObject m_target;
     private LayerMask ignoreLayer;
 
     [Header("Movement")]
@@ -17,7 +17,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Start()
     {
-        m_target = FindObjectOfType<Player>().gameObject.transform.GetChild(1).gameObject;
+        if (m_target == null) { m_target = FindObjectOfType<Player>().gameObject.transform.GetChild(1).gameObject; }
+        
         ignoreLayer = LayerMask.GetMask("Player");
 
         //Default values
