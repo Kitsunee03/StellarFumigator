@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
                     }
                 case PLAYER_MODE.MINER:
                     {
+                        CurrentMode = PLAYER_MODE.WEAPON;
                         break;
                     }
             }
@@ -144,10 +145,23 @@ public class Player : MonoBehaviour
         m_finalVelocity.x = m_direction.x * m_speed;
         m_finalVelocity.z = m_direction.z * m_speed;
 
-        //Rotation on Camera Forward
-        float targetRotation = Mathf.Atan2(m_direction.x, m_direction.z) * Mathf.Rad2Deg;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref m_turnSmoothSpeed, m_turnSmoothTime);
-        if (IsMoving()) { transform.rotation = Quaternion.Euler(0f, angle, 0f); }
+        //Rotation
+        if (CurrentMode == PLAYER_MODE.WEAPON) 
+        {
+            Vector3 WorldPoint = Utils.GetMouseWorldPosition();
+            Vector3 difference = WorldPoint - transform.position;
+            difference.Normalize();
+
+            float targetRotation = Mathf.Atan2(difference.x, difference.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref m_turnSmoothSpeed, m_turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        }
+        else
+        {
+            float targetRotation = Mathf.Atan2(m_direction.x, m_direction.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref m_turnSmoothSpeed, m_turnSmoothTime);
+            if (IsMoving()) { transform.rotation = Quaternion.Euler(0f, angle, 0f); }
+        }
     }
     private void Move()
     {
@@ -181,7 +195,9 @@ public class Player : MonoBehaviour
         if (m_input.GetDashButtonPressed() && canDash)
         {
             StartCoroutine(DashCoroutine());
-            m_finalVelocity += transform.forward * dashingPower;
+            Vector3 dashDirection = new Vector3(m_direction.x,0f,m_direction.z);
+            dashDirection.Normalize();
+            m_finalVelocity += dashDirection * dashingPower;
         }
     }
     private IEnumerator DashCoroutine()

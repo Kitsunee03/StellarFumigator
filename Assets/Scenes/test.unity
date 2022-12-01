@@ -1224,6 +1224,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6498993214768422919, guid: 860603c48bc057945895d3b5c425c3d7, type: 3}
   m_PrefabInstance: {fileID: 2037380178}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &827075974441082440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7184916048713776172, guid: eded34d5e8ea8a64b9164ec78ce94586, type: 3}
+  m_PrefabInstance: {fileID: 7552446566582477412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1876062686190007059
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1627,7 +1632,7 @@ PrefabInstance:
     - target: {fileID: 7745972412306495363, guid: fe345ec0116f500439c7b28cfaefbae2, type: 3}
       propertyPath: m_target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 827075974441082440}
     - target: {fileID: 7745972412306495367, guid: fe345ec0116f500439c7b28cfaefbae2, type: 3}
       propertyPath: m_Name
       value: Main Camera
