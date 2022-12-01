@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1912159703}
   - component: {fileID: 4465983795248762002}
   - component: {fileID: 4465983795248762003}
+  - component: {fileID: 5364598785832984199}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -108,3 +109,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMoney: 0
   startLives: 10
+--- !u!114 &5364598785832984199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002457695405247285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6685fcc33bf5f604da17f44196ba00d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_weaponCursor: {fileID: 2800000, guid: e75cd3c186283174e95b3059d9608295, type: 3}
+  m_architectCursor: {fileID: 2800000, guid: 71ab42f75e8fa844db530e2673cc90c3, type: 3}
