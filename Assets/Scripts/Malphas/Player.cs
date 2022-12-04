@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject m_bulletPrfb;
     [SerializeField] Transform m_attackSpawnPos;
     private bool canAttack;
+    private bool isAttacking;
     private float attackCooldown;
 
     [Header("Dash")]
@@ -223,18 +224,20 @@ public class Player : MonoBehaviour
     {
         if (!canAttack) { yield break; }
         canAttack = false;
+        isAttacking = true;
 
         //Projectile Shoot
         Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;
         GameObject bulletPrfb = Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
         Bullet bullet = bulletPrfb.GetComponent<Bullet>();
 
-        //Try Set Target
+        //Try Set Target (aim)
         Enemy enemy = Utils.GetMousePointingObject().GetComponent<Enemy>();
         if (enemy != null && bullet != null) { bullet.SetTarget(enemy.transform); }
 
         //Attack cooldown
         yield return new WaitForSeconds(attackCooldown);
+        isAttacking = false;
         canAttack = true;
     }
 
@@ -317,12 +320,14 @@ public class Player : MonoBehaviour
     }
 
     #region Accessors
-    public bool IsMoving() { return new Vector3(m_input.GetMovementAxis().x, 0f, m_input.GetMovementAxis().y).magnitude > 0.1f; }
-    public float GetMovementMagnitude()
+    public bool IsMoving() { return new Vector2(m_input.GetMovementAxis().x, m_input.GetMovementAxis().y).magnitude > 0.1f; }
+    public Vector3 GetMovementAxis() 
     {
-        return new Vector2(m_input.GetMovementAxis().x, m_input.GetMovementAxis().y).magnitude;
+
+        return m_direction;
     }
     public bool IsDying { get { return m_isDying; } set { m_isDying = value; } }
+    public bool IsAttacking { get { return isAttacking; } set { isAttacking = value; } }
     public bool CanAttack { get { return canAttack; } set { canAttack = value; } }
     public PLAYER_MODE CurrentMode { get { return m_currentMode; } set { m_currentMode = value; } }
     #endregion
