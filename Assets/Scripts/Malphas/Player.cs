@@ -39,9 +39,11 @@ public class Player : MonoBehaviour
     [SerializeField] Transform m_attackSpawnPos;
     private bool canAttack;
     private bool isAttacking;
+    private float attackingTime;
     private float attackCooldown;
 
     [Header("Dash")]
+    private Vector3 dashDirection;
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower;
@@ -81,6 +83,7 @@ public class Player : MonoBehaviour
         if (dashingCooldown == 0f) { dashingCooldown = 2f; }
 
         //Default Values: Attack
+        if (attackingTime == 0f) { attackingTime = 0.8f; }
         if (attackCooldown == 0f) { attackCooldown = 1f; }
     }
 
@@ -118,6 +121,7 @@ public class Player : MonoBehaviour
             //Base Movement
             Gravity();
             GetMovement();
+            PlayerRotation();
             Move();
         }
     }
@@ -133,6 +137,9 @@ public class Player : MonoBehaviour
                 * new Vector3(m_input.GetMovementAxis().x, m_direction.y, m_input.GetMovementAxis().y);
         }
 
+        //Save direction
+        if (IsMoving()) { dashDirection = new Vector3(m_direction.x, 0f, m_direction.z).normalized; }
+
         m_direction.y = -1f;
         m_direction.Normalize();
 
@@ -144,9 +151,12 @@ public class Player : MonoBehaviour
         //Velocidad final XZ
         m_finalVelocity.x = m_direction.x * m_speed;
         m_finalVelocity.z = m_direction.z * m_speed;
+    }
 
+    private void PlayerRotation()
+    {
         //Rotation
-        if (CurrentMode == PLAYER_MODE.WEAPON) 
+        if (CurrentMode == PLAYER_MODE.WEAPON && !isDashing)
         {
             Vector3 WorldPoint = Utils.GetMouseWorldPosition();
             Vector3 difference = WorldPoint - transform.position;
@@ -158,7 +168,10 @@ public class Player : MonoBehaviour
         }
         else
         {
-            float targetRotation = Mathf.Atan2(m_direction.x, m_direction.z) * Mathf.Rad2Deg;
+            float targetRotation;
+            if (IsDashing) { targetRotation = Mathf.Atan2(dashDirection.x, dashDirection.z) * Mathf.Rad2Deg; }
+            else { targetRotation = Mathf.Atan2(m_direction.x, m_direction.z) * Mathf.Rad2Deg; }
+
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref m_turnSmoothSpeed, m_turnSmoothTime);
             if (IsMoving()) { transform.rotation = Quaternion.Euler(0f, angle, 0f); }
         }
@@ -195,9 +208,8 @@ public class Player : MonoBehaviour
         if (m_input.GetDashButtonPressed() && canDash)
         {
             StartCoroutine(DashCoroutine());
-            Vector3 dashDirection = new Vector3(m_direction.x,0f,m_direction.z);
-            dashDirection.Normalize();
             m_finalVelocity += dashDirection * dashingPower;
+            m_finalVelocity.y = 0f;
         }
     }
     private IEnumerator DashCoroutine()
@@ -215,29 +227,28 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        if (m_input.GetShootButtonPressed() && Utils.GetMouseWorldPosition() != Vector3.zero && canAttack)
+        if (m_input.GetShootButtonPressed() && Utils.GetMouseWorldPosition() != Vector3.zero && canAttack && !isDashing)
         {
             StartCoroutine(ShootCoroutine());
+            //Projectile Shoot
+            Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;
+            GameObject bulletPrfb = Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
+            Bullet bullet = bulletPrfb.GetComponent<Bullet>();
+
+            //Try Set Target (aim)
+            Enemy enemy = Utils.GetMousePointingObject().GetComponent<Enemy>();
+            if (enemy != null && bullet != null) { bullet.SetTarget(enemy.transform); }
         }
     }
     private IEnumerator ShootCoroutine()
     {
-        if (!canAttack) { yield break; }
         canAttack = false;
         isAttacking = true;
 
-        //Projectile Shoot
-        Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;
-        GameObject bulletPrfb = Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
-        Bullet bullet = bulletPrfb.GetComponent<Bullet>();
-
-        //Try Set Target (aim)
-        Enemy enemy = Utils.GetMousePointingObject().GetComponent<Enemy>();
-        if (enemy != null && bullet != null) { bullet.SetTarget(enemy.transform); }
-
-        //Attack cooldown
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSeconds(attackingTime);
         isAttacking = false;
+        
+        yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
     }
 
@@ -321,13 +332,10 @@ public class Player : MonoBehaviour
 
     #region Accessors
     public bool IsMoving() { return new Vector2(m_input.GetMovementAxis().x, m_input.GetMovementAxis().y).magnitude > 0.1f; }
-    public Vector3 GetMovementAxis() 
-    {
-
-        return m_direction;
-    }
+    public Vector3 GetMovementDir() { return m_direction; }
     public bool IsDying { get { return m_isDying; } set { m_isDying = value; } }
     public bool IsAttacking { get { return isAttacking; } set { isAttacking = value; } }
+    public bool IsDashing { get { return isDashing; } set { isDashing = value; } }
     public bool CanAttack { get { return canAttack; } set { canAttack = value; } }
     public PLAYER_MODE CurrentMode { get { return m_currentMode; } set { m_currentMode = value; } }
     #endregion

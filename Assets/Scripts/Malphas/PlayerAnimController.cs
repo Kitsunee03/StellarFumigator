@@ -22,24 +22,17 @@ public class PlayerAnimController : MonoBehaviour
         //Idle
         m_anim.SetBool("isMoving", m_player.IsMoving());
         //Move
-        Animating(m_player.GetMovementAxis().x, m_player.GetMovementAxis().z);
-        //m_anim.SetFloat("MovementX", dirX, dampingTime, Time.deltaTime);
-        //m_anim.SetFloat("MovementY", dirY, dampingTime, Time.deltaTime);
+        SetAnimMovement(m_player.GetMovementDir().x, m_player.GetMovementDir().z);
         //Attack
         m_anim.SetBool("isAttacking", m_player.IsAttacking);
+        //Dash
+        m_anim.SetBool("isDashing", m_player.IsDashing);
     }
 
-    private Vector3 moveDirection = Vector3.zero;
-
-    void Animating(float h, float v)
+    void SetAnimMovement(float h, float v)
     {
-        moveDirection = new Vector3(h, 0, v);
-
-        if (moveDirection.magnitude > 1.0f)
-        {
-            moveDirection = moveDirection.normalized;
-        }
-
+        Vector3 moveDirection = new Vector3(h, 0, v);
+        if (moveDirection.magnitude > 1.0f) { moveDirection = moveDirection.normalized; }
         moveDirection = transform.InverseTransformDirection(moveDirection);
 
         m_anim.SetFloat("MovementX", moveDirection.x, dampingTime, Time.deltaTime);
