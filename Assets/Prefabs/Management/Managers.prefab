@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9212571151046963041}
   - component: {fileID: 4811072617717420691}
   - component: {fileID: 1912159703}
-  - component: {fileID: 4465983795248762002}
   - component: {fileID: 4465983795248762003}
   - component: {fileID: 5364598785832984199}
   m_Layer: 0
@@ -67,34 +66,6 @@ MonoBehaviour:
   - {fileID: 174700, guid: 64f2ae8c83ee6bb49a47a2d3f43d307e, type: 3}
   - {fileID: 1000010346017410, guid: 28886474c13dfff4cb183350df126081, type: 3}
   - {fileID: 1000013152263656, guid: c51804966ab0f8544b70b0e9dcae1623, type: 3}
---- !u!114 &4465983795248762002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3002457695405247285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26775f0679da7254299a59e480719863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves:
-  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
-    enemyCount: 4
-    spawnRate: 4
-  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
-    enemyCount: 12
-    spawnRate: 3
-  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
-    enemyCount: 10
-    spawnRate: 2
-  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
-    enemyCount: 20
-    spawnRate: 3
-  timeBetweenWaves: 8
-  waveCountdownText: {fileID: 0}
-  gameManager: {fileID: 0}
 --- !u!114 &4465983795248762003
 MonoBehaviour:
   m_ObjectHideFlags: 0
