@@ -23,7 +23,6 @@ public class BuildingSystem : MonoBehaviour
 
     private PlaceableObject objectToPlace;
     
-    #region Unity Methods
     private void Awake()
     {
         m_buildingSystem = this;
@@ -31,8 +30,6 @@ public class BuildingSystem : MonoBehaviour
     }
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-
         m_input = InputManager._INPUT_MANAGER;
         m_player = FindObjectOfType<Player>();
     }
@@ -48,6 +45,17 @@ public class BuildingSystem : MonoBehaviour
         //Start building
         if (m_input.GetPrimaryButtonPressed() && !objectToPlace) { InitializeWithObject(structures[currentStructure]);}
 
+        //Change Structure
+        if (m_input.GetPrevBuildingButtonPressed() && !objectToPlace) 
+        { 
+            if (currentStructure > 0) { currentStructure--; }
+        }
+        if (m_input.GetNextBuildingButtonPressed() && !objectToPlace) 
+        {
+            if (currentStructure < structures.Count) { currentStructure++; } 
+        }
+
+        //Structure needed to do following code
         if (!objectToPlace) { return; }
 
         //Rotate Structure
@@ -74,7 +82,6 @@ public class BuildingSystem : MonoBehaviour
             Destroy(objectToPlace.gameObject);
         }
     }
-    #endregion
 
     #region Utils
     public Vector3 SnapCoordinateToGrid(Vector3 position)

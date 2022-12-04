@@ -21,6 +21,8 @@ public class InputManager : MonoBehaviour
     private float m_timeSincePlaceButtonPressed = 0.3f;
     private float m_timeSinceCancelBuildButtonPressed = 0.3f;
     private float m_timeSinceRotateButtonPressed = 0.3f;
+    private float m_timeSincePrevBuildingButtonPressed = 0.3f;
+    private float m_timeSinceNextBuildingButtonPressed = 0.3f;
 
     [Header("Axis")]
     private float m_wheelAxisValue = 0f;
@@ -61,6 +63,8 @@ public class InputManager : MonoBehaviour
             playerInputs.Architect.Place.performed += context => m_timeSincePlaceButtonPressed = 0f;
             playerInputs.Architect.CancelBuild.performed += context => m_timeSinceCancelBuildButtonPressed = 0f;
             playerInputs.Architect.Rotate.performed += context => m_timeSinceRotateButtonPressed = 0f;
+            playerInputs.Architect.PreviousBuilding.performed += context => m_timeSincePrevBuildingButtonPressed = 0f;
+            playerInputs.Architect.NextBuilding.performed += context => m_timeSinceNextBuildingButtonPressed = 0f;
 
             playerInputs.Weapon.Shoot.performed += context => m_timeSinceShootButtonPressed = 0f;
 
@@ -85,6 +89,8 @@ public class InputManager : MonoBehaviour
         m_timeSincePlaceButtonPressed += Time.deltaTime;
         m_timeSinceCancelBuildButtonPressed += Time.deltaTime;
         m_timeSinceRotateButtonPressed += Time.deltaTime;
+        m_timeSincePrevBuildingButtonPressed += Time.deltaTime;
+        m_timeSinceNextBuildingButtonPressed += Time.deltaTime;
 
         InputSystem.Update();
     }
@@ -128,21 +134,11 @@ public class InputManager : MonoBehaviour
     #endregion
 
     #region Architect Mode Accessors
-    public bool GetPrimaryButtonPressed()
-    {
-        return m_timeSincePrimaryButtonPressed == 0f;
-    }
-    public bool GetPlaceButtonPressed()
-    {
-        return m_timeSincePlaceButtonPressed == 0f;
-    }
-    public bool GetCancelBuildButtonPressed()
-    {
-        return m_timeSinceCancelBuildButtonPressed == 0f;
-    }
-    public bool GetRotateButtonPressed()
-    {
-        return m_timeSinceRotateButtonPressed == 0f;
-    }
+    public bool GetPrimaryButtonPressed() { return m_timeSincePrimaryButtonPressed == 0f; }
+    public bool GetPlaceButtonPressed() { return m_timeSincePlaceButtonPressed == 0f; }
+    public bool GetCancelBuildButtonPressed() { return m_timeSinceCancelBuildButtonPressed == 0f; }
+    public bool GetRotateButtonPressed() { return m_timeSinceRotateButtonPressed == 0f; }
+    public bool GetPrevBuildingButtonPressed() { return m_timeSincePrevBuildingButtonPressed == 0f; }
+    public bool GetNextBuildingButtonPressed() { return m_timeSinceNextBuildingButtonPressed == 0f; }
     #endregion
 }

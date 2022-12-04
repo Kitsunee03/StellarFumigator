@@ -27,11 +27,23 @@ public class Turret : MonoBehaviour
 	[SerializeField] ParticleSystem impactEffect;
 	[SerializeField] Light impactLight;
 
+	private void Awake()
+	{
+        //Disable Laser VFX while building
+        if (useLaser)
+        {
+            Debug.Log("miau");
+            lineRenderer.enabled = false;
+            impactEffect.Stop();
+            impactLight.enabled = false;
+        }
+    }
+
 	void Start()
 	{
 		//Update Target every 0.5 seconds
 		InvokeRepeating("UpdateTarget", 0f, 0.5f);
-	}
+    }
 
 	private void UpdateTarget()
 	{

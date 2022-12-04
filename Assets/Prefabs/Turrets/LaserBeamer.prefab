@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010286497408}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.3974535, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4874,8 +4874,9 @@ GameObject:
   - component: {fileID: 4000012789921548}
   - component: {fileID: 33000013843379142}
   - component: {fileID: 23000010605561190}
+  - component: {fileID: 2928073142752222056}
   m_Layer: 3
-  m_Name: Head
+  m_Name: HeadMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4948,6 +4949,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2928073142752222056
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012624342808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 5c84fd4f5f091384eaa026c58f00131d, type: 3}
 --- !u!1 &1000013152263656
 GameObject:
   m_ObjectHideFlags: 0
@@ -4959,6 +4974,8 @@ GameObject:
   - component: {fileID: 4000012371708462}
   - component: {fileID: 114000013491523152}
   - component: {fileID: 120000012026282110}
+  - component: {fileID: 9170986433759817741}
+  - component: {fileID: 4259317555267150146}
   m_Layer: 3
   m_Name: LaserBeamer
   m_TagString: Turret
@@ -5002,7 +5019,7 @@ MonoBehaviour:
   firePoint: {fileID: 4000013440857102}
   bulletPrefab: {fileID: 0}
   fireRate: 1
-  damageOverTime: 30
+  damageOverTime: 50
   slowAmount: 0.5
   useLaser: 1
   lineRenderer: {fileID: 120000012026282110}
@@ -5116,6 +5133,32 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &9170986433759817741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013152263656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76586b9010fb5fd4cb0e17017dd7fa49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildVFX: {fileID: 1000010694419832, guid: 2d9af01da2a32e048a5511e570b7e922, type: 3}
+--- !u!65 &4259317555267150146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013152263656}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8, y: 3, z: 8}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1000013637573146
 GameObject:
   m_ObjectHideFlags: 0
@@ -10027,8 +10070,9 @@ GameObject:
   - component: {fileID: 4000013256788550}
   - component: {fileID: 33000013314098548}
   - component: {fileID: 23000012479596218}
+  - component: {fileID: 1521930803031185832}
   m_Layer: 3
-  m_Name: Base
+  m_Name: BaseMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10042,7 +10086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000014203235620}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.49525392, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 63.703358}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10100,3 +10144,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1521930803031185832
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014203235620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 5c84fd4f5f091384eaa026c58f00131d, type: 3}

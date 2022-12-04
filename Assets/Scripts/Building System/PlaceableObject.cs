@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlaceableObject : MonoBehaviour
 {
     private Vector3[] Vertices;
+    [SerializeField] private GameObject buildVFX;
 
     private void Start()
     {
@@ -23,6 +24,9 @@ public class PlaceableObject : MonoBehaviour
         //Try Disable turret
         try { gameObject.GetComponent<Turret>().enabled = true; }
         catch { }
+
+        GameObject effectIns = Instantiate(buildVFX, transform.position, transform.rotation);
+        Destroy(effectIns, 2f);
     }
 
     public void RotateStructure()

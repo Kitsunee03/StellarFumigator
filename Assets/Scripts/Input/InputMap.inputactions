@@ -242,6 +242,24 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "NextBuilding",
+                    "type": "Button",
+                    "id": "8be5dc52-d22d-4fb1-a5ba-a821a3e939be",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PreviousBuilding",
+                    "type": "Button",
+                    "id": "c65412bb-1fef-4a9a-a85a-cff36fae29e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -259,7 +277,7 @@
                 {
                     "name": "",
                     "id": "0fb2b78d-3cec-41e9-88fa-672484457f38",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -286,6 +304,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bf0c4a2-85f6-4a89-bf8e-4afb640d94a2",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextBuilding",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0e58698-0172-4df3-9d20-34c48199bf83",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreviousBuilding",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

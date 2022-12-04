@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012696915146}
   - component: {fileID: 114000013549965756}
+  - component: {fileID: -6023439859671375240}
+  - component: {fileID: 9079479586235584955}
   m_Layer: 3
   m_Name: MissileLauncher
   m_TagString: Turret
@@ -58,6 +60,32 @@ MonoBehaviour:
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}
   impactLight: {fileID: 0}
+--- !u!114 &-6023439859671375240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010346017410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76586b9010fb5fd4cb0e17017dd7fa49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildVFX: {fileID: 1000010694419832, guid: 2d9af01da2a32e048a5511e570b7e922, type: 3}
+--- !u!65 &9079479586235584955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010346017410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8, y: 3, z: 8}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &1000012616440628
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,8 +97,9 @@ GameObject:
   - component: {fileID: 4000013562955704}
   - component: {fileID: 33000013876217322}
   - component: {fileID: 23000010194088824}
+  - component: {fileID: 7948661730141996516}
   m_Layer: 3
-  m_Name: Base
+  m_Name: BaseMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,6 +171,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7948661730141996516
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012616440628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 9df910d76380dc649b89daacf5c8d0ac, type: 3}
 --- !u!1 &1000012887777722
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,8 +229,9 @@ GameObject:
   - component: {fileID: 4000013895862244}
   - component: {fileID: 33000013363963402}
   - component: {fileID: 23000011595766450}
+  - component: {fileID: 3303320918852357911}
   m_Layer: 3
-  m_Name: Head
+  m_Name: HeadMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,6 +303,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3303320918852357911
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012901144464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: 9df910d76380dc649b89daacf5c8d0ac, type: 3}
 --- !u!1 &1000012957004102
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,8 +15,12 @@ public class CursorManager : MonoBehaviour
 
     private void Start()
     {
+        if(instance == null) { instance = this; }
+        else { Destroy(this); }
+
         m_player = FindObjectOfType<Player>();
-        instance = this;
+        Cursor.lockState = CursorLockMode.Confined;
+
         m_weaponHtSpt = new Vector2(m_weaponCursor.width / 2.5f, m_weaponCursor.height / 2.5f);
         m_architectHtSpt = new Vector2(m_architectCursor.width / 2.5f, m_architectCursor.height / 2.5f);
     }

@@ -256,33 +256,33 @@ public class Player : MonoBehaviour
     {
         if (m_finalVelocity.y >= 0) { return false; }
         RaycastHit hit;
-        float groundedRay = 0;
+        int groundedRay = 0;
         Vector3 posMinusY = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
 
-        if (Physics.Linecast(transform.position, posMinusY, out hit))
+        if (Physics.Linecast(transform.position, posMinusY, out hit, ~LayerMask.GetMask("Player")))
         {
             groundedRay++;
         }
 
         if (Physics.Linecast(transform.position + transform.forward * m_collRadius,
-            posMinusY + transform.forward * m_collRadius, out hit))
+            posMinusY + transform.forward * m_collRadius, out hit, ~LayerMask.GetMask("Player")))
         {
             groundedRay++;
         }
         if (Physics.Linecast(transform.position - transform.forward * m_collRadius,
-            posMinusY - transform.forward * m_collRadius, out hit))
+            posMinusY - transform.forward * m_collRadius, out hit,~LayerMask.GetMask("Player")))
         {
             groundedRay++;
         }
 
 
         if (Physics.Linecast(transform.position + transform.right * m_collRadius,
-            posMinusY + transform.right * m_collRadius, out hit))
+            posMinusY + transform.right * m_collRadius, out hit, ~LayerMask.GetMask("Player")))
         {
             groundedRay++;
         }
         if (Physics.Linecast(transform.position - transform.right * m_collRadius,
-            posMinusY - transform.right * m_collRadius, out hit))
+            posMinusY - transform.right * m_collRadius, out hit, ~LayerMask.GetMask("Player")))
         {
             groundedRay++;
         }
