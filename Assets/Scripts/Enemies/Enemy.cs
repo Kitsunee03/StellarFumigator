@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 	[Header("Enemy Stats")]
 	[SerializeField] private float startSpeed = 10f;
     [SerializeField] private float startHealth = 100f;
-    [SerializeField] private int worth = 50;
+    [SerializeField] private int worth = 5;
     [SerializeField] private GameObject deathEffect;
     private float speed;
 	private float health;
