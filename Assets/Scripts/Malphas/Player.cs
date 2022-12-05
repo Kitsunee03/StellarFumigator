@@ -38,17 +38,25 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject m_bulletPrfb;
     [SerializeField] Transform m_attackSpawnPos;
     private bool canAttack;
+    private float attackCooldown;
+
     private bool isAttacking;
     private float attackingTime;
-    private float attackCooldown;
+
+    private bool startAttackCooldown;
+    private float attackTimer;
 
     [Header("Dash")]
     private Vector3 dashDirection;
-    private bool canDash = true;
-    private bool isDashing;
     private float dashingPower;
-    private float dashingTime;
+    private bool canDash = true;
     private float dashingCooldown;
+
+    private bool isDashing;
+    private float dashingTime;
+
+    private bool startDashCooldown;
+    private float dashTimer;
 
     private void Awake()
     {
@@ -81,10 +89,12 @@ public class Player : MonoBehaviour
         if (dashingPower == 0f) { dashingPower = 10f; }
         if (dashingTime == 0f) { dashingTime = 0.3f; }
         if (dashingCooldown == 0f) { dashingCooldown = 2f; }
+        dashTimer = dashingCooldown;
 
         //Default Values: Attack
         if (attackingTime == 0f) { attackingTime = 0.8f; }
         if (attackCooldown == 0f) { attackCooldown = 1f; }
+        attackTimer = attackCooldown;
     }
 
     private void Update()
@@ -114,7 +124,7 @@ public class Player : MonoBehaviour
                     }
                 case PLAYER_MODE.MINER:
                     {
-                        CurrentMode = PLAYER_MODE.WEAPON;                        break;
+                        CurrentMode = PLAYER_MODE.WEAPON; break;
                     }
             }
 
@@ -123,6 +133,10 @@ public class Player : MonoBehaviour
             GetMovement();
             PlayerRotation();
             Move();
+
+            //Cooldowns
+            AttackCooldown();
+            DashCooldown();
         }
     }
 
@@ -207,29 +221,38 @@ public class Player : MonoBehaviour
     {
         if (m_input.GetDashButtonPressed() && canDash)
         {
-            StartCoroutine(DashCoroutine());
+            //Start Dashing
+            canDash = false;
+            isDashing = true;
+            dashTimer = 0f;
+            startDashCooldown = true;
+
             m_finalVelocity += dashDirection * dashingPower;
             m_finalVelocity.y = 0f;
         }
     }
-    private IEnumerator DashCoroutine()
+    private void DashCooldown()
     {
-        if (!canDash) { yield break; }
-        canDash = false;
-        isDashing = true;
+        if (startDashCooldown)
+        {
+            dashTimer += Time.deltaTime;
+            dashTimer = Mathf.Clamp(dashTimer, 0f, dashingCooldown);
 
-        yield return new WaitForSeconds(dashingTime);
-        isDashing = false;
-
-        yield return new WaitForSeconds(dashingCooldown);
-        canDash = true;
+            if (dashTimer >= dashingTime) { isDashing = false; }
+            if (dashTimer >= dashingCooldown) { canDash = true; startDashCooldown = false; }
+        }
     }
 
     private void Shoot()
     {
         if (m_input.GetShootButtonPressed() && Utils.GetMouseWorldPosition() != Vector3.zero && canAttack && !isDashing)
         {
-            StartCoroutine(ShootCoroutine());
+            //Start Attacking
+            canAttack = false;
+            isAttacking = true;
+            attackTimer = 0f;
+            startAttackCooldown = true;
+
             //Projectile Shoot
             Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;
             GameObject bulletPrfb = Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
@@ -240,16 +263,16 @@ public class Player : MonoBehaviour
             if (enemy != null && bullet != null) { bullet.SetTarget(enemy.transform); }
         }
     }
-    private IEnumerator ShootCoroutine()
+    private void AttackCooldown()
     {
-        canAttack = false;
-        isAttacking = true;
+        if (startAttackCooldown)
+        {
+            attackTimer += Time.deltaTime;
+            attackTimer = Mathf.Clamp(attackTimer, 0f, attackCooldown);
 
-        yield return new WaitForSeconds(attackingTime);
-        isAttacking = false;
-        
-        yield return new WaitForSeconds(attackCooldown);
-        canAttack = true;
+            if (attackTimer >= attackingTime) { isAttacking = false; }
+            if (attackTimer >= attackCooldown) { canAttack = true; startAttackCooldown = false; }
+        }
     }
 
     private bool IsGrounded()
@@ -270,7 +293,7 @@ public class Player : MonoBehaviour
             groundedRay++;
         }
         if (Physics.Linecast(transform.position - transform.forward * m_collRadius,
-            posMinusY - transform.forward * m_collRadius, out hit,~LayerMask.GetMask("Player")))
+            posMinusY - transform.forward * m_collRadius, out hit, ~LayerMask.GetMask("Player")))
         {
             groundedRay++;
         }
@@ -338,5 +361,7 @@ public class Player : MonoBehaviour
     public bool IsDashing { get { return isDashing; } set { isDashing = value; } }
     public bool CanAttack { get { return canAttack; } set { canAttack = value; } }
     public PLAYER_MODE CurrentMode { get { return m_currentMode; } set { m_currentMode = value; } }
+    public float GetDashCooldown { get { return dashTimer / dashingCooldown; } }
+    public float GetAttackCooldown { get { return attackTimer / attackCooldown; } }
     #endregion
 }

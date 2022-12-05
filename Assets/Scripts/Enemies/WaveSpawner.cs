@@ -1,27 +1,28 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class WaveSpawner : MonoBehaviour
 {
 	public static int EnemiesAlive = 0;
-	public Wave[] waves;
+	[SerializeField] private List<Wave> waves;
 
-	public float timeBetweenWaves = 5f;
-	private float countdown = 2f;
+	[SerializeField] private float timeBetweenWaves = 15f;
+	[SerializeField] private float countdown = 10f;
 
-	public Text waveCountdownText;
-	public GameManager gameManager;
+	[SerializeField] private GameManager gameManager;
 	private int waveIndex = 0;
 
 	private void Update()
 	{
-		if (EnemiesAlive > 0) { return; }
-
-		countdown -= Time.deltaTime;
+		//Next Wave timer
+		if (EnemiesAlive == 0 && waveIndex != 0) { countdown -= Time.deltaTime * 2; }
+		else { countdown -= Time.deltaTime; }
 		countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-		if (waveIndex == waves.Length)
+		//Succesfull survival
+		if (waveIndex == waves.Count && EnemiesAlive == 0)
 		{
 			gameManager.WinLevel();
 			enabled = false;
@@ -33,8 +34,6 @@ public class WaveSpawner : MonoBehaviour
 			countdown = timeBetweenWaves;
 			return;
 		}
-
-		//waveCountdownText.text = string.Format("{00:00.00}", countdown);
 	}
 
 	private IEnumerator SpawnWave()
@@ -43,7 +42,7 @@ public class WaveSpawner : MonoBehaviour
 
 		Wave wave = waves[waveIndex];
 
-		EnemiesAlive = wave.enemyCount;
+		EnemiesAlive += wave.enemyCount;
 
 		for (int i = 0; i < wave.enemyCount; i++)
 		{
@@ -59,4 +58,9 @@ public class WaveSpawner : MonoBehaviour
 		int randSpawn = Random.Range(0, SpawnPoints.Spawns.Length);
 		Instantiate(enemy, SpawnPoints.Spawns[randSpawn].position, SpawnPoints.Spawns[randSpawn].rotation);
 	}
+
+	#region Accessors
+	public float NextWaveTime { get { return countdown; } private set { countdown = value; } }
+	public int WavesLeft { get { return waves.Count - waveIndex; } }
+	#endregion
 }

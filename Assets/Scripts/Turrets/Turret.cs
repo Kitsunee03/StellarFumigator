@@ -32,7 +32,6 @@ public class Turret : MonoBehaviour
         //Disable Laser VFX while building
         if (useLaser)
         {
-            Debug.Log("miau");
             lineRenderer.enabled = false;
             impactEffect.Stop();
             impactLight.enabled = false;

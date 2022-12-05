@@ -7,7 +7,7 @@ public class BuildingSystem : MonoBehaviour
 {
     public static BuildingSystem m_buildingSystem;
     private Player m_player;
-    
+
     [Header("Managers")]
     private static InputManager m_input;
 
@@ -22,7 +22,7 @@ public class BuildingSystem : MonoBehaviour
     private int currentStructure;
 
     private PlaceableObject objectToPlace;
-    
+
     private void Awake()
     {
         m_buildingSystem = this;
@@ -43,16 +43,17 @@ public class BuildingSystem : MonoBehaviour
         }
 
         //Start building
-        if (m_input.GetPrimaryButtonPressed() && !objectToPlace) { InitializeWithObject(structures[currentStructure]);}
+        if (m_input.GetPrimaryButtonPressed() && !objectToPlace) { InitializeWithObject(structures[currentStructure]); }
 
         //Change Structure
-        if (m_input.GetPrevBuildingButtonPressed() && !objectToPlace) 
-        { 
-            if (currentStructure > 0) { currentStructure--; }
-        }
-        if (m_input.GetNextBuildingButtonPressed() && !objectToPlace) 
+        if (m_input.GetPrevBuildingButtonPressed() && !objectToPlace)
         {
-            if (currentStructure < structures.Count) { currentStructure++; } 
+            if (currentStructure > 0) { currentStructure--; }
+            else { currentStructure = structures.Count - 1; }
+        }
+        if (m_input.GetNextBuildingButtonPressed() && !objectToPlace)
+        {
+            currentStructure = (currentStructure + 1) % structures.Count;
         }
 
         //Structure needed to do following code
@@ -112,7 +113,7 @@ public class BuildingSystem : MonoBehaviour
     {
         Vector3 position = SnapCoordinateToGrid(Utils.GetMouseWorldPosition());
         GameObject obj = Instantiate(prefab, position, Quaternion.identity);
-        
+
         //Drag Component
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
@@ -126,14 +127,14 @@ public class BuildingSystem : MonoBehaviour
     {
         BoundsInt area = new BoundsInt();
         area.position = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
-        
+
         area.size = placeableObject.Size;
         area.size = new Vector3Int(area.size.x + 1, area.size.y + 1, area.size.z);
 
         TileBase[] baseArray = GetTilesBlock(area, MainTilemap);
         foreach (var b in baseArray)
         {
-            if(b == whiteTile)
+            if (b == whiteTile)
             {
                 return false;
             }
@@ -144,8 +145,12 @@ public class BuildingSystem : MonoBehaviour
 
     public void TakeArea(Vector3Int start, Vector3Int size)
     {
-        MainTilemap.BoxFill(start, whiteTile, start.x, start.y, 
+        MainTilemap.BoxFill(start, whiteTile, start.x, start.y,
                             start.x + size.x, start.y + size.y);
     }
+    #endregion
+
+    #region Accessors
+    public int GetCurrentStructureNum { get { return currentStructure; } }
     #endregion
 }

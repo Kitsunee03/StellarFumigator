@@ -57,6 +57,7 @@ MonoBehaviour:
   - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
     enemyCount: 20
     spawnRate: 3
-  timeBetweenWaves: 8
+  timeBetweenWaves: 60
+  countdown: 20
   waveCountdownText: {fileID: 0}
   gameManager: {fileID: 0}
