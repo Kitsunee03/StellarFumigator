@@ -45,19 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
+  - enemy: {fileID: 3641389831851250499, guid: 3b6f4fdcfa7ea4046b915aa81e1b96d4, type: 3}
     enemyCount: 4
     spawnRate: 4
-  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
+  - enemy: {fileID: 3641389831851250499, guid: 3b6f4fdcfa7ea4046b915aa81e1b96d4, type: 3}
     enemyCount: 12
     spawnRate: 3
-  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
+  - enemy: {fileID: 3641389831851250499, guid: 3b6f4fdcfa7ea4046b915aa81e1b96d4, type: 3}
     enemyCount: 10
     spawnRate: 2
-  - enemy: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b, type: 3}
+  - enemy: {fileID: 3641389831851250499, guid: 3b6f4fdcfa7ea4046b915aa81e1b96d4, type: 3}
     enemyCount: 20
     spawnRate: 3
   timeBetweenWaves: 60
   countdown: 20
-  waveCountdownText: {fileID: 0}
   gameManager: {fileID: 0}
