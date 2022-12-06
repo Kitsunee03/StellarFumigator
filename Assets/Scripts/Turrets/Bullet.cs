@@ -5,12 +5,13 @@ public class Bullet : MonoBehaviour
 	private Transform targetEnemy;
 	private Vector3 alternativeTarget;
 
-	[SerializeField] float speed = 70f;
-	[SerializeField] int damage = 50;
-	[SerializeField] float explosionRadius = 0f;
-	[SerializeField] bool isPlayerBullet;
+	[SerializeField] private float speed = 70f;
+	[SerializeField] private int damage = 50;
+	[SerializeField] private float explosionRadius = 0f;
+	[SerializeField] private bool isPlayerBullet;
 
-	[SerializeField] GameObject impactEffect;
+	[SerializeField] private GameObject impactEffect;
+
 	private void Start()
 	{
 		alternativeTarget = Utils.GetMouseWorldPosition();
@@ -26,10 +27,7 @@ public class Bullet : MonoBehaviour
 			return;
 		}
 		//Player Bullet without target
-		else if (targetEnemy == null && isPlayerBullet)
-		{
-			dir = alternativeTarget - transform.position;
-		}
+		else if (targetEnemy == null && isPlayerBullet) { dir = alternativeTarget - transform.position; }       
 		//Bullet with target
 		else { dir = targetEnemy.position - transform.position; }
 

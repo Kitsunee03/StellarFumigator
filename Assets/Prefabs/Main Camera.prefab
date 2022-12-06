@@ -140,12 +140,12 @@ MonoBehaviour:
   tweakMode: 0
   screenBlendMode: 1
   hdr: 0
-  sepBlurSpread: 1.59
+  sepBlurSpread: 1.5
   quality: 1
-  bloomIntensity: 0.5
+  bloomIntensity: 0.25
   bloomThreshold: 0.13
   bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
-  bloomBlurIterations: 2
+  bloomBlurIterations: 1
   hollywoodFlareBlurIterations: 2
   flareRotation: 0
   lensflareMode: 1
