@@ -4976,6 +4976,7 @@ GameObject:
   - component: {fileID: 120000012026282110}
   - component: {fileID: 9170986433759817741}
   - component: {fileID: 4259317555267150146}
+  - component: {fileID: 8446106603492642293}
   m_Layer: 3
   m_Name: LaserBeamer
   m_TagString: Turret
@@ -5159,6 +5160,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 3, z: 8}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!208 &8446106603492642293
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013152263656}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5, y: 1.5, z: 1.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1000013637573146
 GameObject:
   m_ObjectHideFlags: 0

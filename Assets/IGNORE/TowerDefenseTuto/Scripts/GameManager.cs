@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 	{
 		if (GameIsOver) { return; }
 
-		if (GameStats.Lives <= 0)
+		if (GameStats.CoreHealth <= 0)
 		{
 			EndGame();
 		}

@@ -889,6 +889,7 @@ GameObject:
   - component: {fileID: 7519330332037675699}
   - component: {fileID: 1122681196086436746}
   - component: {fileID: 3677539477204879634}
+  - component: {fileID: 2113410315}
   m_Layer: 3
   m_Name: Malphas
   m_TagString: Player
@@ -926,7 +927,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 135afba4145e97c48b3e74427934bea0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -969,6 +970,18 @@ MonoBehaviour:
   - {r: 0.91235113, g: 1, b: 0.23113209, a: 0}
   m_bulletPrfb: {fileID: 6863857337172796869, guid: 9fc5deab5fef94d41b92a7112049f302, type: 3}
   m_attackSpawnPos: {fileID: 7977339510544413134}
+--- !u!114 &2113410315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3887164347732032115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158643114e1b52441b05854acbf5ad46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3964776148405241668
 GameObject:
   m_ObjectHideFlags: 0

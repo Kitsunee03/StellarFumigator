@@ -3,18 +3,18 @@ using System.Collections;
 
 public class GameStats : MonoBehaviour
 {
-	public static int m_money;
-	public int startMoney = 400;
+	public static int Gems;
+	[SerializeField] private int m_startGems = 10;
 
-	public static int Lives;
-	public int startLives = 20;
+	public static int CoreHealth;
+    [SerializeField] private int m_coreHealth = 20;
 
 	public static int Rounds;
 
 	void Start()
 	{
-		m_money = startMoney;
-		Lives = startLives;
+		Gems = m_startGems;
+		CoreHealth = m_coreHealth;
 
 		Rounds = 0;
 	}

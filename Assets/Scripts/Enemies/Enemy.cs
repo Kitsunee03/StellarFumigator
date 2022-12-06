@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
 	{
 		isDead = true;
 
-		GameStats.m_money += worth;
+		GameStats.Gems += worth;
 
 		GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(effect, 5f);
