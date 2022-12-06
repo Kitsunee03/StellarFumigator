@@ -82,8 +82,10 @@ public class Bullet : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (!isPlayerBullet && other.gameObject.CompareTag("Turret")) { return; }
-		if (isPlayerBullet && other.gameObject.CompareTag("Player")) { return; }
+		//Avoid bullet-turret collision
+		if (other.gameObject.CompareTag("Turret")) { return; }
+        //Avoid playerBullet-player collision
+        if (isPlayerBullet && other.gameObject.CompareTag("Player")) { return; }
 
 		//Collieds an enemy
 		if (other.gameObject.CompareTag("Enemy"))

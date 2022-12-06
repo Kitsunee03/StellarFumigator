@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Enemy enemyScript;
     private NavMeshAgent m_agent;
+    private Animator m_animator;
 
     [SerializeField] private float m_newDestinationMinStep;
     private float newPointRange;
@@ -21,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     {
         enemyScript = GetComponent<Enemy>();
         m_agent = GetComponent<NavMeshAgent>();
+        m_animator = GetComponent<Animator>();
 
         newPointRange = Mathf.Clamp(m_agent.height * 2, 4f, 10f);
         m_corePosition = GameObject.FindGameObjectWithTag("Core").gameObject.transform.position;
@@ -29,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
         if (m_newDestinationMinStep == 0f) { m_newDestinationMinStep = 1.5f; }
         m_targetDestination = GetRandomNavMeshPoint(transform.position, newPointRange);
         m_agent.SetDestination(m_targetDestination);
+        m_animator.SetBool("isWalking", true);
     }
 
     void Update()
@@ -47,12 +50,19 @@ public class EnemyMovement : MonoBehaviour
         {
             m_agent.SetDestination(m_corePosition);
             autoPathTime += Time.deltaTime;
+            //Animator
+            m_animator.SetBool("isRolling", true);
+            m_animator.SetBool("isWalking", false);
         }
+        //Stop Autopathing
         if (autoPathTime > 2f) {
             isAutoPathing = false;
             autoPathTime = 0f;
             m_targetDestination = GetRandomNavMeshPoint(transform.position, newPointRange);
             m_agent.SetDestination(m_targetDestination);
+            //Animator
+            m_animator.SetBool("isRolling", false);
+            m_animator.SetBool("isWalking", true);
         }
 
         enemyScript.Speed = enemyScript.StartSpeed;

@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 	private float health;
 
 	[Header("Enemy Stuff")]
+	private Transform mainCamera;
+	[SerializeField] private Canvas healthCanvas;
 	[SerializeField] private Image healthBar;
 	private bool isDead = false;
 
@@ -19,7 +21,13 @@ public class Enemy : MonoBehaviour
 	{
 		speed = startSpeed;
 		health = startHealth;
-	}
+		mainCamera = FindObjectOfType<CameraMovement>().gameObject.transform;
+
+    }
+	private void Update()
+	{
+		healthCanvas.transform.LookAt(mainCamera);
+    }
 
 	public void TakeDamage(float amount)
 	{
