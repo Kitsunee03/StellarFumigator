@@ -7,16 +7,14 @@ public class GameStats : MonoBehaviour
 	[SerializeField] private int m_startGems = 10;
 
 	public static int CoreHealth;
+	public static int CoreMaxHealth;
     [SerializeField] private int m_coreHealth = 20;
-
-	public static int Rounds;
 
 	void Start()
 	{
 		m_gems = m_startGems;
-		CoreHealth = m_coreHealth;
-
-		Rounds = 0;
+        CoreMaxHealth = m_coreHealth;
+		CoreHealth = CoreMaxHealth;
 	}
 
     #region Accessors

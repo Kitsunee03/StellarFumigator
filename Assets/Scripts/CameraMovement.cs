@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
         //Rotation
         CameraRotation();
 
-        rotationX = Mathf.Clamp(rotationX, 0, 80f);
+        rotationX = Mathf.Clamp(rotationX, 0, 90f);
         transform.eulerAngles = new Vector3(rotationX, rotationY, 0);
 
         //Movement

@@ -24,7 +24,6 @@ public class WaveSpawner : MonoBehaviour
 		//Succesfull survival
 		if (waveIndex == waves.Count && enemiesAlive == 0)
 		{
-			gameManager.WinLevel();
 			enabled = false;
 		}
 
@@ -38,8 +37,6 @@ public class WaveSpawner : MonoBehaviour
 
 	private IEnumerator SpawnWave()
 	{
-		GameStats.Rounds--;
-
 		Wave wave = waves[waveIndex];
 
         enemiesAlive += wave.enemyCount;

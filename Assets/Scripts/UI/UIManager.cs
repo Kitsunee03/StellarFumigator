@@ -9,9 +9,14 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Text timerText;
 
-    [Header("Fill Images")]
+    [Header("Abilities")]
     [SerializeField] private Image attackFillImage;
     [SerializeField] private Image dashFillImage;
+
+    [Header("Core")]
+    [SerializeField] private Image coreHealthFillImage;
+    [SerializeField] private Text coreHealthText;
+
     [Header("Turrets")]
     [SerializeField] private List<Image> turretsImageList;
     [SerializeField] private List<Sprite> turretsIconList;
@@ -33,6 +38,7 @@ public class UIManager : MonoBehaviour
         //Fill abilities UI
         attackFillImage.fillAmount = m_player.GetAttackCooldown;
         dashFillImage.fillAmount = m_player.GetDashCooldown;
+        coreHealthFillImage.fillAmount = GameStats.CoreHealth / GameStats.CoreMaxHealth;
     }
 
     void Update()
@@ -64,5 +70,9 @@ public class UIManager : MonoBehaviour
 
         //Set Gems text
         gemsText.text = GameStats.Gems.ToString();
+
+        //Set Core Health
+        coreHealthText.text = GameStats.CoreHealth.ToString() + "/" + GameStats.CoreMaxHealth.ToString() + " HP";
+        coreHealthFillImage.fillAmount = GameStats.CoreHealth / (float)GameStats.CoreMaxHealth;
     }
 }

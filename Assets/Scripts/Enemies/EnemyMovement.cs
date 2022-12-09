@@ -67,6 +67,12 @@ public class EnemyMovement : MonoBehaviour
             m_animator.SetBool("isWalking", true);
         }
 
+        //End path
+        if(Vector3.Distance(transform.position, m_corePosition) < 1.4f)
+        {
+            EndPath();
+        }
+
         enemyScript.Speed = enemyScript.StartSpeed;
     }
 
@@ -100,14 +106,7 @@ public class EnemyMovement : MonoBehaviour
         return m_corePosition;
     }
 
-    /*private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(transform.position, 4f);
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.forward * 1.5f);
-    }*/
-
-    void EndPath()
+    private void EndPath()
     {
         GameStats.CoreHealth--;
         waveSpawner.EnemiesAlive--;

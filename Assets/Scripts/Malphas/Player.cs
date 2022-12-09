@@ -7,7 +7,6 @@ public class Player : MonoBehaviour
 {
     [Header("Components")]
     private CharacterController m_controller;
-    //private PlayerAnimator m_anim;
     private Camera m_camera;
 
     [Header("Managers")]
@@ -28,7 +27,8 @@ public class Player : MonoBehaviour
 
     [Header("Gameplay Management")]
     private bool m_isDying;
-    private float m_sceneResetTimer;
+    private SceneFader fader;
+    private float m_sceneResetTimer = 3f;
 
     [Header("Malphas Modes")]
     [SerializeField] private Color[] m_colors;
@@ -61,12 +61,12 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         m_controller = GetComponent<CharacterController>();
-        //m_anim = GetComponent<PlayerAnimator>();
         m_camera = Camera.main;
     }
     private void Start()
     {
         m_input = InputManager._INPUT_MANAGER;
+        fader = FindObjectOfType<SceneFader>();
         canAttack = true;
 
         m_currentMode = PLAYER_MODE.WEAPON;
@@ -100,44 +100,43 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //Gameplay Management
-        if (m_isDying) //Defeat
+        if (m_isDying) //Dead
         {
-            m_sceneResetTimer += Time.deltaTime;
-            if (m_sceneResetTimer >= 3f) { SceneManager.LoadScene(0); }
+            m_sceneResetTimer -= Time.deltaTime;
+            if (m_sceneResetTimer <= 0f) { fader.FadeTo("MainMenu"); }
+            return;
         }
-        else
+
+        ChangeMode();
+        switch (m_currentMode)
         {
-            ChangeMode();
-            switch (m_currentMode)
-            {
-                default: { break; }
-                case PLAYER_MODE.WEAPON:
-                    {
-                        Jump();
-                        Dash();
-                        Shoot();
-                        break;
-                    }
-                case PLAYER_MODE.ARCHITECT:
-                    {
-                        break;
-                    }
-                case PLAYER_MODE.MINER:
-                    {
-                        CurrentMode = PLAYER_MODE.WEAPON; break;
-                    }
-            }
-
-            //Base Movement
-            Gravity();
-            GetMovement();
-            PlayerRotation();
-            Move();
-
-            //Cooldowns
-            AttackCooldown();
-            DashCooldown();
+            default: { break; }
+            case PLAYER_MODE.WEAPON:
+                {
+                    Jump();
+                    Dash();
+                    Shoot();
+                    break;
+                }
+            case PLAYER_MODE.ARCHITECT:
+                {
+                    break;
+                }
+            case PLAYER_MODE.MINER:
+                {
+                    CurrentMode = PLAYER_MODE.WEAPON; break;
+                }
         }
+
+        //Base Movement
+        Gravity();
+        GetMovement();
+        PlayerRotation();
+        Move();
+
+        //Cooldowns
+        AttackCooldown();
+        DashCooldown();
     }
 
     private void GetMovement()
@@ -328,7 +327,7 @@ public class Player : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
     {
-
+        if (collision.gameObject.CompareTag("Exit")) { }
     }
 
     private void ResizeCollider(float p_heightMultiplier, float p_centerPos)
