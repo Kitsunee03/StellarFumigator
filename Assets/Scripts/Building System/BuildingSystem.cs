@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -20,6 +22,7 @@ public class BuildingSystem : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private List<GameObject> structures;
     private int currentStructure;
+    private int currentStructurePrice;
 
     private PlaceableObject objectToPlace;
 
@@ -32,6 +35,8 @@ public class BuildingSystem : MonoBehaviour
     {
         m_input = InputManager._INPUT_MANAGER;
         m_player = FindObjectOfType<Player>();
+
+        currentStructurePrice = structures[currentStructure].gameObject.GetComponent<Turret>().TurretPrice;
     }
     private void Update()
     {
@@ -43,17 +48,22 @@ public class BuildingSystem : MonoBehaviour
         }
 
         //Start building
-        if (m_input.GetPrimaryButtonPressed() && !objectToPlace) { InitializeWithObject(structures[currentStructure]); }
+        if (m_input.GetPrimaryButtonPressed() && !objectToPlace && GameStats.Gems >= currentStructurePrice) 
+        { 
+            InitializeWithObject(structures[currentStructure]); 
+        }
 
         //Change Structure
         if (m_input.GetPrevBuildingButtonPressed() && !objectToPlace)
         {
             if (currentStructure > 0) { currentStructure--; }
             else { currentStructure = structures.Count - 1; }
+            currentStructurePrice = structures[currentStructure].gameObject.GetComponent<Turret>().TurretPrice;
         }
         if (m_input.GetNextBuildingButtonPressed() && !objectToPlace)
         {
             currentStructure = (currentStructure + 1) % structures.Count;
+            currentStructurePrice = structures[currentStructure].gameObject.GetComponent<Turret>().TurretPrice;
         }
 
         //Structure needed to do following code
@@ -152,5 +162,6 @@ public class BuildingSystem : MonoBehaviour
 
     #region Accessors
     public int GetCurrentStructureNum { get { return currentStructure; } }
+    public GameObject GetCurrentStructure { get { return structures[currentStructure]; } }
     #endregion
 }

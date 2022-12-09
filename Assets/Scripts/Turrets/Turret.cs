@@ -6,26 +6,27 @@ public class Turret : MonoBehaviour
 	private Enemy targetEnemy;
 
 	[Header("General")]
-	[SerializeField] float range = 15f;
-	[SerializeField] Transform partToRotate;
-	[SerializeField] float turnSpeed = 10f;
-	[SerializeField] Transform firePoint;
+	[SerializeField] private float range = 15f;
+	[SerializeField] private Transform partToRotate;
+	[SerializeField] private float turnSpeed = 10f;
+	[SerializeField] private Transform firePoint;
+	[SerializeField] private int buildingPrice;
 
 	private string enemyTag = "Enemy";
 
 	[Header("Bullets (default)")]
-	[SerializeField] GameObject bulletPrefab;
-	[SerializeField] float fireRate = 1f;
+	[SerializeField] private GameObject bulletPrefab;
+	[SerializeField] private float fireRate = 1f;
 	private float fireCountdown = 0f;
 
-	[SerializeField] int damageOverTime = 10;
-	[SerializeField] float slowAmount = 0.5f;
+	[SerializeField] private int damageOverTime = 10;
+	[SerializeField] private float slowAmount = 0.5f;
 
 	[Header("Laser Turret")]
-    [SerializeField] bool useLaser = false;
-    [SerializeField] LineRenderer lineRenderer;
-	[SerializeField] ParticleSystem impactEffect;
-	[SerializeField] Light impactLight;
+    [SerializeField] private bool useLaser = false;
+    [SerializeField] private LineRenderer lineRenderer;
+	[SerializeField] private ParticleSystem impactEffect;
+	[SerializeField] private Light impactLight;
 
 	private void Awake()
 	{
@@ -146,4 +147,8 @@ public class Turret : MonoBehaviour
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(transform.position, range);
 	}
+
+    #region Accessors
+	public int TurretPrice { get { return buildingPrice; } private set { buildingPrice = value; } }
+    #endregion
 }

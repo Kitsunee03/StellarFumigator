@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameStats : MonoBehaviour
 {
-	public static int Gems;
+	private static int m_gems;
 	[SerializeField] private int m_startGems = 10;
 
 	public static int CoreHealth;
@@ -13,9 +13,13 @@ public class GameStats : MonoBehaviour
 
 	void Start()
 	{
-		Gems = m_startGems;
+		m_gems = m_startGems;
 		CoreHealth = m_coreHealth;
 
 		Rounds = 0;
 	}
+
+    #region Accessors
+	public static int Gems { get { return m_gems; } set { m_gems = value; } }
+    #endregion
 }

@@ -21,10 +21,12 @@ public class PlaceableObject : MonoBehaviour
 
         //<Events Of Placement>
 
-        //Try Disable turret
+        //Pay construction cost
+        GameStats.Gems -= gameObject.GetComponent<Turret>().TurretPrice;
+        //Try enable turret
         try { gameObject.GetComponent<Turret>().enabled = true; }
         catch { }
-
+        //Build VFX
         GameObject effectIns = Instantiate(buildVFX, transform.position, transform.rotation);
         Destroy(effectIns, 2f);
     }

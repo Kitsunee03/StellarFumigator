@@ -4,24 +4,31 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
 	[Header("Enemy Stats")]
-	[SerializeField] private float startSpeed = 10f;
-    [SerializeField] private float startHealth = 100f;
-    [SerializeField] private int worth = 5;
+	[SerializeField] private float startSpeed;
+    [SerializeField] private float startHealth;
+    [SerializeField] private int worth;
     [SerializeField] private GameObject deathEffect;
     private float speed;
 	private float health;
 
 	[Header("Enemy Stuff")]
 	private Transform mainCamera;
+	private WaveSpawner waveSpawner;
 	[SerializeField] private Canvas healthCanvas;
 	[SerializeField] private Image healthBar;
 	private bool isDead = false;
 
 	void Start()
 	{
+		//Default values
+		if(worth == 0) { worth = 10; }
+		if(startHealth == 0f) { startHealth = 100f;}
+		if(startSpeed == 0f) { startSpeed = 10f;}
+
 		speed = startSpeed;
 		health = startHealth;
 		mainCamera = FindObjectOfType<CameraMovement>().gameObject.transform;
+		waveSpawner = FindObjectOfType<WaveSpawner>();
 
     }
 	private void Update()
@@ -35,16 +42,10 @@ public class Enemy : MonoBehaviour
 
 		healthBar.fillAmount = health / startHealth;
 
-		if (health <= 0 && !isDead)
-		{
-			Die();
-		}
+		if (health <= 0 && !isDead) { Die(); }
 	}
 
-	public void Slow(float pct)
-	{
-		speed = startSpeed * (1f - pct);
-	}
+	public void Slow(float pct) { speed = startSpeed * (1f - pct); }
 
 	void Die()
 	{
@@ -55,7 +56,7 @@ public class Enemy : MonoBehaviour
 		GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(effect, 5f);
 
-		WaveSpawner.EnemiesAlive--;
+        waveSpawner.EnemiesAlive--;
 
 		Destroy(gameObject);
 	}

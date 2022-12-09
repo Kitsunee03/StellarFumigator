@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private Enemy enemyScript;
     private NavMeshAgent m_agent;
     private Animator m_animator;
+    private WaveSpawner waveSpawner;
 
     [SerializeField] private float m_newDestinationMinStep;
     private float newPointRange;
@@ -26,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
 
         newPointRange = Mathf.Clamp(m_agent.height * 2, 4f, 10f);
         m_corePosition = GameObject.FindGameObjectWithTag("Core").gameObject.transform.position;
+        waveSpawner = FindObjectOfType<WaveSpawner>();
 
         //First destination
         if (m_newDestinationMinStep == 0f) { m_newDestinationMinStep = 1.5f; }
@@ -108,7 +110,7 @@ public class EnemyMovement : MonoBehaviour
     void EndPath()
     {
         GameStats.CoreHealth--;
-        WaveSpawner.EnemiesAlive--;
+        waveSpawner.EnemiesAlive--;
         Destroy(gameObject);
     }
 }

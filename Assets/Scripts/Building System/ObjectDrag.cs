@@ -5,17 +5,20 @@ using UnityEngine.EventSystems;
 
 public class ObjectDrag : MonoBehaviour
 {
-    private Vector3 offset;
+    private GameObject player;
+    private float maxBuildDistance = 8;
 
     private void Start()
     {
-        //offset = transform.position - Utils.GetMouseWorldPosition();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
-        //Vector3 pos = Utils.GetMouseWorldPosition() + offset;
         Vector3 pos = Utils.GetMouseWorldPosition();
-        transform.position = BuildingSystem.m_buildingSystem.SnapCoordinateToGrid(pos);
+        if (Vector3.Distance(player.transform.position, pos) < maxBuildDistance)
+        {
+            transform.position = BuildingSystem.m_buildingSystem.SnapCoordinateToGrid(pos);
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class WaveSpawner : MonoBehaviour
 {
-	public static int EnemiesAlive = 0;
+	private int enemiesAlive = 0;
 	[SerializeField] private List<Wave> waves;
 
 	[SerializeField] private float timeBetweenWaves = 15f;
@@ -17,12 +17,12 @@ public class WaveSpawner : MonoBehaviour
 	private void Update()
 	{
 		//Next Wave timer
-		if (EnemiesAlive == 0 && waveIndex != 0) { countdown -= Time.deltaTime * 2; }
+		if (enemiesAlive == 0 && waveIndex != 0) { countdown -= Time.deltaTime * 2; }
 		else { countdown -= Time.deltaTime; }
 		countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
 		//Succesfull survival
-		if (waveIndex == waves.Count && EnemiesAlive == 0)
+		if (waveIndex == waves.Count && enemiesAlive == 0)
 		{
 			gameManager.WinLevel();
 			enabled = false;
@@ -42,7 +42,7 @@ public class WaveSpawner : MonoBehaviour
 
 		Wave wave = waves[waveIndex];
 
-		EnemiesAlive += wave.enemyCount;
+        enemiesAlive += wave.enemyCount;
 
 		for (int i = 0; i < wave.enemyCount; i++)
 		{
@@ -62,5 +62,6 @@ public class WaveSpawner : MonoBehaviour
 	#region Accessors
 	public float NextWaveTime { get { return countdown; } private set { countdown = value; } }
 	public int WavesLeft { get { return waves.Count - waveIndex; } }
+	public int EnemiesAlive { get { return enemiesAlive; } set { enemiesAlive = value; } }
 	#endregion
 }
