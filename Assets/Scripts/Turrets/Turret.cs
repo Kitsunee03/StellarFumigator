@@ -4,6 +4,7 @@ public class Turret : MonoBehaviour
 {
 	private Transform target;
 	private Enemy targetEnemy;
+	private TutorialEnemy tutorialTargetEnemy;
 
 	[Header("General")]
 	[SerializeField] private float range = 15f;
@@ -67,7 +68,8 @@ public class Turret : MonoBehaviour
 			//Set as target
 			target = nearestEnemy.transform;
 			targetEnemy = nearestEnemy.GetComponent<Enemy>();
-		}
+			tutorialTargetEnemy = nearestEnemy.GetComponent<TutorialEnemy>();
+        }
 		else { target = null; }
 	}
 
@@ -115,8 +117,16 @@ public class Turret : MonoBehaviour
 	void Laser()
 	{
 		//Damage Enemy
-		targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
-		targetEnemy.Slow(slowAmount);
+		if (targetEnemy != null)
+		{
+			targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+			targetEnemy.Slow(slowAmount);
+		}
+		else if(tutorialTargetEnemy!=null)
+		{
+            tutorialTargetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+            tutorialTargetEnemy.Slow(slowAmount);
+        }
 
 		//Laser VFX
 		if (!lineRenderer.enabled)

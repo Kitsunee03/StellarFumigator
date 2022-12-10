@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     [Header("Malphas Modes")]
     [SerializeField] private Color[] m_colors;
+    [SerializeField] private List<Material> m_materialsToPaint;
     private PLAYER_MODE m_currentMode;
 
     [Header("Weapon Mode")]
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour
         canAttack = true;
 
         m_currentMode = PLAYER_MODE.WEAPON;
-        //transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
+        ChangeMalphasColor(m_colors[(int)m_currentMode]);
 
         //Default Values: Movement
         m_finalVelocity = Vector3.zero;
@@ -124,7 +125,9 @@ public class Player : MonoBehaviour
                 }
             case PLAYER_MODE.MINER:
                 {
-                    CurrentMode = PLAYER_MODE.WEAPON; break;
+                    CurrentMode = PLAYER_MODE.WEAPON;
+                    ChangeMalphasColor(m_colors[(int)m_currentMode]);
+                    break;
                 }
         }
 
@@ -257,9 +260,15 @@ public class Player : MonoBehaviour
             GameObject bulletPrfb = Instantiate(m_bulletPrfb, m_attackSpawnPos.position, Quaternion.LookRotation(aimDir, Vector3.up));
             Bullet bullet = bulletPrfb.GetComponent<Bullet>();
 
-            //Try Set Target (aim)
+            //Try Set enemy as Target (aim)
             Enemy enemy = Utils.GetMousePointingObject().GetComponent<Enemy>();
             if (enemy != null && bullet != null) { bullet.SetTarget(enemy.transform); }
+            //Try Set tutorial enemy as Target (aim)
+            else
+            {
+                TutorialEnemy tutoEnemy = Utils.GetMousePointingObject().GetComponent<TutorialEnemy>();
+                if (tutoEnemy != null && bullet != null) { bullet.SetTarget(tutoEnemy.transform); }
+            }
         }
     }
     private void AttackCooldown()
@@ -348,7 +357,15 @@ public class Player : MonoBehaviour
             if (m_currentMode == PLAYER_MODE.LAST_NO_USE - 1) { m_currentMode = 0; }
             else { m_currentMode++; }
 
-            //transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material.color = m_colors[(int)m_currentMode];
+            ChangeMalphasColor(m_colors[(int)m_currentMode]);
+        }
+    }
+
+    private void ChangeMalphasColor(Color color)
+    {
+        for(int i = 0; i < m_materialsToPaint.Count; i++)
+        {
+            m_materialsToPaint[i].color = color;
         }
     }
 

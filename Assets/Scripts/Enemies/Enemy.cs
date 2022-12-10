@@ -12,10 +12,10 @@ public class Enemy : MonoBehaviour
 	private float health;
 
 	[Header("Enemy Stuff")]
-	private Transform mainCamera;
+    [SerializeField] private Canvas healthCanvas;
+    [SerializeField] private Image healthBar;
+    private Transform mainCamera;
 	private WaveSpawner waveSpawner;
-	[SerializeField] private Canvas healthCanvas;
-	[SerializeField] private Image healthBar;
 	private bool isDead = false;
 
 	void Start()

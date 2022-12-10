@@ -1498,7 +1498,7 @@ GameObject:
   - component: {fileID: 5061768497860859402}
   - component: {fileID: 1469769384083729216}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1733,7 +1733,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -15}
+  m_AnchoredPosition: {x: 10.5, y: -15}
   m_SizeDelta: {x: 105, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1276602714744767610
@@ -1769,7 +1769,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.664
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
 	private void Start()
 	{
 		alternativeTarget = Utils.GetMouseWorldPosition();
+		Destroy(gameObject, 10f);
 	}
 	private void Update()
 	{
@@ -26,8 +27,9 @@ public class Bullet : MonoBehaviour
 			Destroy(gameObject);
 			return;
 		}
+
 		//Player Bullet without target
-		else if (targetEnemy == null && isPlayerBullet) { dir = alternativeTarget - transform.position; }       
+		else if (targetEnemy == null && isPlayerBullet) { dir = alternativeTarget - transform.position; }
 		//Bullet with target
 		else { dir = targetEnemy.position - transform.position; }
 
@@ -42,14 +44,8 @@ public class Bullet : MonoBehaviour
 		GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
 		Destroy(effectIns, 5f);
 
-		if (explosionRadius > 0f)
-		{
-			Explode();
-		}
-		else if (target != null)
-		{
-			DamageEnemy(target);
-		}
+		if (explosionRadius > 0f) { Explode(); }
+		else if (target != null) { DamageEnemy(target); }
 
 		Destroy(gameObject);
 	}
@@ -60,10 +56,7 @@ public class Bullet : MonoBehaviour
 		Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 		foreach (Collider collider in colliders)
 		{
-			if (collider.CompareTag("Enemy"))
-			{
-				DamageEnemy(collider.transform);
-			}
+			if (collider.CompareTag("Enemy")) { DamageEnemy(collider.transform); }
 		}
 	}
 
@@ -71,37 +64,33 @@ public class Bullet : MonoBehaviour
 	{
 		//Get the enemy and apply damage
 		Enemy enemyScript = enemy.GetComponent<Enemy>();
+		if (enemyScript != null) { enemyScript.TakeDamage(damage); }
 
-		if (enemyScript != null)
-		{
-			enemyScript.TakeDamage(damage);
-		}
+		//Get the tutoriaEnemy and apply damage
+		TutorialEnemy tutoEnemyScript = enemy.GetComponent<TutorialEnemy>();
+		if (tutoEnemyScript != null) { tutoEnemyScript.TakeDamage(damage); }
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		//Avoid bullet-bounds collision
+		if (other.gameObject.CompareTag("Wall")) { return; }
 		//Avoid bullet-turret collision
 		if (other.gameObject.CompareTag("Turret")) { return; }
-        //Avoid playerBullet-player collision
-        if (isPlayerBullet && other.gameObject.CompareTag("Player")) { return; }
+		//Avoid playerBullet-player collision
+		if (isPlayerBullet && other.gameObject.CompareTag("Player")) { return; }
 
 		//Collieds an enemy
-		if (other.gameObject.CompareTag("Enemy"))
-		{
-			HitTarget(other.transform);
-		}
+		if (other.gameObject.CompareTag("Enemy")) { HitTarget(other.transform); }
 		//Collides others
-		else
-		{
-			HitTarget();
-		}
+		else { HitTarget(); }
 	}
 
-	void OnDrawGizmosSelected()
+	/*void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(transform.position, explosionRadius);
-	}
+	}*/
 
 	public void SetTarget(Transform p_target)
 	{

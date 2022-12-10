@@ -10,14 +10,20 @@ public class GameStats : MonoBehaviour
 	public static int CoreMaxHealth;
     [SerializeField] private int m_coreHealth = 20;
 
-	void Start()
+	private void Awake()
 	{
 		m_gems = m_startGems;
         CoreMaxHealth = m_coreHealth;
 		CoreHealth = CoreMaxHealth;
 	}
 
-    #region Accessors
+	private void Update()
+	{
+		//Gems clamp
+		m_gems = Mathf.Clamp(m_gems, 0, 5000);
+    }
+
+	#region Accessors
 	public static int Gems { get { return m_gems; } set { m_gems = value; } }
     #endregion
 }

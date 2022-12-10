@@ -8,6 +8,7 @@ TagManager:
   - Turret
   - Core
   - Exit
+  - Wall
   layers:
   - Default
   - TransparentFX

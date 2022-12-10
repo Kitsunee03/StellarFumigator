@@ -297,6 +297,10 @@ PrefabInstance:
       value: LowGround (38)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -519,9 +523,9 @@ GameObject:
   - component: {fileID: 45450535}
   m_Layer: 3
   m_Name: BlockCollision (22)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &45450533
@@ -616,6 +620,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (47)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -724,6 +732,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -853,7 +865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -900,6 +912,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1049,6 +1065,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1354,9 +1374,9 @@ GameObject:
   - component: {fileID: 135105143}
   m_Layer: 3
   m_Name: LeftWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &135105141
@@ -1397,6 +1417,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1458,7 +1482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498993214768422919, guid: 860603c48bc057945895d3b5c425c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.144
+      value: 11.6
       objectReference: {fileID: 0}
     - target: {fileID: 6498993214768422919, guid: 860603c48bc057945895d3b5c425c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1853,6 +1877,10 @@ PrefabInstance:
       value: LowGround (25)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1967,6 +1995,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2230,6 +2262,10 @@ PrefabInstance:
       value: RockPlatform1Corner (19)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -2362,7 +2398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 254823c6101ddbd4494c0cd1a9f7d0ff, type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 254823c6101ddbd4494c0cd1a9f7d0ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2517,6 +2553,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_Name
       value: RockPlatform1Corner (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2797,7 +2837,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1547968349}
+    m_TransformParent: {fileID: 1074772391}
     m_Modifications:
     - target: {fileID: 100000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_Name
@@ -2809,19 +2849,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.465
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.31
+      value: 4.967551
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.71
+      value: 10.39433
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2833,11 +2873,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
@@ -3749,6 +3789,10 @@ PrefabInstance:
       value: LowGround (23)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -3804,7 +3848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ee6b3ffd3cb6673418be56bbca926bbd, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ee6b3ffd3cb6673418be56bbca926bbd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3846,7 +3890,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1547968349}
+    m_TransformParent: {fileID: 1074772391}
     m_Modifications:
     - target: {fileID: 100000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3854,19 +3898,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58.925
+      value: 3.959999
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.56
+      value: 7.217551
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.79
+      value: 7.47433
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3878,11 +3922,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
@@ -4127,9 +4171,9 @@ GameObject:
   - component: {fileID: 344783076}
   m_Layer: 3
   m_Name: BlockCollision (36)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &344783074
@@ -4220,6 +4264,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_Name
       value: RockPlatform1Corner (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4346,6 +4394,10 @@ PrefabInstance:
       value: LowGround (32)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4393,7 +4445,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1547968349}
+    m_TransformParent: {fileID: 1074772391}
     m_Modifications:
     - target: {fileID: 100000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4401,19 +4453,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58.894997
+      value: 3.9299965
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.35
+      value: 5.007552
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.84
+      value: 7.52433
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4425,11 +4477,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cdef9d79e5957f40a960c5f576bdb51, type: 3}
@@ -4448,6 +4500,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
       propertyPath: m_Name
       value: RockPlatform2Sidless (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4620,6 +4676,10 @@ PrefabInstance:
       value: LowGround (5)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -4768,7 +4828,7 @@ GameObject:
   - component: {fileID: 392002093}
   m_Layer: 3
   m_Name: Wall2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -4813,7 +4873,7 @@ GameObject:
   - component: {fileID: 393352894}
   m_Layer: 3
   m_Name: BlockCollision (32)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5035,9 +5095,9 @@ GameObject:
   - component: {fileID: 401033749}
   m_Layer: 3
   m_Name: BlockCollision (49)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &401033747
@@ -5486,6 +5546,10 @@ PrefabInstance:
       value: RockPlatform1Sidless (15)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -5776,9 +5840,9 @@ GameObject:
   - component: {fileID: 447493314}
   m_Layer: 3
   m_Name: BlockCollision (54)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &447493312
@@ -5819,6 +5883,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_Name
       value: RockPlatform1Corner (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6222,7 +6290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 254823c6101ddbd4494c0cd1a9f7d0ff, type: 3}
       propertyPath: m_RootOrder
-      value: 36
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 254823c6101ddbd4494c0cd1a9f7d0ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6343,9 +6411,9 @@ GameObject:
   - component: {fileID: 474149787}
   m_Layer: 3
   m_Name: BlockCollision (19)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &474149785
@@ -6530,6 +6598,10 @@ PrefabInstance:
       value: LowGround (3)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6636,6 +6708,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6912,7 +6988,7 @@ GameObject:
   - component: {fileID: 511942946}
   m_Layer: 3
   m_Name: BlockCollision (46)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7037,6 +7113,10 @@ PrefabInstance:
       value: LowGround (46)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -7096,7 +7176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c42d2b95a430f1f499c89db28d9a9dd4, type: 3}
       propertyPath: m_RootOrder
-      value: 52
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c42d2b95a430f1f499c89db28d9a9dd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7143,6 +7223,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 488dfbbef3f8c8a4795c9ca6f8cc50eb, type: 3}
       propertyPath: m_Name
       value: GroundTile (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 488dfbbef3f8c8a4795c9ca6f8cc50eb, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 488dfbbef3f8c8a4795c9ca6f8cc50eb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7261,6 +7345,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2092944907}
     m_Modifications:
+    - target: {fileID: 100000, guid: 15f9456fd30baf24c87cdab5c423ca92, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 15f9456fd30baf24c87cdab5c423ca92, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -7387,6 +7475,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b164b736964077b47ba50a54c41bd242, type: 3}
       propertyPath: m_Name
       value: Bridge (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b164b736964077b47ba50a54c41bd242, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b164b736964077b47ba50a54c41bd242, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7627,9 +7719,9 @@ GameObject:
   - component: {fileID: 546872005}
   m_Layer: 3
   m_Name: BlockCollision (52)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &546872003
@@ -7670,6 +7762,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7834,9 +7930,9 @@ GameObject:
   - component: {fileID: 555052547}
   m_Layer: 3
   m_Name: BlockCollision (56)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &555052545
@@ -7877,6 +7973,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
       propertyPath: m_Name
       value: RockPlatform2Sidless (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7931,6 +8031,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (86)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8041,6 +8145,10 @@ PrefabInstance:
       value: LowGround (4)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -8100,7 +8208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa43df41dde6dbe4197c6e7c7df2cbf4, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa43df41dde6dbe4197c6e7c7df2cbf4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8165,6 +8273,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
       propertyPath: m_Name
       value: RockPlatform2Sidless (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5535cde355c073a499e465af6a57216c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8284,7 +8396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 254823c6101ddbd4494c0cd1a9f7d0ff, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 254823c6101ddbd4494c0cd1a9f7d0ff, type: 3}
       propertyPath: m_LocalScale.x
@@ -8463,6 +8575,10 @@ PrefabInstance:
       value: LowGround (36)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -8623,6 +8739,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8968,9 +9088,9 @@ GameObject:
   - component: {fileID: 644856290}
   m_Layer: 3
   m_Name: BlockCollision (21)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &644856288
@@ -9095,7 +9215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b66c2aefa06392478e229326e84ad07, type: 3}
       propertyPath: m_RootOrder
-      value: 56
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b66c2aefa06392478e229326e84ad07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9596,9 +9716,9 @@ GameObject:
   - component: {fileID: 680412150}
   m_Layer: 3
   m_Name: BlockCollision (55)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &680412148
@@ -9835,7 +9955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498993214768422919, guid: 860603c48bc057945895d3b5c425c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.06
+      value: 11.6
       objectReference: {fileID: 0}
     - target: {fileID: 6498993214768422919, guid: 860603c48bc057945895d3b5c425c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9890,6 +10010,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10270,9 +10394,9 @@ GameObject:
   - component: {fileID: 720868597}
   m_Layer: 3
   m_Name: BlockCollision (53)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &720868595
@@ -10776,7 +10900,7 @@ GameObject:
   - component: {fileID: 741268865}
   m_Layer: 3
   m_Name: Wall1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -10826,7 +10950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c42d2b95a430f1f499c89db28d9a9dd4, type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c42d2b95a430f1f499c89db28d9a9dd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10999,6 +11123,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11343,7 +11471,7 @@ GameObject:
   - component: {fileID: 776616511}
   m_Layer: 3
   m_Name: BlockCollision (41)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -11442,12 +11570,16 @@ PrefabInstance:
       value: LongStone (3)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_RootOrder
-      value: 54
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_LocalScale.x
@@ -11684,6 +11816,10 @@ PrefabInstance:
       value: LowGround (9)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -11845,6 +11981,10 @@ PrefabInstance:
       value: LowGround (28)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12003,7 +12143,7 @@ GameObject:
   - component: {fileID: 836385213}
   m_Layer: 3
   m_Name: BlockCollision (38)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -12291,6 +12431,10 @@ PrefabInstance:
       value: LowGround (60)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -12345,12 +12489,16 @@ PrefabInstance:
       value: LongStone (4)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_RootOrder
-      value: 55
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_LocalScale.x
@@ -12404,6 +12552,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: b164b736964077b47ba50a54c41bd242, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b164b736964077b47ba50a54c41bd242, type: 3}
+      propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b164b736964077b47ba50a54c41bd242, type: 3}
@@ -12469,7 +12621,7 @@ GameObject:
   - component: {fileID: 865722122}
   m_Layer: 3
   m_Name: BlockCollision (45)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13561,7 +13713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_RootOrder
-      value: 47
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13684,7 +13836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a05206201a9d47c479e724d647dcd571, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a05206201a9d47c479e724d647dcd571, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29239,7 +29391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 08830c3f2521e754b8898350abdc25cb, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 08830c3f2521e754b8898350abdc25cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29464,7 +29616,7 @@ GameObject:
   - component: {fileID: 961366098}
   m_Layer: 3
   m_Name: BlockCollision (35)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -29569,6 +29721,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_Name
       value: RockPlatform1Corner (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29795,6 +29951,10 @@ PrefabInstance:
       value: LowGround (41)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -29854,7 +30014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30090,6 +30250,10 @@ PrefabInstance:
       value: LowGround (88)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -30196,6 +30360,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (62)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30404,6 +30572,10 @@ PrefabInstance:
       value: LowGround (18)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -30456,6 +30628,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30612,7 +30788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2198ba4f5cda7644ba054920f2bceb99, type: 3}
       propertyPath: m_RootOrder
-      value: 59
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2198ba4f5cda7644ba054920f2bceb99, type: 3}
       propertyPath: m_LocalScale.z
@@ -30742,7 +30918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30886,6 +31062,10 @@ Transform:
   - {fileID: 99816513}
   - {fileID: 1983321691}
   - {fileID: 738585112}
+  - {fileID: 1085096417}
+  - {fileID: 210090823}
+  - {fileID: 307458221}
+  - {fileID: 354574275}
   m_Father: {fileID: 663958134}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30894,7 +31074,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1547968349}
+    m_TransformParent: {fileID: 1074772391}
     m_Modifications:
     - target: {fileID: 100000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_Name
@@ -30906,19 +31086,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.454998
+      value: 6.489998
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.55
+      value: 7.207551
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.67
+      value: 10.35433
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30930,11 +31110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f650377d81f9454e9125c49fa3b2d78, type: 3}
@@ -31318,6 +31498,10 @@ PrefabInstance:
       value: LowGround (10)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -31360,74 +31544,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
   m_PrefabInstance: {fileID: 1113488289}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1115823602
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1547968349}
-    m_Modifications:
-    - target: {fileID: 100000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_RootOrder
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -26.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -11.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
---- !u!4 &1115823603 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-  m_PrefabInstance: {fileID: 1115823602}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1115823604 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 6429dfc2d9183224499308876440c6fa, type: 3}
-  m_PrefabInstance: {fileID: 1115823602}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1115823605
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115823604}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 1.7576454, z: 1.17}
-  m_Center: {x: 0.0000009536743, y: 0.8782805, z: 0}
 --- !u!1001 &1117744779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31620,9 +31736,9 @@ GameObject:
   - component: {fileID: 1121311055}
   m_Layer: 3
   m_Name: BlockCollision (20)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1121311053
@@ -31773,7 +31889,7 @@ GameObject:
   - component: {fileID: 1143876397}
   m_Layer: 3
   m_Name: BlockCollision (31)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -31816,6 +31932,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_Name
       value: RockPlatform1Corner (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -31911,6 +32031,10 @@ PrefabInstance:
       value: LowGround (12)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -31963,6 +32087,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
       propertyPath: m_Name
       value: RockPlatform1Sidless (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -32079,6 +32207,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 15f9456fd30baf24c87cdab5c423ca92, type: 3}
       propertyPath: m_Name
       value: RockPlatformHigh (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 15f9456fd30baf24c87cdab5c423ca92, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 15f9456fd30baf24c87cdab5c423ca92, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -32638,7 +32770,7 @@ GameObject:
   - component: {fileID: 1209108870}
   m_Layer: 3
   m_Name: BlockCollision (30)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -32734,9 +32866,9 @@ GameObject:
   - component: {fileID: 1221772136}
   m_Layer: 3
   m_Name: BlockCollision (23)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1221772134
@@ -32847,6 +32979,10 @@ PrefabInstance:
       value: LowGround (20)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -32902,7 +33038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6e3a0c7243809ff4f813e9557eea15b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33021,6 +33157,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 488dfbbef3f8c8a4795c9ca6f8cc50eb, type: 3}
       propertyPath: m_Name
       value: GroundTile (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 488dfbbef3f8c8a4795c9ca6f8cc50eb, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 488dfbbef3f8c8a4795c9ca6f8cc50eb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -33177,12 +33317,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1547968349}
     m_Modifications:
     - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33301,6 +33445,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -33465,6 +33613,10 @@ PrefabInstance:
       value: LowGround (44)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -33519,7 +33671,7 @@ GameObject:
   - component: {fileID: 1264680922}
   m_Layer: 3
   m_Name: BlockCollision (27)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -33735,7 +33887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a1da27790cec80428d19d5dbdb8c602, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a1da27790cec80428d19d5dbdb8c602, type: 3}
       propertyPath: m_LocalPosition.x
@@ -33800,6 +33952,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_Name
       value: RockPlatform1Corner (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -33910,7 +34066,7 @@ GameObject:
   - component: {fileID: 1312714346}
   m_Layer: 3
   m_Name: BlockCollision (37)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -34032,7 +34188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c42d2b95a430f1f499c89db28d9a9dd4, type: 3}
       propertyPath: m_RootOrder
-      value: 45
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c42d2b95a430f1f499c89db28d9a9dd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34463,7 +34619,7 @@ GameObject:
   - component: {fileID: 1356758782}
   m_Layer: 3
   m_Name: BlockCollision (43)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -34625,7 +34781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c42d2b95a430f1f499c89db28d9a9dd4, type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c42d2b95a430f1f499c89db28d9a9dd4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35189,7 +35345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa43df41dde6dbe4197c6e7c7df2cbf4, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa43df41dde6dbe4197c6e7c7df2cbf4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35311,7 +35467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36096,7 +36252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87b3936e9fd2775449441b60478b8e1c, type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 87b3936e9fd2775449441b60478b8e1c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36218,7 +36374,7 @@ GameObject:
   - component: {fileID: 1406576297}
   m_Layer: 3
   m_Name: Wall2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -36571,6 +36727,10 @@ PrefabInstance:
       value: LowGround (35)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -36693,6 +36853,10 @@ PrefabInstance:
       value: LowGround (82)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -36803,7 +36967,7 @@ GameObject:
   m_Name: BridgeCollision (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1452688260
@@ -36844,6 +37008,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37170,7 +37338,7 @@ GameObject:
   - component: {fileID: 1465865828}
   m_Layer: 3
   m_Name: BlockCollision (39)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -37220,7 +37388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -37267,6 +37435,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37454,7 +37626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_RootOrder
-      value: 42
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a14ed0252f70f0948a7f6bec47011caf, type: 3}
       propertyPath: m_LocalScale.x
@@ -37507,7 +37679,7 @@ GameObject:
   - component: {fileID: 1497018680}
   m_Layer: 3
   m_Name: BlockCollision (34)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -37550,6 +37722,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -38168,13 +38344,9 @@ Transform:
   - {fileID: 72268905}
   - {fileID: 1770610492}
   - {fileID: 1224184553}
-  - {fileID: 354574275}
   - {fileID: 1068153751}
-  - {fileID: 210090823}
   - {fileID: 1232244554}
-  - {fileID: 1085096417}
   - {fileID: 978321327}
-  - {fileID: 307458221}
   - {fileID: 1795554129}
   - {fileID: 940624625}
   - {fileID: 1371480418}
@@ -38211,7 +38383,6 @@ Transform:
   - {fileID: 1976383036}
   - {fileID: 1870055203}
   - {fileID: 1064190496}
-  - {fileID: 1115823603}
   - {fileID: 1994251892}
   - {fileID: 1737850894}
   m_Father: {fileID: 663958134}
@@ -38227,6 +38398,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -38611,6 +38786,10 @@ PrefabInstance:
       value: RockPlatform1Corner (16)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe74bd959d3a0f540933cb4f8036170b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -38815,6 +38994,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -39537,6 +39720,10 @@ PrefabInstance:
       value: LowGround (87)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -40005,6 +40192,10 @@ PrefabInstance:
       value: LowGround (64)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -40064,7 +40255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a25623c5ecb8ae3419f7eabd27950cfb, type: 3}
       propertyPath: m_RootOrder
-      value: 49
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a25623c5ecb8ae3419f7eabd27950cfb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40165,6 +40356,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (81)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -40275,7 +40470,7 @@ GameObject:
   - component: {fileID: 1682612518}
   m_Layer: 3
   m_Name: BlockCollision (33)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -40743,6 +40938,10 @@ PrefabInstance:
       value: LowGround (42)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -40798,7 +40997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b6e72273b8f5e1543b1b53816a974998, type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b6e72273b8f5e1543b1b53816a974998, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40978,7 +41177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa43df41dde6dbe4197c6e7c7df2cbf4, type: 3}
       propertyPath: m_RootOrder
-      value: 62
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa43df41dde6dbe4197c6e7c7df2cbf4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41116,6 +41315,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -41591,7 +41794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a1da27790cec80428d19d5dbdb8c602, type: 3}
       propertyPath: m_RootOrder
-      value: 53
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3a1da27790cec80428d19d5dbdb8c602, type: 3}
       propertyPath: m_LocalScale.x
@@ -41729,7 +41932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 27d3010168cd192459f033e64ece9150, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 27d3010168cd192459f033e64ece9150, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41989,6 +42192,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -42384,6 +42591,10 @@ PrefabInstance:
       value: LowGround (17)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -42438,9 +42649,9 @@ GameObject:
   - component: {fileID: 1839807218}
   m_Layer: 3
   m_Name: RightWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1839807216
@@ -42645,12 +42856,16 @@ PrefabInstance:
       value: LongStone (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_RootOrder
-      value: 46
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_LocalScale.z
@@ -42927,6 +43142,10 @@ PrefabInstance:
       value: RockPlatform1Sidless (23)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -42994,7 +43213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2198ba4f5cda7644ba054920f2bceb99, type: 3}
       propertyPath: m_RootOrder
-      value: 58
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2198ba4f5cda7644ba054920f2bceb99, type: 3}
       propertyPath: m_LocalScale.z
@@ -43065,6 +43284,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2092944907}
     m_Modifications:
+    - target: {fileID: 100000, guid: 15f9456fd30baf24c87cdab5c423ca92, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 15f9456fd30baf24c87cdab5c423ca92, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -43223,7 +43446,7 @@ GameObject:
   m_Name: BridgeCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1880276243
@@ -43469,7 +43692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6498993214768422919, guid: 860603c48bc057945895d3b5c425c3d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.64
+      value: 12.75
       objectReference: {fileID: 0}
     - target: {fileID: 6498993214768422919, guid: 860603c48bc057945895d3b5c425c3d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -43531,7 +43754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a05206201a9d47c479e724d647dcd571, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a05206201a9d47c479e724d647dcd571, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44016,9 +44239,9 @@ GameObject:
   - component: {fileID: 1934466217}
   m_Layer: 3
   m_Name: BlockCollision (48)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1934466215
@@ -44178,7 +44401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a25623c5ecb8ae3419f7eabd27950cfb, type: 3}
       propertyPath: m_RootOrder
-      value: 50
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a25623c5ecb8ae3419f7eabd27950cfb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44357,7 +44580,7 @@ GameObject:
   - component: {fileID: 1960171433}
   m_Layer: 3
   m_Name: BlockCollision (40)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -44407,7 +44630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c6d74c76f55628c4c8c2933aade2f531, type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c6d74c76f55628c4c8c2933aade2f531, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44802,7 +45025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b66c2aefa06392478e229326e84ad07, type: 3}
       propertyPath: m_RootOrder
-      value: 57
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b66c2aefa06392478e229326e84ad07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45031,6 +45254,10 @@ PrefabInstance:
       value: LowGround (19)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -45220,7 +45447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa43df41dde6dbe4197c6e7c7df2cbf4, type: 3}
       propertyPath: m_RootOrder
-      value: 61
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa43df41dde6dbe4197c6e7c7df2cbf4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45285,6 +45512,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -45447,6 +45678,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -45920,7 +46155,7 @@ GameObject:
   - component: {fileID: 2036558366}
   m_Layer: 3
   m_Name: BlockCollision (29)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -46182,7 +46417,7 @@ GameObject:
   - component: {fileID: 2052314364}
   m_Layer: 3
   m_Name: Wall1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -46281,6 +46516,10 @@ PrefabInstance:
       value: LowGround (39)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -46335,6 +46574,10 @@ PrefabInstance:
       value: LowGround (24)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -46387,6 +46630,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
       propertyPath: m_Name
       value: RockPlatform1Sidless (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 17496bcfd76f8b048b05c45eb46d9327, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -46451,6 +46698,10 @@ PrefabInstance:
       value: LowGround (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -46503,6 +46754,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -46619,7 +46874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c6d74c76f55628c4c8c2933aade2f531, type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c6d74c76f55628c4c8c2933aade2f531, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46788,12 +47043,16 @@ PrefabInstance:
       value: LongStone (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_RootOrder
-      value: 51
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 706a75122faa52247bc100adfcd632d4, type: 3}
       propertyPath: m_LocalScale.x
@@ -46920,6 +47179,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_Name
       value: LowGround (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 7f5b3772e59d43541a92748edb4d45ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -47448,7 +47711,7 @@ GameObject:
   - component: {fileID: 2116254789}
   m_Layer: 3
   m_Name: BlockCollision (28)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
