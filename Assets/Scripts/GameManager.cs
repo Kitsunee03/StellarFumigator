@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 		gameIsOver = true;
 	}
 
-	public void WinLevel()
+	public static void WinLevel()
 	{
 		gameIsOver = true;
 	}

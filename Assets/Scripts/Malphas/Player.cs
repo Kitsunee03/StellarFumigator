@@ -334,11 +334,6 @@ public class Player : MonoBehaviour
         Gizmos.DrawLine(transform.position - transform.right * m_collRadius, posMinusY - transform.right * m_collRadius);
     }*/
 
-    private void OnControllerColliderHit(ControllerColliderHit collision)
-    {
-        if (collision.gameObject.CompareTag("Exit")) { }
-    }
-
     private void ResizeCollider(float p_heightMultiplier, float p_centerPos)
     {
         m_controller.height = p_heightMultiplier;
