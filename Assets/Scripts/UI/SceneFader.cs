@@ -8,7 +8,7 @@ public class SceneFader : MonoBehaviour
 	[SerializeField] private Image blackScreen;
     [SerializeField] private AnimationCurve curve;
 
-	void Start()
+	private void Start()
 	{
 		StartCoroutine(FadeIn());
 	}
@@ -18,7 +18,7 @@ public class SceneFader : MonoBehaviour
 		StartCoroutine(FadeOut(scene));
 	}
 
-	IEnumerator FadeIn()
+	private IEnumerator FadeIn()
 	{
 		float time = 1f;
 
@@ -31,7 +31,7 @@ public class SceneFader : MonoBehaviour
 		}
 	}
 
-	IEnumerator FadeOut(string scene)
+	private IEnumerator FadeOut(string scene)
 	{
 		float time = 0f;
 

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class TutorialUIManager : MonoBehaviour
 {
+    private Player m_player;
     private BuildingSystem m_buildingSystem;
 
     [Header("Abilities")]
@@ -23,8 +24,6 @@ public class TutorialUIManager : MonoBehaviour
 
     [Header("Gems")]
     [SerializeField] private Text gemsText;
-
-    private Player m_player;
 
     void Start()
     {

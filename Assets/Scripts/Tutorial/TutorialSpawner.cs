@@ -13,23 +13,16 @@ public class TutorialSpawner : MonoBehaviour
     private void Update()
     {
         //Reset waves
-        if (waveIndex == waves.Count && enemiesAlive == 0)
-        {
-            waveIndex = 0;
-        }
+        if (waveIndex == waves.Count && enemiesAlive == 0) { waveIndex = 0; }
 
         //Next Wave timer
         if (firstWaveCountdown > 0f) { firstWaveCountdown -= Time.deltaTime; }
-        if (firstWaveCountdown <= 0f && enemiesAlive == 0)
-        {
-            StartCoroutine(SpawnWave());
-        }
+        if (firstWaveCountdown <= 0f && enemiesAlive == 0) { StartCoroutine(SpawnWave()); }
     }
 
     private IEnumerator SpawnWave()
     {
         Wave wave = waves[waveIndex];
-
         enemiesAlive += wave.enemyCount;
 
         for (int i = 0; i < wave.enemyCount; i++)

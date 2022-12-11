@@ -1,15 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : MonoBehaviour
+{
+	[SerializeField] private GameObject pauseCanvas;
+	[SerializeField] private SceneFader sceneFader;
 
-	public GameObject ui;
-
-	public string menuSceneName = "MainMenu";
-
-	public SceneFader sceneFader;
-
-	void Update ()
+	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
 		{
@@ -17,29 +14,24 @@ public class PauseMenu : MonoBehaviour {
 		}
 	}
 
-	public void Toggle ()
+	public void Toggle()
 	{
-		ui.SetActive(!ui.activeSelf);
+		pauseCanvas.SetActive(!pauseCanvas.activeSelf);
 
-		if (ui.activeSelf)
-		{
-			Time.timeScale = 0f;
-		} else
-		{
-			Time.timeScale = 1f;
-		}
+		//Stop-Resume game
+		if (pauseCanvas.activeSelf) { Time.timeScale = 0f; }
+		else { Time.timeScale = 1f; }
 	}
 
-	public void Retry ()
+	public void Retry()
 	{
 		Toggle();
 		sceneFader.FadeTo(SceneManager.GetActiveScene().name);
-    }
-
-	public void Menu ()
-	{
-		Toggle();
-		sceneFader.FadeTo(menuSceneName);
 	}
 
+	public void Menu()
+	{
+		Toggle();
+		sceneFader.FadeTo("MainMenu");
+	}
 }

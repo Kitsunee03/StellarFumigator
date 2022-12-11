@@ -92,8 +92,5 @@ public class Bullet : MonoBehaviour
 		Gizmos.DrawWireSphere(transform.position, explosionRadius);
 	}*/
 
-	public void SetTarget(Transform p_target)
-	{
-		targetEnemy = p_target;
-	}
+	public void SetTarget(Transform p_target) { targetEnemy = p_target; }
 }

@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
 
     private Player m_player;
 
-    void Start()
+    private void Start()
     {
         m_buildingSystem = FindObjectOfType<BuildingSystem>();
         m_waveSpawner = FindObjectOfType<WaveSpawner>();
@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
         coreHealthFillImage.fillAmount = GameStats.CoreHealth / GameStats.CoreMaxHealth;
     }
 
-    void Update()
+    private void Update()
     {
         //Wave Timer
         if (m_waveSpawner.WavesLeft != 0)
