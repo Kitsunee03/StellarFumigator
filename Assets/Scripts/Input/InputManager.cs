@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     [Header("Generic Buttons")]
     private float m_timeSincePrimaryButtonPressed = 0.3f;
     private float m_timeSinceModeSelectorButtonPressed = 0.3f;
+    private float m_timeSincePauseButtonPressed = 0.3f;
 
     [Header("Weapon Mode Buttons")]
     private float m_timeSinceJumpButtonPressed = 0.3f;
@@ -36,6 +37,7 @@ public class InputManager : MonoBehaviour
         playerInputs.Camera.Enable();
         playerInputs.Architect.Enable();
         playerInputs.Weapon.Enable();
+        playerInputs.Options.Enable();
     }
     private void OnDisable()
     {
@@ -43,6 +45,7 @@ public class InputManager : MonoBehaviour
         playerInputs.Camera.Disable();
         playerInputs.Architect.Disable();
         playerInputs.Weapon.Disable();
+        playerInputs.Options.Disable();
     }
     #endregion
 
@@ -71,13 +74,16 @@ public class InputManager : MonoBehaviour
             playerInputs.Camera.MouseAxis.performed += context => m_mouseAxisValue = context.ReadValue<Vector2>();
             playerInputs.Camera.Zoom.performed += context => m_wheelAxisValue = context.ReadValue<float>();
 
+            playerInputs.Options.Pause.performed += context => m_timeSincePauseButtonPressed = 0f;
+
             _INPUT_MANAGER = this;
         }
     }
 
-    void Update()
+    private void Update()
     {
         m_timeSinceModeSelectorButtonPressed += Time.deltaTime;
+        m_timeSincePauseButtonPressed += Time.deltaTime;
 
         //Weapon Buttons Update
         m_timeSinceDashButtonPressed += Time.deltaTime;
@@ -131,6 +137,10 @@ public class InputManager : MonoBehaviour
     {
         return m_timeSinceShootButtonPressed == 0f;
     }
+    public void SetShootButtonPressedTime(float time)
+    {
+        m_timeSinceShootButtonPressed = time;
+    }
     #endregion
 
     #region Architect Mode Accessors
@@ -140,5 +150,16 @@ public class InputManager : MonoBehaviour
     public bool GetRotateButtonPressed() { return m_timeSinceRotateButtonPressed == 0f; }
     public bool GetPrevBuildingButtonPressed() { return m_timeSincePrevBuildingButtonPressed == 0f; }
     public bool GetNextBuildingButtonPressed() { return m_timeSinceNextBuildingButtonPressed == 0f; }
+    #endregion
+
+    #region Options Accessors
+    public bool GetPauseButtonPressed()
+    {
+        return m_timeSincePauseButtonPressed == 0f;
+    }
+    public void SetPauseButtonPressedTime(float time)
+    {
+        m_timeSincePauseButtonPressed = time;
+    }
     #endregion
 }

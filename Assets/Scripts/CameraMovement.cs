@@ -27,6 +27,8 @@ public class CameraMovement : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (Time.timeScale == 0f) { return; }
+
         //Rotation
         CameraRotation();
 

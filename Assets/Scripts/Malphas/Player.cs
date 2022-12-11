@@ -98,6 +98,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f) { return; }
+
         //Gameplay Management
         if (m_isDying) //Dead
         {

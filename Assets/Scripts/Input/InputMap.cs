@@ -309,17 +309,6 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f88dcbbf-e129-4407-a9b5-4e16316a456b"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CancelBuild"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""7b2ae191-08ed-4125-93a8-24474304354b"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -348,6 +337,17 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PreviousBuilding"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f88dcbbf-e129-4407-a9b5-4e16316a456b"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelBuild"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -380,6 +380,34 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Options"",
+            ""id"": ""11f05fb2-463f-46f4-a687-e4ce7b9618d1"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""70373e47-5227-49ee-8fa5-e19da4aefa06"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""781db5eb-a4d2-4f23-a581-33df36cbb7f2"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -405,6 +433,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         // Weapon
         m_Weapon = asset.FindActionMap("Weapon", throwIfNotFound: true);
         m_Weapon_Shoot = m_Weapon.FindAction("Shoot", throwIfNotFound: true);
+        // Options
+        m_Options = asset.FindActionMap("Options", throwIfNotFound: true);
+        m_Options_Pause = m_Options.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -664,6 +695,39 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         }
     }
     public WeaponActions @Weapon => new WeaponActions(this);
+
+    // Options
+    private readonly InputActionMap m_Options;
+    private IOptionsActions m_OptionsActionsCallbackInterface;
+    private readonly InputAction m_Options_Pause;
+    public struct OptionsActions
+    {
+        private @InputMap m_Wrapper;
+        public OptionsActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_Options_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Options; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OptionsActions set) { return set.Get(); }
+        public void SetCallbacks(IOptionsActions instance)
+        {
+            if (m_Wrapper.m_OptionsActionsCallbackInterface != null)
+            {
+                @Pause.started -= m_Wrapper.m_OptionsActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_OptionsActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_OptionsActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_OptionsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+        }
+    }
+    public OptionsActions @Options => new OptionsActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -688,5 +752,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     public interface IWeaponActions
     {
         void OnShoot(InputAction.CallbackContext context);
+    }
+    public interface IOptionsActions
+    {
+        void OnPause(InputAction.CallbackContext context);
     }
 }

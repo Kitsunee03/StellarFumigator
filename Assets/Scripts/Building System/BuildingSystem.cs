@@ -160,5 +160,6 @@ public class BuildingSystem : MonoBehaviour
     #region Accessors
     public int GetCurrentStructureNum { get { return currentStructure; } }
     public GameObject GetCurrentStructure { get { return structures[currentStructure]; } }
+    public PlaceableObject GetStructureToPlace { get { return objectToPlace; } }
     #endregion
 }
