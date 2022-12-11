@@ -54,4 +54,4 @@ MonoBehaviour:
   - enemy: {fileID: 2059078195527756073, guid: 62d5dfafc884dac448b78fb223a2ef28, type: 3}
     enemyCount: 10
     spawnRate: 0.3
-  firstWaveCountdown: 6
+  firstWaveCountdown: 30

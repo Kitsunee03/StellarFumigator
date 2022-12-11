@@ -966,10 +966,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_colors:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0.39323044, b: 1, a: 0}
+  - {r: 0.58431375, g: 0.05882353, b: 0.05882353, a: 0}
+  - {r: 0.90588236, g: 0.90588236, b: 0.90588236, a: 0}
   - {r: 0.91235113, g: 1, b: 0.23113209, a: 0}
-  m_materialsToPaint: []
+  m_materialsToPaint:
+  - {fileID: 2100000, guid: 65948b0a2e9cfec4590d1f11d62b1d86, type: 2}
+  - {fileID: 2100000, guid: f0d46aa4b7383c24b9c14e2b09de2c39, type: 2}
   m_bulletPrfb: {fileID: 6863857337172796869, guid: 9fc5deab5fef94d41b92a7112049f302, type: 3}
   m_attackSpawnPos: {fileID: 7977339510544413134}
 --- !u!114 &2113410315

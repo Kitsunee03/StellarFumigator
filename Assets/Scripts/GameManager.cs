@@ -3,7 +3,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] private bool isTutorial;
-	private WaveSpawner waveSpawner;
     private SceneFader fader;
 
     private float m_sceneResetTimer = 3f;
@@ -13,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
 	{
-        waveSpawner = FindObjectOfType<WaveSpawner>();
         fader = FindObjectOfType<SceneFader>();
 
         gameIsOver = false;
@@ -31,18 +29,8 @@ public class GameManager : MonoBehaviour
 
 
 		if (isTutorial) { return; }
-
-		//Level survived
-		if (waveSpawner.WavesLeft == 0 && waveSpawner.EnemiesAlive == 0)
-		{
-			WinLevel();
-		}
-
-		//F
-		if (GameStats.CoreHealth <= 0)
-		{
-			EndGame();
-		}
+		//Defeated
+		if (GameStats.CoreHealth <= 0) { EndGame(); }
 	}
 
 	private void EndGame()

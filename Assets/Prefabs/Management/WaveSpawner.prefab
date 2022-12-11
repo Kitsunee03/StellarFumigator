@@ -61,5 +61,5 @@ MonoBehaviour:
     enemyCount: 30
     spawnRate: 4
   timeBetweenWaves: 60
-  countdown: 20
-  gameManager: {fileID: 0}
+  countdown: 30
+  exitBlock: {fileID: 0}

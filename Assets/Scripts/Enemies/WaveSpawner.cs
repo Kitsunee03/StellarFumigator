@@ -10,7 +10,8 @@ public class WaveSpawner : MonoBehaviour
 	[SerializeField] private float timeBetweenWaves = 15f;
 	[SerializeField] private float countdown = 10f;
 
-	[SerializeField] private GameManager gameManager;
+	[Header("Level Exit")]
+	[SerializeField] private GameObject exitBlock;
 	private int waveIndex = 0;
 
 	private void Update()
@@ -23,6 +24,7 @@ public class WaveSpawner : MonoBehaviour
 		//Succesfull survival
 		if (waveIndex == waves.Count && enemiesAlive == 0)
 		{
+			if(exitBlock!= null) { exitBlock.SetActive(false); }
 			enabled = false;
 		}
 
