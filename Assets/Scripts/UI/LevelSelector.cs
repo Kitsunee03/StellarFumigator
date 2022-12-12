@@ -6,5 +6,7 @@ public class LevelSelector : MonoBehaviour
 	[SerializeField] private SceneFader fader;
 	[SerializeField] private Button[] levelButtons;
 
-	public void Select(string levelName) { fader.FadeTo(levelName); }
+	public void GoToLevel(string levelName) { fader.FadeTo(levelName); }
+
+	public void GoBack() { fader.FadeTo("MainMenu"); }
 }

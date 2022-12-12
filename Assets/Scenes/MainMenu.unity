@@ -224,6 +224,113 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000017881393, y: 0.7749999}
   m_SizeDelta: {x: 108.343, y: 53.034}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &124421611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124421612}
+  - component: {fileID: 124421614}
+  - component: {fileID: 124421613}
+  m_Layer: 5
+  m_Name: ControlsText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &124421612
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124421611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 710571586}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 380, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &124421613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124421611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 06d08cbcfa41d1e49bbeedbe1bb43076, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '
+
+    Move
+
+    Change mode
+
+
+
+    Shoot
+
+    Dash
+
+    Jump
+
+
+
+    Start
+    Building
+
+    Cancel Building
+
+    Place
+
+    Next turret
+
+    Previous turret
+
+'
+--- !u!222 &124421614
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124421611}
+  m_CullTransparentMesh: 1
 --- !u!1 &274334492
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +428,7 @@ GameObject:
   - component: {fileID: 628205764}
   - component: {fileID: 628205763}
   m_Layer: 5
-  m_Name: ControlsText
+  m_Name: ControlKeysText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,11 +447,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 710571586}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 200, y: 0}
   m_SizeDelta: {x: 380, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &628205763
@@ -380,10 +487,35 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\nMove\t\t\t\t\t\t< WASD >\nChange mode\t\t< TAB >\n\n\nShoot\t\t\t\t\t\t<
-    Primary Button >\nDash\t\t\t\t\t\t< Shift >\nJump\t\t\t\t\t\t< SpaceBar >\n\n\nStart
-    Building\t\t\t< Primary Button >\nCancel Building\t\t< Escape >\nPlace\t\t\t\t\t\t<
-    Spacebar >\nNext turret\t\t\t\t< E >\nPrevious turret\t\t< Q >\n"
+  m_Text: '
+
+    < WASD >
+
+    < TAB >
+
+
+
+    < Primary Button >
+
+    < Shift >
+
+    <
+    SpaceBar >
+
+
+
+    < Primary Button >
+
+    < Escape >
+
+    < Spacebar >
+
+    <
+    E >
+
+    < Q >
+
+'
 --- !u!222 &628205764
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -423,6 +555,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1729764069}
+  - {fileID: 124421612}
   - {fileID: 628205762}
   m_Father: {fileID: 1166528293}
   m_RootOrder: 0
@@ -1160,7 +1293,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.9763271, b: 0.9117647, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
