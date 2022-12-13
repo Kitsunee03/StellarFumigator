@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -39,17 +40,26 @@ public class BuildingSystem : MonoBehaviour
     }
     private void Update()
     {
+        Color color;
         //Is player on Constructor mode?
         if (m_player.CurrentMode != PLAYER_MODE.ARCHITECT)
         {
-            if (objectToPlace) { Destroy(objectToPlace.gameObject); }
+            if (objectToPlace) { Destroy(objectToPlace.gameObject); CleanPlaceArea(); }
+            color = new Color(1.0f, 1.0f, 1.0f, 0.1f);
+            MainTilemap.color = color;
             return;
         }
+        color = new Color(1.0f, 1.0f, 1.0f, 0.4f);
+        MainTilemap.color = color;
+
 
         //Start building
         if (m_input.GetPrimaryButtonPressed() && !objectToPlace && GameStats.Gems >= currentStructurePrice)
         {
             InitializeWithObject(structures[currentStructure]);
+
+            Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+            PaintPlaceArea(start, objectToPlace.Size, whiteTile);
         }
 
         //Change Structure
@@ -81,13 +91,14 @@ public class BuildingSystem : MonoBehaviour
                 Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
                 TakeArea(start, objectToPlace.Size);
 
-                //Clean object
+                //Clean object and BuildGrid
+                CleanPlaceArea();
                 objectToPlace = null;
                 return;
             }
         }
         //Cancel Placement
-        else if (m_input.GetCancelBuildButtonPressed()) { Destroy(objectToPlace.gameObject); }
+        else if (m_input.GetCancelBuildButtonPressed()) { Destroy(objectToPlace.gameObject); CleanPlaceArea(); }
 
         //BuildTilemap color
         if (CanBePlaced(objectToPlace) && objectToPlace != null) { BuildTilemap.color = Color.green; }
@@ -97,8 +108,8 @@ public class BuildingSystem : MonoBehaviour
         {
             lastObjectPos = objectToPlace.CurrentPosition;
             Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
-            CleanSimulatingArea(start, objectToPlace.Size);
-            SimulatePlaceArea(start, objectToPlace.Size);
+            CleanPlaceArea();
+            PaintPlaceArea(start, objectToPlace.Size, whiteTile);
         }
     }
 
@@ -150,10 +161,7 @@ public class BuildingSystem : MonoBehaviour
         area.size = new Vector3Int(area.size.x + 1, area.size.y + 1, area.size.z);
 
         TileBase[] baseArray = GetTilesBlock(area, MainTilemap);
-        foreach (var b in baseArray)
-        {
-            if (b == whiteTile) { return false; }
-        }
+        foreach (var b in baseArray) { if (b == whiteTile) { return false; } }
 
         return true;
     }
@@ -163,15 +171,15 @@ public class BuildingSystem : MonoBehaviour
         MainTilemap.BoxFill(start, whiteTile, start.x, start.y,
                             start.x + size.x, start.y + size.y);
     }
-    public void SimulatePlaceArea(Vector3Int start, Vector3Int size)
+
+    private void PaintPlaceArea(Vector3Int start, Vector3Int size, TileBase tile)
     {
-        BuildTilemap.BoxFill(start, whiteTile, start.x, start.y,
+        BuildTilemap.BoxFill(start, tile, start.x, start.y,
                             start.x + size.x, start.y + size.y);
     }
-    public void CleanSimulatingArea(Vector3Int start, Vector3Int size) 
+    private void CleanPlaceArea()
     {
-        BuildTilemap.BoxFill(start, null, start.x, start.y,
-                            start.x + size.x, start.y + size.y);
+        BuildTilemap.ClearAllTiles();
     }
     #endregion
 

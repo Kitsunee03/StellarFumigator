@@ -396,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2420627108655582410, guid: e5e13c1e8daa9c443a4db4b9d1479849, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.11
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 2420627108655582410, guid: e5e13c1e8daa9c443a4db4b9d1479849, type: 3}
       propertyPath: m_LocalPosition.y
@@ -404,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2420627108655582410, guid: e5e13c1e8daa9c443a4db4b9d1479849, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.57
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 2420627108655582410, guid: e5e13c1e8daa9c443a4db4b9d1479849, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1384,7 +1384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 280a67c9b275773498e3cb4bcb85cd78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.35
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 280a67c9b275773498e3cb4bcb85cd78, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1392,7 +1392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 280a67c9b275773498e3cb4bcb85cd78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.570004
+      value: -32
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 280a67c9b275773498e3cb4bcb85cd78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5203,7 +5203,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6085714802349842764, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
       propertyPath: m_Name
-      value: Grid
+      value: TutorialGrid
       objectReference: {fileID: 0}
     - target: {fileID: 6085714802349842802, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
       propertyPath: m_RootOrder
@@ -5211,7 +5211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6085714802349842802, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6085714802349842802, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5219,7 +5219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6085714802349842802, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6085714802349842802, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5253,7 +5253,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
 --- !u!1839735485 &811920876 stripped
 Tilemap:
-  m_CorrespondingSourceObject: {fileID: 4140924986260145726, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
+  m_CorrespondingSourceObject: {fileID: 339573456622126750, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
   m_PrefabInstance: {fileID: 811920875}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &822874240
@@ -12399,6 +12399,10 @@ PrefabInstance:
       propertyPath: BuildTilemap
       value: 
       objectReference: {fileID: 811920876}
+    - target: {fileID: 1172017811224739698, guid: f9269ea94c76af14b8b4d02f17dfec61, type: 3}
+      propertyPath: invisibleTile
+      value: 
+      objectReference: {fileID: 11400000, guid: b6643273fe373ec44b23a961b24ed46c, type: 2}
     - target: {fileID: 4172876017020864912, guid: f9269ea94c76af14b8b4d02f17dfec61, type: 3}
       propertyPath: m_Name
       value: TutorialManagers
