@@ -145,7 +145,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""79180b9c-1ac1-41ee-a502-5b87c25d77ea"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

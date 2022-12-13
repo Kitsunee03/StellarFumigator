@@ -634,7 +634,7 @@ Transform:
   - {fileID: 1835883343}
   - {fileID: 2010007233}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755211044
 GameObject:
@@ -665,7 +665,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821622818
 GameObject:
@@ -846,17 +846,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937644409}
   m_CullTransparentMesh: 1
---- !u!114 &941394122 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114000013068204782, guid: fcf3f6aa890b2ff4aae9516cdad5dcd2, type: 3}
-  m_PrefabInstance: {fileID: 1580499964}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70ed8cdf186d687418b7eb1f51756d53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &990521859
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +860,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &990521860
 Transform:
@@ -886,7 +875,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1025529210
 GameObject:
@@ -1156,7 +1145,7 @@ RectTransform:
   m_Children:
   - {fileID: 937644410}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1257,7 +1246,7 @@ RectTransform:
   m_Children:
   - {fileID: 710571586}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1293,7 +1282,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1299081936
 GameObject:
@@ -1326,7 +1315,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1299081938
 MeshRenderer:
@@ -1647,7 +1636,7 @@ RectTransform:
   - {fileID: 1446648110}
   - {fileID: 1901847483}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1857,11 +1846,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0835e072f41352046a5da85ac41d686a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 
-  sceneFader: {fileID: 941394122}
+  levelToLoad: LevelSelect
   menuTurret: {fileID: 739931382}
   optionsCanvas: {fileID: 1166528289}
   creditsCanvas: {fileID: 1027115696}
+  menuButtons:
+  - {fileID: 1025529212}
+  - {fileID: 1352478810}
+  - {fileID: 1446648112}
+  - {fileID: 1901847485}
 --- !u!4 &1469564343
 Transform:
   m_ObjectHideFlags: 0
@@ -1875,7 +1868,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1580499964
 PrefabInstance:
@@ -1890,7 +1883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012742019986, guid: fcf3f6aa890b2ff4aae9516cdad5dcd2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4000012742019986, guid: fcf3f6aa890b2ff4aae9516cdad5dcd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2115,7 +2108,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1729764068
 GameObject:
@@ -2305,7 +2298,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 21.693, y: 34, z: 0}
 --- !u!114 &1819147859
 MonoBehaviour:
@@ -2995,7 +2988,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6112530732342211778, guid: 41a49341a9ae1d047ace874589cb5659, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6112530732342211778, guid: 41a49341a9ae1d047ace874589cb5659, type: 3}
       propertyPath: m_LocalPosition.x

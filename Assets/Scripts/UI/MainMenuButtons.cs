@@ -1,23 +1,27 @@
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class MainMenuButtons : MonoBehaviour
 {
-	[SerializeField] private string levelToLoad;
-	[SerializeField] private SceneFader sceneFader;
+	[SerializeField] private string levelToLoad = "LevelSelect";
+	private SceneFader sceneFader;
 
 	[SerializeField] private GameObject menuTurret;
 	[SerializeField] private GameObject optionsCanvas;
 	[SerializeField] private GameObject creditsCanvas;
+	[SerializeField] private List<Button> menuButtons;
 	private bool isOptionsOpen;
 	private bool isCreditsOpen;
 
-	private void Start()
-	{
-		if (levelToLoad == "") { levelToLoad = "LevelSelect"; }
-	}
+    private void Start()
+    {
+		sceneFader = FindObjectOfType<SceneFader>();
 
-	public void Play()
+	}
+    public void Play()
 	{
+		for(int i = 0; i < menuButtons.Count; i++) { menuButtons[i].interactable = false; }
 		sceneFader.FadeTo(levelToLoad);
 	}
 

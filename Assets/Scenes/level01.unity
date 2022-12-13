@@ -13918,7 +13918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6085714803769657799, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
       propertyPath: m_Color.a
-      value: 0.023529412
+      value: 0.39215687
       objectReference: {fileID: 0}
     - target: {fileID: 6085714803769657799, guid: a034aebef8d3a8b44892b0c0d09d3801, type: 3}
       propertyPath: m_Tiles.Array.size
@@ -52327,7 +52327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3660058489911441316, guid: 1026e1377f26798408c3f7ae5f3e9f3c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1026e1377f26798408c3f7ae5f3e9f3c, type: 3}

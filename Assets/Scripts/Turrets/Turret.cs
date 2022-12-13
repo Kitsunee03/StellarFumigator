@@ -53,9 +53,10 @@ public class Turret : MonoBehaviour
 	{
 		//Enable colliders
 		for (int i = 0; i < meshColliders.Count; i++) { meshColliders[i].enabled = true; }
+		meshObstacle.enabled = true;
 
-        //Update Target every 0.5 seconds
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+		//Update Target every 0.5 seconds
+		InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
 	private void UpdateTarget()

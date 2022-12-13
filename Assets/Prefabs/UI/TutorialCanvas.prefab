@@ -398,7 +398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.3}
   m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5850644797868558655
@@ -442,11 +442,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-
-
-    Usa los huecos transparentes para colocar tus estructuras'
+  m_Text: "Usa los espacios sin pintar para colocar tus estructuras,\n\xA1ten en
+    cuenta que \xE9stas ocupan varios espacios!"
 --- !u!1 &5850644797947769173
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,8 +936,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5850644798266529040}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -18.94}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -949,10 +946,10 @@ RectTransform:
   - {fileID: 932264648737051441}
   m_Father: {fileID: 5850644798713775236}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 8.76, y: 1.95}
+  m_AnchoredPosition: {x: 6.19, y: 2.25}
   m_SizeDelta: {x: 8, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5850644798266529044
@@ -1124,7 +1121,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5850644798338974994}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -39.91}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1134,7 +1131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 6, y: 1.95}
+  m_AnchoredPosition: {x: 13.72, y: 1.95}
   m_SizeDelta: {x: 8, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5850644798338974998
@@ -1642,7 +1639,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xBFTe has dado cuenta? El suelo est\xE1 cubierto de cuadrados;\n"
+  m_Text: "El suelo est\xE1 cubierto de cuadrados;\n"
 --- !u!1 &5850644798859021045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,7 +1720,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Este es el nucleo del planeta.\n\xA1Debemos protegerlo para impedir que
-    la plaga se expanda m\xE1s!"
+    la plaga se expanda!"
 --- !u!1 &5850644798938928392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,7 +2012,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5850644799426353763}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -39.91}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2026,7 +2023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 13.5, y: 1.95}
+  m_AnchoredPosition: {x: 20.69, y: 1.95}
   m_SizeDelta: {x: 8, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5850644799426353767
@@ -2257,7 +2254,7 @@ MonoBehaviour:
 
     < Spacebar >
 
-    < Shift >'
+    < Control Izq >'
 --- !u!1 &9112992866572591019
 GameObject:
   m_ObjectHideFlags: 0

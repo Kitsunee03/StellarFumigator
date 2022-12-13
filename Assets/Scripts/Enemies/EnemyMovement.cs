@@ -18,6 +18,11 @@ public class EnemyMovement : MonoBehaviour
     private float autoPathTime;
     private bool isAutoPathing;
 
+    [Header("RichardMode")]
+    private bool pathPaused;
+    private Vector3 lastAgentVelocity;
+    private Vector3 lastAgentPath;
+
     void Start()
     {
         enemyScript = GetComponent<Enemy>();
@@ -46,42 +51,47 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
 
-        m_agent.speed = enemyScript.Speed;
+        //Richard Mode
+        if (GameManager.RichardMode && !pathPaused) { pause(); pathPaused = true; }
+        if (!GameManager.RichardMode && pathPaused) { resume(); pathPaused = false; }
 
-        //Point Reached
-        if (Vector3.Distance(transform.position, m_targetDestination) <= 0.8f)
+        if (!pathPaused)
         {
-            m_targetDestination = GetRandomNavMeshPoint(transform.position, newPointRange);
-            m_agent.SetDestination(m_targetDestination);
-        }
+            m_agent.speed = enemyScript.Speed;
 
-        //Auto-Path
-        if (isAutoPathing)
-        {
-            m_agent.SetDestination(m_corePosition);
-            autoPathTime += Time.deltaTime;
-            //Animator
-            m_animator.SetBool("isRolling", true);
-            m_animator.SetBool("isWalking", false);
-        }
-        //Stop Autopathing
-        if (autoPathTime > 2f) {
-            isAutoPathing = false;
-            autoPathTime = 0f;
-            m_targetDestination = GetRandomNavMeshPoint(transform.position, newPointRange);
-            m_agent.SetDestination(m_targetDestination);
-            //Animator
-            m_animator.SetBool("isRolling", false);
-            m_animator.SetBool("isWalking", true);
-        }
+            //Point Reached
+            if (Vector3.Distance(transform.position, m_targetDestination) <= 0.8f)
+            {
+                m_targetDestination = GetRandomNavMeshPoint(transform.position, newPointRange);
+                m_agent.SetDestination(m_targetDestination);
+            }
 
-        //End path
-        if(Vector3.Distance(transform.position, m_corePosition) < 1.4f)
-        {
-            EndPath();
-        }
+            //Auto-Path
+            if (isAutoPathing)
+            {
+                m_agent.SetDestination(m_corePosition);
+                autoPathTime += Time.deltaTime;
+                //Animator
+                m_animator.SetBool("isRolling", true);
+                m_animator.SetBool("isWalking", false);
+            }
+            //Stop Autopathing
+            if (autoPathTime > 2f)
+            {
+                isAutoPathing = false;
+                autoPathTime = 0f;
+                m_targetDestination = GetRandomNavMeshPoint(transform.position, newPointRange);
+                m_agent.SetDestination(m_targetDestination);
+                //Animator
+                m_animator.SetBool("isRolling", false);
+                m_animator.SetBool("isWalking", true);
+            }
 
-        enemyScript.Speed = enemyScript.StartSpeed;
+            //End path
+            if (Vector3.Distance(transform.position, m_corePosition) < 1.4f) { EndPath(); }
+
+            enemyScript.Speed = enemyScript.StartSpeed;
+        }
     }
 
     private Vector3 GetRandomNavMeshPoint(Vector3 center, float range)
@@ -119,5 +129,25 @@ public class EnemyMovement : MonoBehaviour
         GameStats.CoreHealth--;
         waveSpawner.EnemiesAlive--;
         Destroy(gameObject);
+    }
+
+    private void pause()
+    {
+        lastAgentVelocity = m_agent.velocity;
+        lastAgentPath = m_targetDestination;
+        
+        m_agent.velocity = Vector3.zero;
+        m_agent.ResetPath();
+
+        m_animator.SetBool("isWalking", false);
+        m_animator.SetBool("isRolling", false);
+    }
+
+    private void resume()
+    {
+        m_agent.velocity = lastAgentVelocity;
+        m_agent.SetDestination(lastAgentPath);
+        if (isAutoPathing) { m_animator.SetBool("isRolling", true); }
+        else { m_animator.SetBool("isWalking", true); }
     }
 }

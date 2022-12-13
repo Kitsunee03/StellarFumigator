@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private float m_sceneResetTimer = 2f;
 	private static bool gameWon;
 	public static bool gameIsOver;
+	public static bool RichardMode;
 
 	private void Awake()
 	{
@@ -55,8 +56,9 @@ public class GameManager : MonoBehaviour
 		}
 
 		//TESTING (DELETE OR COMMENT THIS)
-		if (Input.GetKey(KeyCode.K)) { GameStats.CoreHealth = 0; }
-		if (Input.GetKey(KeyCode.M)) { GameStats.Gems = 1000; }
+		if (Input.GetKeyDown(KeyCode.K)) { GameStats.CoreHealth = 0; }
+		if (Input.GetKeyDown(KeyCode.M)) { GameStats.Gems = 1000; }
+		if (Input.GetKeyDown(KeyCode.L)) { RichardMode = !RichardMode; }
 
 		if (isTutorial) { return; }
 		//Defeated
