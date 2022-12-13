@@ -14,6 +14,7 @@ public class BuildingSystem : MonoBehaviour
     public GridLayout gridLayout;
     private Grid grid;
     [SerializeField] private Tilemap MainTilemap;
+    [SerializeField] private Tilemap BuildTilemap;
     [SerializeField] private TileBase whiteTile;
 
     [Header("Prefabs")]
@@ -22,6 +23,7 @@ public class BuildingSystem : MonoBehaviour
     private int currentStructurePrice;
 
     private PlaceableObject objectToPlace;
+    private Vector3 lastObjectPos;
 
     private void Awake()
     {
@@ -45,9 +47,9 @@ public class BuildingSystem : MonoBehaviour
         }
 
         //Start building
-        if (m_input.GetPrimaryButtonPressed() && !objectToPlace && GameStats.Gems >= currentStructurePrice) 
-        { 
-            InitializeWithObject(structures[currentStructure]); 
+        if (m_input.GetPrimaryButtonPressed() && !objectToPlace && GameStats.Gems >= currentStructurePrice)
+        {
+            InitializeWithObject(structures[currentStructure]);
         }
 
         //Change Structure
@@ -81,13 +83,22 @@ public class BuildingSystem : MonoBehaviour
 
                 //Clean object
                 objectToPlace = null;
+                return;
             }
-            else { Destroy(objectToPlace.gameObject); }
         }
         //Cancel Placement
-        else if (m_input.GetCancelBuildButtonPressed())
+        else if (m_input.GetCancelBuildButtonPressed()) { Destroy(objectToPlace.gameObject); }
+
+        //BuildTilemap color
+        if (CanBePlaced(objectToPlace) && objectToPlace != null) { BuildTilemap.color = Color.green; }
+        else if (objectToPlace != null) { BuildTilemap.color = Color.red; }
+        //BuildTilemap paint and clear
+        if (objectToPlace != null && lastObjectPos != objectToPlace.CurrentPosition)
         {
-            Destroy(objectToPlace.gameObject);
+            lastObjectPos = objectToPlace.CurrentPosition;
+            Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
+            CleanSimulatingArea(start, objectToPlace.Size);
+            SimulatePlaceArea(start, objectToPlace.Size);
         }
     }
 
@@ -141,18 +152,25 @@ public class BuildingSystem : MonoBehaviour
         TileBase[] baseArray = GetTilesBlock(area, MainTilemap);
         foreach (var b in baseArray)
         {
-            if (b == whiteTile)
-            {
-                return false;
-            }
+            if (b == whiteTile) { return false; }
         }
 
         return true;
     }
 
-    public void TakeArea(Vector3Int start, Vector3Int size)
+    private void TakeArea(Vector3Int start, Vector3Int size)
     {
         MainTilemap.BoxFill(start, whiteTile, start.x, start.y,
+                            start.x + size.x, start.y + size.y);
+    }
+    public void SimulatePlaceArea(Vector3Int start, Vector3Int size)
+    {
+        BuildTilemap.BoxFill(start, whiteTile, start.x, start.y,
+                            start.x + size.x, start.y + size.y);
+    }
+    public void CleanSimulatingArea(Vector3Int start, Vector3Int size) 
+    {
+        BuildTilemap.BoxFill(start, null, start.x, start.y,
                             start.x + size.x, start.y + size.y);
     }
     #endregion

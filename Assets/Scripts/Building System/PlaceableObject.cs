@@ -5,7 +5,7 @@ public class PlaceableObject : MonoBehaviour
     private Vector3[] Vertices;
     [SerializeField] private GameObject buildVFX;
 
-    private void Start()
+    private void Awake()
     {
         GetColliderVertexPositionsLocal();
         CalculateSizeInCells();
@@ -74,4 +74,5 @@ public class PlaceableObject : MonoBehaviour
 
     public bool Placed { get; private set; }
     public Vector3Int Size { get; private set; }
+    public Vector3 CurrentPosition { get { return transform.position; } }
 }
