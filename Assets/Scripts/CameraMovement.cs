@@ -8,9 +8,12 @@ public class CameraMovement : MonoBehaviour
     private LayerMask ignoreLayer;
 
     [Header("Movement")]
-    private float m_targetDistance;
-    private float m_cameraLerp;
-    private float rotationX, rotationY;
+    [SerializeField] private float m_targetDistance = 6f;
+    [SerializeField] private float maxTargetDistance = 8f;
+    [SerializeField] private float minTargetDistance = 2f;
+    [SerializeField] private float m_cameraLerp = 12f;
+    private float rotationX;
+    private float rotationY;
     private Vector3 offset;
 
     private void Start()
@@ -20,8 +23,6 @@ public class CameraMovement : MonoBehaviour
         ignoreLayer = LayerMask.GetMask("Player");
 
         //Default values
-        if (m_targetDistance == 0f) { m_targetDistance = 4f; }
-        if (m_cameraLerp == 0f) { m_cameraLerp = 12f; }
         if (offset == Vector3.zero) { offset = Vector3.up; }
     }
 
@@ -51,24 +52,17 @@ public class CameraMovement : MonoBehaviour
 
     private void CameraRotation()
     {
-        if (Gamepad.all.Count == 0)
-        {
-            rotationX -= InputManager._INPUT_MANAGER.GetMouseAxis().y / 7;
-            rotationY += InputManager._INPUT_MANAGER.GetMouseAxis().x / 7;
-        }
-        else
-        {
-            rotationX -= InputManager._INPUT_MANAGER.GetMouseAxis().y;
-            rotationY += InputManager._INPUT_MANAGER.GetMouseAxis().x;
-        }
+        rotationX -= InputManager._INPUT_MANAGER.GetMouseAxis().y / 7;
+        rotationY += InputManager._INPUT_MANAGER.GetMouseAxis().x / 7;
     }
+
     private void Zoom()
     {
-        if (InputManager._INPUT_MANAGER.GetWheelAxis() < 0f && m_targetDistance < 8f)
+        if (InputManager._INPUT_MANAGER.GetWheelAxis() < 0f && m_targetDistance < maxTargetDistance)
         {
             m_targetDistance += 0.5f;
         }
-        else if (InputManager._INPUT_MANAGER.GetWheelAxis() > 0f && m_targetDistance > 2f)
+        else if (InputManager._INPUT_MANAGER.GetWheelAxis() > 0f && m_targetDistance > minTargetDistance)
         {
             m_targetDistance -= 0.5f;
         }

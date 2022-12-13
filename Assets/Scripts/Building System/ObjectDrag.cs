@@ -12,6 +12,8 @@ public class ObjectDrag : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f) { return; }
+
         Vector3 pos = Utils.GetMouseWorldPosition();
         if (Vector3.Distance(player.transform.position, pos) < maxBuildDistance)
         {

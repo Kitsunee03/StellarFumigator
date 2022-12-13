@@ -37,6 +37,15 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) { return; }
+        if (GameManager.gameIsOver)
+        {
+            m_agent.SetDestination(transform.position);
+            m_animator.SetBool("isWalking", false);
+            m_animator.SetBool("isRolling", false);
+            return;
+        }
+
         m_agent.speed = enemyScript.Speed;
 
         //Point Reached

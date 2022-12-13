@@ -4,6 +4,6 @@ public class ReturnToMenu : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) { GameManager.WinLevel(); }
+        if (other.gameObject.CompareTag("Player")) { GameManager.instance.WinLevel(); }
     }
 }

@@ -15,6 +15,9 @@ public class PlayerAnimController : MonoBehaviour
 
     private void Update()
     {
+        //Player Dying
+        if (m_player.IsDying) { PlayerIsDying(); return; }
+
         //Idle
         m_anim.SetBool("isMoving", m_player.IsMoving());
         //Move
@@ -33,5 +36,15 @@ public class PlayerAnimController : MonoBehaviour
 
         m_anim.SetFloat("MovementX", moveDirection.x, dampingTime, Time.deltaTime);
         m_anim.SetFloat("MovementY", moveDirection.z, dampingTime, Time.deltaTime);
+    }
+
+    private void PlayerIsDying()
+    {
+        //Idle
+        m_anim.SetBool("isMoving", false);
+        //Attack
+        m_anim.SetBool("isAttacking", false);
+        //Dash
+        m_anim.SetBool("isDashing", false);
     }
 }

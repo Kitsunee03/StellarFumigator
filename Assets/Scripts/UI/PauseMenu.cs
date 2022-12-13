@@ -6,7 +6,6 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private GameObject pauseCanvas;
 	[SerializeField] private SceneFader sceneFader;
 
-
 	private void OnEnable()
 	{
         pauseCanvas.SetActive(false);

@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     }
 	private void Update()
 	{
-		healthCanvas.transform.LookAt(mainCamera);
+        healthCanvas.transform.LookAt(mainCamera);
     }
 
 	public void TakeDamage(float amount)

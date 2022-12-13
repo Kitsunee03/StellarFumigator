@@ -16,8 +16,10 @@ public class WaveSpawner : MonoBehaviour
 
 	private void Update()
 	{
-		//Next Wave timer
-		if (enemiesAlive == 0 && waveIndex != 0) { countdown -= Time.deltaTime * 2; }
+        if (Time.timeScale == 0f || GameManager.gameIsOver) { return; }
+
+        //Next Wave timer
+        if (enemiesAlive == 0 && waveIndex != 0) { countdown -= Time.deltaTime * 2; }
 		else { countdown -= Time.deltaTime; }
 		countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 

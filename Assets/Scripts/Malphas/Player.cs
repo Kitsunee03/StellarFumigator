@@ -99,12 +99,14 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (Time.timeScale == 0f) { return; }
-
-        //Gameplay Management
-        if (m_isDying) //Dead
+        if (GameManager.gameIsOver)
         {
-            m_sceneResetTimer -= Time.deltaTime;
-            if (m_sceneResetTimer <= 0f) { fader.FadeTo("MainMenu"); }
+            //Player Defeated
+            isDashing = false;
+            m_isDying = true;
+            Gravity();
+            GetMovement();
+            Move();
             return;
         }
 
