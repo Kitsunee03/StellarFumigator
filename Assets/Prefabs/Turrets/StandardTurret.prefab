@@ -217,6 +217,9 @@ MonoBehaviour:
   turnSpeed: 10
   firePoint: {fileID: 482280}
   buildingPrice: 25
+  meshColliders:
+  - {fileID: 7036486986911439819}
+  - {fileID: 8466058258255523494}
   bulletPrefab: {fileID: 185070, guid: 085647db17acfbb4292fe73ed9171486, type: 3}
   fireRate: 1
   damageOverTime: 30

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Turret : MonoBehaviour
 {
@@ -11,7 +13,10 @@ public class Turret : MonoBehaviour
 	[SerializeField] private Transform partToRotate;
 	[SerializeField] private float turnSpeed = 10f;
 	[SerializeField] private Transform firePoint;
+	[Header("Building")]
 	[SerializeField] private int buildingPrice;
+	[SerializeField] private List<MeshCollider> meshColliders;
+	private NavMeshObstacle meshObstacle;
 
 	private string enemyTag = "Enemy";
 
@@ -38,12 +43,19 @@ public class Turret : MonoBehaviour
             impactEffect.Stop();
             impactLight.enabled = false;
         }
+		//Disable colliders while building
+		meshObstacle = GetComponent<NavMeshObstacle>();
+		meshObstacle.enabled = false;
+        for (int i = 0; i < meshColliders.Count; i++) { meshColliders[i].enabled = false; }
     }
 
 	void Start()
 	{
-		//Update Target every 0.5 seconds
-		InvokeRepeating("UpdateTarget", 0f, 0.5f);
+		//Enable colliders
+		for (int i = 0; i < meshColliders.Count; i++) { meshColliders[i].enabled = true; }
+
+        //Update Target every 0.5 seconds
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
 	private void UpdateTarget()

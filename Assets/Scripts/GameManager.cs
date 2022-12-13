@@ -55,7 +55,8 @@ public class GameManager : MonoBehaviour
 		}
 
 		//TESTING (DELETE OR COMMENT THIS)
-		//if (Input.GetKey(KeyCode.K)) { GameStats.CoreHealth = 0; }
+		if (Input.GetKey(KeyCode.K)) { GameStats.CoreHealth = 0; }
+		if (Input.GetKey(KeyCode.M)) { GameStats.Gems = 1000; }
 
 		if (isTutorial) { return; }
 		//Defeated
