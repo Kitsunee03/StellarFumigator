@@ -13,17 +13,29 @@ public class SoundManager : MonoBehaviour
     }
 
     [SerializeField] private AudioMixer m_audioMixer;
+    [SerializeField] private AudioSource m_SFXAudioSource;
+    [SerializeField] private AudioSource m_BGMAudioSource;
+
     [Header("Master[0] Ambient[1] Effects[2]")]
     [SerializeField] private Slider[] m_volumeSliders = new Slider[3];
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip quackSFX;
+
+    private void Awake()
+    {
+        m_instance = this;
+    }
     private void Start()
     {
-        SetSliderInitialvalues();
+        if (m_volumeSliders[0] != null && m_volumeSliders[1] != null && m_volumeSliders[2] != null) { SetSliderInitialvalues(); }
     }
 
     private void SetSliderInitialvalues()
     {
+        m_SFXAudioSource.enabled = false;
         float value;
+
         m_audioMixer.GetFloat("MasterVolume", out value);
         m_volumeSliders[0].value = value;
 
@@ -32,6 +44,8 @@ public class SoundManager : MonoBehaviour
 
         m_audioMixer.GetFloat("SFXVolume", out value);
         m_volumeSliders[2].value = value;
+
+        m_SFXAudioSource.enabled = true;
     }
 
     #region Volume Setters
@@ -46,6 +60,8 @@ public class SoundManager : MonoBehaviour
     public void SetEffectsVolume(float value)
     {
         m_audioMixer.SetFloat("SFXVolume", value);
+        if (m_SFXAudioSource.enabled && !m_SFXAudioSource.isPlaying) { m_SFXAudioSource.PlayOneShot(quackSFX); }
     }
     #endregion
+    public float BGM_Volume { get { return m_BGMAudioSource.volume; } set { m_BGMAudioSource.volume = value; } }
 }

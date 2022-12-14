@@ -5,6 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - m_audioMixer: {fileID: 24100000, guid: 404338f11d03e8b42a2c0cdac6f406b6, type: 2}
+  - quackSFX: {fileID: 8300000, guid: ccda7e93a0d00a043ba3210143299085, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

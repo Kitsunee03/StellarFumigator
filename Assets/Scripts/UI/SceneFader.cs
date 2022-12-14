@@ -6,10 +6,14 @@ using System.Collections;
 public class SceneFader : MonoBehaviour
 {
 	[SerializeField] private Image blackScreen;
-    [SerializeField] private AnimationCurve curve;
+	[SerializeField] private AnimationCurve curve;
+
+	private SoundManager soundManager;
 
 	private void Start()
 	{
+		soundManager = SoundManager.Instance;
+
 		StartCoroutine(FadeIn());
 	}
 
@@ -27,6 +31,7 @@ public class SceneFader : MonoBehaviour
 			time -= Time.deltaTime;
 			float curvE = curve.Evaluate(time);
 			blackScreen.color = new Color(0f, 0f, 0f, curvE);
+			soundManager.BGM_Volume = 1 - curvE;
 			yield return 0;
 		}
 	}
@@ -40,6 +45,7 @@ public class SceneFader : MonoBehaviour
 			time += Time.deltaTime;
 			float curvE = curve.Evaluate(time);
 			blackScreen.color = new Color(0f, 0f, 0f, curvE);
+			soundManager.BGM_Volume = 1 - curvE;
 			yield return 0;
 		}
 
