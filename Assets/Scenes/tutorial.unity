@@ -5426,6 +5426,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 703016236993222740, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 850262840}
     - target: {fileID: 1674804682957404188, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -5478,8 +5482,49 @@ PrefabInstance:
       propertyPath: sceneFader
       value: 
       objectReference: {fileID: 1437919600}
+    - target: {fileID: 8042181814204264782, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 850262840}
+    - target: {fileID: 8826774366825209487, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 850262840}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+--- !u!114 &837753290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8826774366825209487, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+  m_PrefabInstance: {fileID: 837753289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &837753291 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 703016236993222740, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+  m_PrefabInstance: {fileID: 837753289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &837753292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8042181814204264782, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+  m_PrefabInstance: {fileID: 837753289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &839968031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5542,6 +5587,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 54f7420d40f2b9d4bb872bb5f109f543, type: 3}
   m_PrefabInstance: {fileID: 839968031}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &850262840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9110140391983557743, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
+  m_PrefabInstance: {fileID: 1426344776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fea1043f9b1aa949bd1855d4ceb3a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &859043030
 GameObject:
   m_ObjectHideFlags: 0
@@ -8830,6 +8886,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9110140391983557743, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
+      propertyPath: m_volumeSliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 837753292}
+    - target: {fileID: 9110140391983557743, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
+      propertyPath: m_volumeSliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 837753291}
+    - target: {fileID: 9110140391983557743, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
+      propertyPath: m_volumeSliders.Array.data[2]
+      value: 
+      objectReference: {fileID: 837753290}
     - target: {fileID: 9110140392853331607, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
       propertyPath: m_audioClip
       value: 

@@ -4255,6 +4255,17 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 486c7ea8ca06e37468ecc475f8f4cda7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
+--- !u!114 &341805562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9110140391983557743, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
+  m_PrefabInstance: {fileID: 341805561}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fea1043f9b1aa949bd1855d4ceb3a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &344783073
 GameObject:
   m_ObjectHideFlags: 0
@@ -32025,6 +32036,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1631903246}
     m_Modifications:
+    - target: {fileID: 703016236993222740, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 341805562}
+    - target: {fileID: 703016236993222740, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetAmbientVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 1674804682535769315, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -32085,6 +32104,22 @@ PrefabInstance:
       propertyPath: sceneFader
       value: 
       objectReference: {fileID: 1706700432}
+    - target: {fileID: 8042181814204264782, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 341805562}
+    - target: {fileID: 8042181814204264782, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826774366825209487, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 341805562}
+    - target: {fileID: 8826774366825209487, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetEffectsVolume
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a6ae5532e64fa74dbbcee1e72f135d6, type: 3}
 --- !u!1 &1674804681947087748 stripped

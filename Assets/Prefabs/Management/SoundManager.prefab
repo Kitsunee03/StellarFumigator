@@ -53,7 +53,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  quackSFX: {fileID: 8300000, guid: ccda7e93a0d00a043ba3210143299085, type: 3}
+  gameSFX:
+  - {fileID: 8300000, guid: ccda7e93a0d00a043ba3210143299085, type: 3}
+  - {fileID: 8300000, guid: d006dd3971fa8534ea89994b6414451e, type: 3}
+  - {fileID: 8300000, guid: d751138a83154c74aad5b3f8239c79de, type: 3}
 --- !u!82 &9110140391983557740
 AudioSource:
   m_ObjectHideFlags: 0

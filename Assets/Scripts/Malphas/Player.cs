@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [Header("Components")]
     private CharacterController m_controller;
     private Camera m_camera;
+    private AudioSource m_audioSource;
 
     [Header("Managers")]
     private InputManager m_input;
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         m_controller = GetComponent<CharacterController>();
+        m_audioSource = GetComponent<AudioSource>();
         m_camera = Camera.main;
     }
     private void Start()
@@ -256,6 +258,11 @@ public class Player : MonoBehaviour
             isAttacking = true;
             attackTimer = 0f;
             startAttackCooldown = true;
+
+            //SFX
+            int randNum = Random.Range(0, 2);
+            if (randNum == 0) { m_audioSource.PlayOneShot(SoundManager.Instance.GetSound((int)SOUNDS.PLAYER_ATK_1)); }
+            else { m_audioSource.PlayOneShot(SoundManager.Instance.GetSound((int)SOUNDS.PLAYER_ATK_2)); }
 
             //Projectile Shoot
             Vector3 aimDir = (Utils.GetMouseWorldPosition() - m_attackSpawnPos.position).normalized;

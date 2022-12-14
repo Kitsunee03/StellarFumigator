@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+public enum SOUNDS { QUACK, PLAYER_ATK_1, PLAYER_ATK_2, LAST_NO_USE }
 
 public class SoundManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Slider[] m_volumeSliders = new Slider[3];
 
     [Header("SFX")]
-    [SerializeField] private AudioClip quackSFX;
+    [SerializeField] private List<AudioClip> gameSFX;
 
     private void Awake()
     {
@@ -60,8 +61,9 @@ public class SoundManager : MonoBehaviour
     public void SetEffectsVolume(float value)
     {
         m_audioMixer.SetFloat("SFXVolume", value);
-        if (m_SFXAudioSource.enabled && !m_SFXAudioSource.isPlaying) { m_SFXAudioSource.PlayOneShot(quackSFX); }
+        if (m_SFXAudioSource.enabled && !m_SFXAudioSource.isPlaying) { m_SFXAudioSource.PlayOneShot(gameSFX[(int)SOUNDS.QUACK]); }
     }
     #endregion
     public float BGM_Volume { get { return m_BGMAudioSource.volume; } set { m_BGMAudioSource.volume = value; } }
+    public AudioClip GetSound(int index) { return gameSFX[index]; }
 }

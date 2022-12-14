@@ -5951,6 +5951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9110140391983557730, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9110140391983557741, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -5994,6 +5998,10 @@ PrefabInstance:
     - target: {fileID: 9110140391983557741, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110140391983557743, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9110140391983557743, guid: fb5fd65445a359642a56e2c9f0acf342, type: 3}
       propertyPath: m_volumeSliders.Array.data[0]
