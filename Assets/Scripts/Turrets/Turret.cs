@@ -5,7 +5,9 @@ using UnityEngine.AI;
 public class Turret : MonoBehaviour
 {
 	private Transform target;
-	private Enemy targetEnemy;
+	private AudioSource m_audioSource;
+    private bool audioIsPaused;
+    private Enemy targetEnemy;
 	private TutorialEnemy tutorialTargetEnemy;
 
 	[Header("General")]
@@ -55,8 +57,10 @@ public class Turret : MonoBehaviour
 		for (int i = 0; i < meshColliders.Count; i++) { meshColliders[i].enabled = true; }
 		meshObstacle.enabled = true;
 
-		//Update Target every 0.5 seconds
-		InvokeRepeating("UpdateTarget", 0f, 0.5f);
+		m_audioSource = GetComponent<AudioSource>();
+
+        //Update Target every 0.5 seconds
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
 	private void UpdateTarget()
@@ -88,15 +92,20 @@ public class Turret : MonoBehaviour
 
 	void Update()
 	{
+		if (Time.timeScale == 0f) { m_audioSource.Pause(); audioIsPaused = true; return; }
+		else if (audioIsPaused) { m_audioSource.UnPause(); audioIsPaused = false; }
+
 		if (target == null)
 		{
-			//Disable Laser VFX
+			//Disable Laser VFX and SFX
 			if (useLaser && lineRenderer.enabled)
 			{
 				lineRenderer.enabled = false;
 				impactEffect.Stop();
 				impactLight.enabled = false;
-			}
+				//SFX
+                if (m_audioSource.isPlaying) { m_audioSource.Stop(); }
+            }
 
 			return;
 		}
@@ -141,8 +150,10 @@ public class Turret : MonoBehaviour
             tutorialTargetEnemy.Slow(slowAmount);
         }
 
-		//Laser VFX
-		if (!lineRenderer.enabled)
+        //Laser VFX and SFX
+		if (!m_audioSource.isPlaying) { m_audioSource.Play(); }
+
+        if (!lineRenderer.enabled)
 		{
 			lineRenderer.enabled = true;
 			impactEffect.Play();
@@ -161,8 +172,11 @@ public class Turret : MonoBehaviour
 		GameObject bulletPrfb = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 		Bullet bullet = bulletPrfb.GetComponent<Bullet>();
 
-		//Set Target
-		if (bullet != null) { bullet.SetTarget(target); }
+		//SFX
+		m_audioSource.Play();
+
+        //Set Target
+        if (bullet != null) { bullet.SetTarget(target); }
 	}
 
 	void OnDrawGizmosSelected()
