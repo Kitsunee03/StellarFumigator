@@ -60,6 +60,9 @@ MonoBehaviour:
   - enemy: {fileID: 3641389831851250499, guid: 3b6f4fdcfa7ea4046b915aa81e1b96d4, type: 3}
     enemyCount: 30
     spawnRate: 4
+  - enemy: {fileID: 5139175632100383574, guid: acc4196213a231f489840710020629ec, type: 3}
+    enemyCount: 5
+    spawnRate: 10
   timeBetweenWaves: 60
-  countdown: 30
+  countdown: 40
   exitBlock: {fileID: 0}

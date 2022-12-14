@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private bool isTutorial;
 
 	[Header("UI and Menus")]
+	private WaveSpawner waveSpawner;
 	private GameObject gameOverMenu;
 	private GameObject pauseMenu;
 	private GameObject playerUI;
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
 			playerUI = FindObjectOfType<UIManager>().gameObject;
             gameOverMenu = FindObjectOfType<GameOverMenu>().gameObject;
 			gameOverMenu.SetActive(false);
-
+			waveSpawner = FindObjectOfType<WaveSpawner>();
         }
        
 		gameIsOver = false;
@@ -55,12 +56,21 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 
-		//TESTING (DELETE OR COMMENT THIS)
-		if (Input.GetKeyDown(KeyCode.K)) { GameStats.CoreHealth = 0; }
+        //DEV TOOLS
+        if (isTutorial) { return; }
+
+		//Skip wave time
+		if (Input.GetKeyDown(KeyCode.T) && waveSpawner.WavesLeft > 0 && waveSpawner.EnemiesAlive == 0)
+		{
+			GameStats.Gems += (int)waveSpawner.NextWaveTime / 2;
+
+			waveSpawner.NextWaveTime = 0f;
+		}
+
+        if (Input.GetKeyDown(KeyCode.K)) { GameStats.CoreHealth = 0; }
 		if (Input.GetKeyDown(KeyCode.M)) { GameStats.Gems = 1000; }
 		if (Input.GetKeyDown(KeyCode.L)) { RichardMode = !RichardMode; }
 
-		if (isTutorial) { return; }
 		//Defeated
 		if (GameStats.CoreHealth <= 0) { LoseLevel(); }
 	}

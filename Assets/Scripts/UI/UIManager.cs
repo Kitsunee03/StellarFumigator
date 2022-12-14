@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Gems")]
     [SerializeField] private Text gemsText;
+    [SerializeField] private GameObject skipWaveAdviceText;
+    [SerializeField] private Text skipWaveBonusText;
 
     private Player m_player;
 
@@ -70,6 +72,19 @@ public class UIManager : MonoBehaviour
 
         //Set Gems text
         gemsText.text = GameStats.Gems.ToString();
+
+        //Skip Wave Bonus
+        if (m_waveSpawner.EnemiesAlive > 0) 
+        {
+            skipWaveBonusText.gameObject.SetActive(false); 
+            skipWaveAdviceText.SetActive(false); 
+        }
+        else
+        {
+            skipWaveBonusText.gameObject.SetActive(true);
+            skipWaveAdviceText.SetActive(true);
+            skipWaveBonusText.text = "Skip bonus: " + (int)m_waveSpawner.NextWaveTime / 2;
+        }
 
         //Set Core Health
         coreHealthText.text = GameStats.CoreHealth.ToString() + "/" + GameStats.CoreMaxHealth.ToString() + " HP";

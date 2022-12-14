@@ -37,7 +37,6 @@ public class WaveSpawner : MonoBehaviour
 		{
 			StartCoroutine(SpawnWave());
 			countdown = timeBetweenWaves;
-			return;
 		}
 	}
 
@@ -63,7 +62,7 @@ public class WaveSpawner : MonoBehaviour
 	}
 
 	#region Accessors
-	public float NextWaveTime { get { return countdown; } private set { countdown = value; } }
+	public float NextWaveTime { get { return countdown; } set { countdown = value; } }
 	public int WavesLeft { get { return waves.Count - waveIndex; } }
 	public int EnemiesAlive { get { return enemiesAlive; } set { enemiesAlive = value; } }
 	#endregion

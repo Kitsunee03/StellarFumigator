@@ -216,7 +216,7 @@ MonoBehaviour:
   partToRotate: {fileID: 454316}
   turnSpeed: 10
   firePoint: {fileID: 482280}
-  buildingPrice: 25
+  buildingPrice: 30
   meshColliders:
   - {fileID: 7036486986911439819}
   - {fileID: 8466058258255523494}

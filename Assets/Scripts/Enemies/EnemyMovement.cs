@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     private Animator m_animator;
     private WaveSpawner waveSpawner;
 
+    [SerializeField] private int damageToCore = 1;
+    [SerializeField] private float m_pointReachedDistance = 0.8f;
     [SerializeField] private float m_newDestinationMinStep;
     private float newPointRange;
     private float autoPathTime;
@@ -60,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
             m_agent.speed = enemyScript.Speed;
 
             //Point Reached
-            if (Vector3.Distance(transform.position, m_targetDestination) <= 0.8f)
+            if (Vector3.Distance(transform.position, m_targetDestination) <= m_pointReachedDistance)
             {
                 m_targetDestination = GetRandomNavMeshPoint(transform.position, newPointRange);
                 m_agent.SetDestination(m_targetDestination);
@@ -126,7 +128,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void EndPath()
     {
-        GameStats.CoreHealth--;
+        GameStats.CoreHealth -= damageToCore;
         waveSpawner.EnemiesAlive--;
         Destroy(gameObject);
     }
